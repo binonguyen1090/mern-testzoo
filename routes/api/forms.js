@@ -42,7 +42,7 @@ router.post('/', passport.authenticate('jwt', { session: false }),
       }
 
       const newForm = new Form({
-        creator: req.user.id,
+        user: req.user.id,
         title: req.body.title,
         category: req.body.category
       })
