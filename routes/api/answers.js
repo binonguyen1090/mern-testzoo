@@ -1,0 +1,82 @@
+const express = require("express");
+const router = express.Router({mergeParams: true});
+
+const mongoose = require("mongoose");
+const passport = require("passport");
+
+const Answer = require("../../models/Answer");
+const validateAnswerInput = require("../../validation/answers");
+
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Answer.find()
+      .sort({ date: -1 })
+      .then(answers => res.json(answers))
+      .catch(err => res.status(404).json({ noanswerfound: "No answer found" }));
+  }
+);
+
+router.get(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Question.findById(req.params.id)
+      .then(Question => res.json(Question))
+      .catch(err =>
+        res.status(404).json({ noQuestionfound: "No question found with that ID" })
+      );
+  }
+);
+
+router.post(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateAnswerInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const newAnswer = new Answer({
+      // form: req.form.id,
+      question: req.params.question_id,
+      body: req.body.body,
+      correct: req.body.correct
+    });
+
+    newAnswer.save().then(Answer => res.json(Answer));
+  }
+);
+
+router.patch(
+    "/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+      const { errors, isValid } = validateAnswerInput(req.body);
+  
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+
+      const updateAnswer = Answer.findById(req.params.id, (err, answer) => {
+        answer.body = req.body.body;
+        answer.correct = req.body.correct;      
+        answer.save().then(answer => res.json(answer));
+      })
+    }
+);
+
+router.delete('/:id', passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+    Answer.findByIdAndRemove(req.params.id)
+        .then(()=> res.json("answer removed successfully"))
+        .catch(err =>
+            res.status(404).json({ noanswerfound: 'No answer found with that ID' })
+        );
+});
+
+
+module.exports = router;
