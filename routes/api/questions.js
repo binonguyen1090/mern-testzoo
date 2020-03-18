@@ -18,21 +18,6 @@ router.get(
   }
 );
 
-// router.get(
-// //   "/form/:form_id",
-//   "/",
-//   passport.authenticate("jwt", { session: false }),
-//   (req, res) => {
-//     Question.find({ form: req.params.id })
-//     //   .select('questions')
-//       .then(questions => res.json(questions))
-//       .catch(err =>
-//         res.status(404).json({ noquestionsfound: "No questions in this form yet" })
-//       );
-//   }
-// );
-
-
 router.get(
   "/:id",
   passport.authenticate("jwt", { session: false }),
@@ -66,23 +51,32 @@ router.post(
   }
 );
 
-// router.patch(
-//     "/form/:form_id/:id",
-//     passport.authenticate("jwt", { session: false }),
-//     (req, res) => {
-//       const { errors, isValid } = validateQuestionInput(req.body);
+router.patch(
+    "/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+      const { errors, isValid } = validateQuestionInput(req.body);
   
-//       if (!isValid) {
-//         return res.status(400).json(errors);
-//       }
-  
-//       const updateQuestion = Question.findById(req.params.id, (err, question) => {
-//         question.text = req.body.text;
-//         question.difficulty = req.body.difficulty;
-//       })
-      
-//       updateQuestion.save().then(Question => res.json(Question));
-//     }
-// );
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+
+      const updateQuestion = Question.findById(req.params.id, (err, question) => {
+        question.text = req.body.text;
+        question.difficulty = req.body.difficulty;      
+        question.save().then(Question => res.json(Question));
+      })
+    }
+);
+
+router.delete('/:id', passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+    Question.findByIdAndRemove(req.params.id)
+        .then(()=> res.json("question removed successfully"))
+        .catch(err =>
+            res.status(404).json({ noquestionfound: 'No question found with that ID' })
+        );
+});
+
 
 module.exports = router;
