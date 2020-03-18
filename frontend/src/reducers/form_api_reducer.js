@@ -21,12 +21,12 @@ import { RECEIVE_ALL_FORMS,
             return newState;
 
         case REECEIVE_FORM:
-            newState[form.id] = action.form
+            newState[action.form.id] = action.form
             return newState;
 
         case REMOVE_FORM:
-            delete nextState[action.formId]
-            return nextState
+            delete newState[action.formId]
+            return newState
 
         default:
             return state;

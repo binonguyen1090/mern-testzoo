@@ -6,7 +6,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <h1></h1>
+        <h1>Splash page</h1>
         <footer>Copyright &copy; 2019 TestZoo</footer>
       </div>
     );

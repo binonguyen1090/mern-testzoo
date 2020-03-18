@@ -8,6 +8,7 @@ const path = require("path");
 
 const users = require("./routes/api/users");
 const forms = require("./routes/api/forms");
+// const create_forms = require("./routes/api/create_forms");
 const questions = require("./routes/api/questions")
 const User = require("./models/User");
 
@@ -38,6 +39,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 app.use("/api/users", users);
 app.use("/api/forms", forms);
+// app.use("/api/create_forms", forms);
+
 // app.use("/api/questions", questions);
 
 const port = process.env.PORT || 5000;
