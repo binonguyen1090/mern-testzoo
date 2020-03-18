@@ -6,6 +6,9 @@ const passport = require('passport');
 const Form = require('../../models/Form');
 const validateFormInput = require('../../validation/forms');
 
+const questions = require('./questions');
+router.use('/:id/questions', questions)
+
 router.get('/', passport.authenticate('jwt', { session: false }),
     (req, res) => {
     Form.find()
