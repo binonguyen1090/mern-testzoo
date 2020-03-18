@@ -16,4 +16,4 @@ const GameSchema = new Schema({
   } 
 });
 
-module.exports = Form = mongoose.model("Form", FormSchema);
+module.exports = Game = mongoose.model("Game", GameSchema);

@@ -9,6 +9,9 @@ const validateFormInput = require('../../validation/forms');
 const questions = require('./questions');
 router.use('/:id/questions', questions)
 
+const game = require('./games');
+router.use('/:id/games', game)
+
 router.get('/', passport.authenticate('jwt', { session: false }),
     (req, res) => {
     Form.find()
