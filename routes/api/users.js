@@ -57,6 +57,19 @@ router.post('/signup', (req, res) => {
   })
 })
 
+router.put("/:id/follow", passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const followUser = User.findByIdAndUpdate(req.params.user_id, (err, user) => {
+      if (user.following.includes(req.body.follow_id)) {
+        return res.status(400).json({follower: 'already following user'});
+      }
+      user.following = user.following.push(req.body.follow_id)
+      user.save().then(User => res.json(User));
+    })
+  }
+)
+
+
 router.post('/login', (req, res) => {
 
   const { errors, isValid } = validateLoginInput(req.body);
