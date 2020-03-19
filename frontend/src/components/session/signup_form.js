@@ -2,6 +2,8 @@
 
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { GiElephant } from 'react-icons/gi'; 
+import { Link } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -57,40 +59,51 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              placeholder="Username"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password2}
-              onChange={this.update("password2")}
-              placeholder="Confirm Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+        <div className="signin-header">
+          <Link to="/">
+            <div className="logo-div">
+              <GiElephant size={40} />
+              <div>TestZoo</div>
+            </div>
+          </Link>
+        </div>
+        <div>Ready to enter the zoo?</div>
+        {/* <div>Create your account</div> */}
+        <form className="signup-form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.update("email")}
+            placeholder="Email"
+          />
+          <br />
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.update("username")}
+            placeholder="Username"
+          />
+          <br />
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            placeholder="Password"
+          />
+          <br />
+          <input
+            type="password"
+            value={this.state.password2}
+            onChange={this.update("password2")}
+            placeholder="Confirm Password"
+          />
+          <br />
+          <input type="submit" value="Submit" />
+          <div id="already-user">
+            Already an user?
+            <Link to="/login">Log In</Link>
           </div>
+          {this.renderErrors()}
         </form>
       </div>
     );

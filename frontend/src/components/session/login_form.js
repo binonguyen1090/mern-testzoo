@@ -2,7 +2,8 @@
 
 import React from "react";
 import { withRouter } from "react-router-dom";
-
+import { GiElephant } from "react-icons/gi";
+import { Link } from "react-router-dom";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -60,26 +61,37 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+      <div className="signup-form-container">
+        <div className="signin-header">
+          <Link to="/">
+            <div className="logo-div">
+              <GiElephant size={40} />
+              <div>TestZoo</div>
+            </div>
+          </Link>
+        </div>
+        <div>Did you miss the zoo?</div>
+        <form className="signup-form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.update("email")}
+            placeholder="Email"
+          />
+          <br />
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            placeholder="Password"
+          />
+          <br />
+          <input type="submit" value="Submit" />
+          <div id="already-user">
+            Not a user yet?
+            <Link to="/signup">Sign Up</Link>
           </div>
+          {this.renderErrors()}
         </form>
       </div>
     );

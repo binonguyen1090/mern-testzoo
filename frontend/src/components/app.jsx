@@ -16,7 +16,7 @@ import UserFormContainer from "./forms/user_form_container";
 const App = () => (
   <div>
     <header>
-    <NavBarContainer />
+    {/* <NavBarContainer /> */}
     </header>
     <Switch>
       <ProtectedRoute exact path="/user/:user_id" component={UserFormContainer} />
