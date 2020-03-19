@@ -17,7 +17,7 @@ export const createForm = data => {
 }
 
 export const editForm = (data) => {
-    return axios.post(`/api/forms/${data.id}`, data)
+    return axios.patch(`/api/forms/${data.id}`, data)
 }
 
 export const deleteForm = form_id => {
