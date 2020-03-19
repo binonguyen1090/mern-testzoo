@@ -15,28 +15,21 @@ export default class UserForm extends React.Component {
    
     render() {
 
-        if (!this.props.forms) {
-            return []
-        }
-
-        const { forms } = this.props
-
+        
+        const form = this.props.forms.map(form => (
+            <li key={form.id}>
+                <Link to={`/forms/${form._id}`} >
+                    {form.title}
+                </Link>
+            </li>
+        ))
+        // const { forms, destroyForm} = this.props
         return (
             <div>
                 <h1>My Forms</h1>
                 <div >
                     <ul>
-
-                        {
-                            forms.map((form, idx) => (
-
-                                <li key={idx} >
-                                    <h3>{form.title}</h3>
-                                    <h5>{form.category}</h5>
-
-                                </li>
-                            ))
-                        }
+                        {form}
                     </ul>
                 </div>
             </div>

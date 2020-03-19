@@ -4,7 +4,7 @@ import { composeForm } from "../../actions/form_actions";
 import CreateQuestionForm from "./create_question_form";
 
 const mapStateToProps = state => {
-    debugger
+    
     return {
         currentUser: state.session.user,
     };
