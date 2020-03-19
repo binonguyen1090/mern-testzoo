@@ -12,7 +12,6 @@ import { RECEIVE_ALL_FORMS,
             newState.all = action.forms.data
             return newState
         case RECEIVE_USER_FORMS:
-            // return Object.assign({},action.forms.data)
             newState.all = action.forms.data;
             return newState;
         case REECEIVE_NEW_FORM:
