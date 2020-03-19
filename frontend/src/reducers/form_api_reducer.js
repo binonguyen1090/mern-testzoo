@@ -18,7 +18,7 @@ import { RECEIVE_ALL_FORMS,
             newState.new = action.form.data
             return newState;
         case REECEIVE_FORM:
-            newState[action.form.id] = action.form.data
+            newState.form = action.form.data
             return newState;
         case REMOVE_FORM:
             delete newState[action.formId]
