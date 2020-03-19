@@ -40,8 +40,11 @@ export const receiveErrors = (errors) => ({
 })
 
 
-export const fetchAllForms = () => dispatch => getForms()
-    .then(forms => dispatch(receiveAllForms(forms)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+export const fetchAllForms = () => dispatch => (
+    getForms()
+    .then(forms => dispatch(receiveAllForms(forms)),
+     (errors) => dispatch(receiveErrors(errors.responseJSON)))
+)
 
 export const fetchForm = (formId) => dispatch => getForm(formId)
     .then(form => dispatch(receiveForm(form)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
