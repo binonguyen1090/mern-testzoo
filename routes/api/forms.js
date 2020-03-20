@@ -4,14 +4,15 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Form = require('../../models/Form');
+const Question = require('../../models/Question');
 const validateFormInput = require('../../validation/forms');
+const validateQuestionInput = require("../../validation/questions");
 
 const questions = require('./questions');
 router.use('/:id/questions', questions)
 
 const game = require('./games');
 router.use('/:id/games', game)
-
 
 
 

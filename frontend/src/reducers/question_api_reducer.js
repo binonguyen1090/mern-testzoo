@@ -18,7 +18,9 @@ import {
             return newState;
 
         case REECEIVE_NEW_QUESTION:
-            newState.new = action.question.data
+            debugger
+            newState.all.push(action.question.data)
+
             return newState;
 
         case REMOVE_QUESTION:
