@@ -1,6 +1,6 @@
 
 import { connect } from "react-redux";
-import { composeForm } from "../../actions/form_actions";
+import { composeQuestion } from "../../actions/question_actions";
 import CreateQuestionForm from "./create_question_form";
 
 const mapStateToProps = state => {
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        composeQuestionForm: question => dispatch(composeQuestionForm(question)),
+        composeQuestion: question => dispatch(composeQuestion(question)),
     };
 };
 

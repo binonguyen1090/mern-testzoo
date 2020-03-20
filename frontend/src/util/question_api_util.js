@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export const getFormQuestions = form_id => {
-    return axios.get(`/api/forms/${form_id}/questions`)
+    return axios.get(`/api/forms/${form_id}/questions`);
 };
-
-// export const getQuestion = question_id => {
-//     return axios.get(`/api/question/${question_id}`)
+// export const getFormQuestions = form_id => {
+//     return axios.get(`/api/forms/${form_id}/questions`)
 // };
+
 
 export const createQuestion = (form_id, data) => {
     return axios.post(`/api/forms/${form_id}/questions`, data)

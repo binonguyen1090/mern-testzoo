@@ -24,7 +24,7 @@ export default class HomePage extends React.Component {
                   <Link to={`/forms`}>Create Form</Link>
               </div>
               <div>
-                  <Link to={`/user/${currentUserID}`}>My Forms</Link>
+                  <Link to={`/users/${currentUserID}`}>My Forms</Link>
               </div>
               <FormIndexContainer />
             </div>

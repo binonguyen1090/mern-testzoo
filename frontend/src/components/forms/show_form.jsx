@@ -14,8 +14,10 @@ export default class ShowForm extends React.Component {
 
     componentDidMount() {
         this.props.fetchForm(this.props.form_id);
+
         this.props.fetchQuestions(this.props.form_id)
     }
+
 
     handleClick(e){
         e.preventDefault()
@@ -27,6 +29,7 @@ export default class ShowForm extends React.Component {
     }
 
     render() {
+
          const ques = this.props.questions.map(question => {
              if (question.form === this.props.form_id) {
                 return (<li>
@@ -36,15 +39,29 @@ export default class ShowForm extends React.Component {
                 </li>
                 )}
             }) 
+
         return (
+          <div>
+            <h1>Show Forms</h1>
+            <h1>{this.props.form.title}</h1>
+            <h1>{this.props.form.category}</h1>
             <div>
+
+              <Link to={`/questions`}>Create Questions</Link>
+              {/* <Link to={`/answers`}>Create Answer</Link> */}
+              <button>
+                <Link to={`/users/${this.props.currentUserID}`}>Back</Link>
+              </button>
+
                 <h1>Show Forms</h1>
                 <h1>{this.props.form.title}</h1> 
                 <h1>{this.props.form.category}</h1>
                 <ul>
                     {ques}
                 </ul>
+
             </div>
-        )
+          </div>
+        );
     }
 }

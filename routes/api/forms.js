@@ -12,6 +12,21 @@ router.use('/:id/questions', questions)
 const game = require('./games');
 router.use('/:id/games', game)
 
+
+
+
+router.get(
+  "/:form_id/questions",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Form.find({ form: req.params.form_id })
+      .then(question => res.json(question))
+      .catch(err =>
+        res.status(404).json({ noformsfound: "No forms found from that user" })
+      );
+  }
+);
+
 router.get('/', passport.authenticate('jwt', { session: false }),
     (req, res) => {
     Form.find()
@@ -20,7 +35,7 @@ router.get('/', passport.authenticate('jwt', { session: false }),
         .catch(err => res.status(404).json({ noformsfound: 'No forms found' }));
 });
 
-router.get('/user/:user_id', passport.authenticate('jwt', { session: false }),
+router.get('/users/:user_id', passport.authenticate('jwt', { session: false }),
     (req, res) => {
     Form.find({user: req.params.user_id})
         .then(forms => res.json(forms))
