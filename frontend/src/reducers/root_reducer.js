@@ -10,7 +10,7 @@ const RootReducer = combineReducers({
   session,
   forms,
   questions,
-  answers
+  answers,
 });
 
 export default RootReducer;

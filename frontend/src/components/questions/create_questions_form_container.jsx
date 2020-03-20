@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, null)(CreateQuestionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateQuestionForm);
