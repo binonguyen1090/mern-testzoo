@@ -1,6 +1,7 @@
 // src/components/tweets/tweet_compose.js
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export default class CreateQuestionForm extends React.Component {
@@ -8,9 +9,11 @@ export default class CreateQuestionForm extends React.Component {
         super(props);
 
         this.state = {
-            text: "",
-            difficulty: "",
-            points: 0
+        
+          form: props.form._id,
+          text: "",
+          difficulty: "",
+          points: 0
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +25,13 @@ export default class CreateQuestionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.composeQestionForm(this.state)
+        
+        const { form } = this.props
+        this.setState({ form_id_attached: form._id });
+        debugger
+        this.props
+          .composeQuestion(form._id, this.state)
+          .then(this.props.history.push(`/forms/${form._id}`));
 
     }
 
@@ -36,37 +45,41 @@ export default class CreateQuestionForm extends React.Component {
     render() {
         // if (!text) return ""
         return (
-            <div>
-                <h1>Create questions</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input
-                            type="textarea"
-                            value={this.state.text}
-                            onChange={this.update('text')}
-                            placeholder="text"
-                        />
-                        <br />
-                        <input
-                            type="textarea"
-                            value={this.state.difficulty}
-                            onChange={this.update('difficulty')}
-                            placeholder="difficulty"
-                        />
-                        <br />
-                        <br />
-                        <input
-                            type="textarea"
-                            value={this.state.point}
-                            onChange={this.update('point')}
-                            placeholder="point"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                    </div>
-                </form>
+          <div>
+            <h1>Create questions</h1>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input
+                  type="textarea"
+                  value={this.state.text}
+                  onChange={this.update("text")}
+                  placeholder="text"
+                />
                 <br />
-            </div>
+                <input
+                  type="textarea"
+                  value={this.state.difficulty}
+                  onChange={this.update("difficulty")}
+                  placeholder="difficulty"
+                />
+                <br />
+                <br />
+                <input
+                  type="textarea"
+                  value={this.state.points}
+                  onChange={this.update("points")}
+                  placeholder="points"
+                />
+                <br />
+                
+                <input type="submit" value="Submit" />
+                <button>
+                  <Link to={`this.props.form._id`}>Back</Link>
+                </button>
+              </div>
+            </form>
+            <br />
+          </div>
         );
     }
 }

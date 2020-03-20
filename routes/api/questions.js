@@ -47,10 +47,11 @@ router.post(
     }
 
     const newQuestion = new Question({
-      // form: req.form.id,
-      form: req.params.form_id,
+      form: req.body.form,
+      // form: req.params.form_id,
       text: req.body.text,
-      difficulty: req.body.difficulty
+      difficulty: req.body.difficulty,
+      score: req.body.score
     });
 
     newQuestion.save().then(Question => res.json(Question));

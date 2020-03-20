@@ -22,7 +22,9 @@ export default class CreateForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.composeForm(this.state)
+        this.props
+          .composeForm(this.state)
+          .then(this.props.history.push("/home"));
 
     }
 
