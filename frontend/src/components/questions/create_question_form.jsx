@@ -10,7 +10,7 @@ export default class CreateQuestionForm extends React.Component {
         this.state = {
             text: "",
             difficulty: "",
-            points = 0
+            points: 0
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);

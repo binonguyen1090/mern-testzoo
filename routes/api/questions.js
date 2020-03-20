@@ -10,6 +10,9 @@ const validateQuestionInput = require("../../validation/questions");
 const answers = require('./answers');
 router.use('/:id/answers', answers)
 
+
+
+
 router.get(
   "/",
   passport.authenticate("jwt", { session: false }),

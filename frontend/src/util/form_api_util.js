@@ -5,7 +5,7 @@ export const getForms = () => {
 };
 
 export const getUserForms = id => {
-    return axios.get(`/api/forms/user/${id}`)
+    return axios.get(`/api/forms/users/${id}`)
 };
 
 export const getForm = form_id => {

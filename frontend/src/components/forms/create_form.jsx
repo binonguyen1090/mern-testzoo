@@ -1,6 +1,7 @@
 // src/components/tweets/tweet_compose.js
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export default class CreateForm extends React.Component {
@@ -35,29 +36,34 @@ export default class CreateForm extends React.Component {
     render() {
         // if (!text) return ""
         return (
-            <div>
-                <h1>Create form</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input
-                            type="textarea"
-                            value={this.state.title}
-                            onChange={this.update('title')}
-                            placeholder="Title"
-                        />
-                        <br/>
-                        <input
-                            type="textarea"
-                            value={this.state.category}
-                            onChange={this.update('category')}
-                            placeholder="Category"
-                        />
-                        <br/>
-                        <input type="submit" value="Submit" />
-                    </div>
-                </form>
+          <div>
+            <h1>Create form</h1>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input
+                  type="textarea"
+                  value={this.state.title}
+                  onChange={this.update("title")}
+                  placeholder="Title"
+                />
                 <br />
-            </div>
+                <input
+                  type="textarea"
+                  value={this.state.category}
+                  onChange={this.update("category")}
+                  placeholder="Category"
+                />
+                <br />
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+                <button>
+                  <Link to="/">Back</Link>
+                </button>
+              </div>
+            </form>
+            <br />
+          </div>
         );
     }
 }

@@ -11,23 +11,34 @@ import CreateFormContainer from "./forms/create_form_container";
 import HomePageContainer from "./homepage/homepage_container";
 import UserFormContainer from "./forms/user_form_container";
 import FormShowContainer from "./forms/show_form_container";
+import QuestionFormContainer from "./questions/create_questions_form_container";
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
 
 const App = () => (
   <div>
-    <header>
-    {/* <NavBarContainer /> */}
-    </header>
+    <header>{/* <NavBarContainer /> */}</header>
     <Switch>
-      <ProtectedRoute exact path="/user/:user_id" component={UserFormContainer} />
-      <ProtectedRoute exact path="/forms/:form_id" component={FormShowContainer} />
-      <AuthRoute exact path="/" component={MainPage} /> 
+      <ProtectedRoute
+        exact
+        path="/users/:user_id"
+        component={UserFormContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/forms/:form_id"
+        component={FormShowContainer}
+      />
+      <AuthRoute exact path="/" component={MainPage} />
       <ProtectedRoute exact path="/home" component={HomePageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/forms" component={CreateFormContainer} />
-     
+      <ProtectedRoute
+        exact
+        path="/questions"
+        component={QuestionFormContainer}
+      />
     </Switch>
   </div>
 );
