@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (decodedUser.exp < currentTime) {
       // Logout the user and redirect to the login page
       store.dispatch(logout());
-      // window.location.href = "/login";
       window.location.href = "/";
     }
   } else {
