@@ -18,13 +18,16 @@ import {
             return newState;
 
         case REECEIVE_NEW_QUESTION:
+
             newState.all.push(action.question.data)
 
             return newState;
 
         case REMOVE_QUESTION:
+
             const deletething = state.all.filter(quest => quest._id !== action.questionId)
             return deletething
+
 
         default:
             return state;
