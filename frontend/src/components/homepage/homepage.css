@@ -19,15 +19,14 @@
 .form-index {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 20px;
   padding-bottom: 30px;
   background: plum;
   
 }
 
 .form-index h1 {
-
+  margin: 5px;
 }
 
 .form-index-forms {

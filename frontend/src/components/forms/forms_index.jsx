@@ -26,6 +26,7 @@ export default class FormIndex extends React.Component {
 
     const { forms } = this.props;
 
+    const personal = forms
     const allCategories = forms.map(form => form.category);
     const categories = allCategories.filter((cat, i) => {
       return allCategories.indexOf(cat) === i;
