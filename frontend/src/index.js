@@ -17,6 +17,7 @@ import { setAuthToken } from "./util/session_api_util";
 
 // We have not created this action yet, but will do so in the next step
 import { logout } from "./actions/session_actions";
+import axios from 'axios';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -50,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Render our root component and pass in the store as a prop
   const root = document.getElementById("root");
-  // window.store = store;
+  window.axios = axios;
   // window.composeTweet = composeTweet;
+
   ReactDOM.render(<Root store={store} />, root);
 });

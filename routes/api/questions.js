@@ -10,15 +10,24 @@ const validateQuestionInput = require("../../validation/questions");
 const answers = require('./answers');
 router.use('/:id/answers', answers)
 
-
+// router.get(
+//   "/forms/:form_id/",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     Form.find({ form: req.params.form_id })
+//       .then(question => res.json(question))
+//       .catch(err =>
+//         res.status(404).json({ noformsfound: "No forms found from that user" })
+//       );
+//   }
+// );
 
 
 router.get(
-  "/",
+  "/forms/:form_id/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Question.find()
-      .sort({ date: -1 })
+    Question.find({ form: req.params.form_id })
       .then(question => res.json(question))
       .catch(err => res.status(404).json({ noquestionfound: "No question found" }));
   }
