@@ -12,6 +12,7 @@ import HomePageContainer from "./homepage/homepage_container";
 import UserFormContainer from "./forms/user_form_container";
 import FormShowContainer from "./forms/show_form_container";
 import QuestionFormContainer from "./questions/create_questions_form_container";
+import AnswerFormContainer from "./anwsers/create_answer_form_container";
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
 
@@ -39,6 +40,7 @@ const App = () => (
         path="/questions"
         component={QuestionFormContainer}
       />
+      <ProtectedRoute exact path="/answers/:question_id" component={AnswerFormContainer} />
     </Switch>
   </div>
 );

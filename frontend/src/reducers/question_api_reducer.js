@@ -24,7 +24,7 @@ import {
 
         case REMOVE_QUESTION:
             const deleteThing = state.all.findIndex(quest => {
-                return quest._id == action.questionId
+                return quest._id === action.questionId
             })
             newState.all.splice(deleteThing, 1);
             return newState

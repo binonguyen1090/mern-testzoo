@@ -32,12 +32,17 @@ export default class ShowForm extends React.Component {
     render() {
          const ques = this.props.questions.map(question => {
              if (question.form === this.props.form_id) {
-                return (<li>
+                //  debugger
+                return (
+                  <li>
                     {question.text}
                     {question.difficulty}
-                    <button onClick={this.handleClick} value={question._id}>DELETE</button>
-                </li>
-                )}
+                    <button onClick={this.handleClick} value={question._id}>
+                      DELETE
+                    </button>
+                    <Link to={`/answers/${question._id}`}>Create Answers</Link>
+                  </li>
+                );}
             }) 
 
         return (
@@ -48,7 +53,6 @@ export default class ShowForm extends React.Component {
             <ul>{ques}</ul>
             <div>
               <Link to={`/questions`}>Create Questions</Link>
-              {/* <Link to={`/answers`}>Create Answer</Link> */}
               <button>
                 <Link to={`/users/${this.props.currentUserID}`}>Back</Link>
               </button>

@@ -7,6 +7,7 @@ import { fetchQuestions, destroyQuestion} from "../../actions/question_actions";
 
 
 const mSTP = (state, ownProps) => {
+    // debugger
     return {
         form_id: ownProps.match.params.form_id,
         form: state.forms.form || {},
