@@ -1,7 +1,7 @@
-import {getFormGames, createGame} from "../util/game_api_util";
+import {getFormGames, createGame, editGame} from "../util/game_api_util";
 
 export const RECEIVE_FORM_GAMES = "RECEIVE_FORM_GAMES";
-// export const REECEIVE_GAME = "REECEIVE_GAME";
+export const REECEIVE_GAME = "REECEIVE_GAME";
 export const REECEIVE_NEW_GAME = "REECEIVE_NEW_GAME";
 
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -12,10 +12,10 @@ const receiveFormGames = games => ({
     games
 })
 
-// const receiveGame = game => ({
-//     type: REECEIVE_GAME,
-//     game
-// }) 
+const receiveGame = game => ({
+    type: REECEIVE_GAME,
+    game
+}) 
 
 const receiveNewGame = game => ({
     type: REECEIVE_NEW_GAME,
@@ -30,11 +30,12 @@ export const receiveErrors = (errors) => ({
 export const fetchGames = (formId) => dispatch => getFormGames(formId)
     .then(games => dispatch(receiveFormGames(games)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-// export const fetchGame = (formId) => dispatch => getGame(formId)
-//     .then(game => dispatch(receiveGame(game)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+export const fetchGame = (gameId) => dispatch => getGame(gameId)
+    .then(game => dispatch(receiveGame(game)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-export const startGame = (form_id, game) => dispatch => createGame(form_id, game)
+export const startGame = (game) => dispatch => createGame(game)
     .then(game => dispatch(receiveNewGame(game)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-
+export const updateGame = (gameId, game) => editGame(gameId, game)
+    .then(game => dispatch(receiveGame(game)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 

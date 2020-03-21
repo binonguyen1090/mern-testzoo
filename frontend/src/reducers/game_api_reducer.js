@@ -1,6 +1,7 @@
 import {
     RECEIVE_FORM_GAMES,
-    REECEIVE_NEW_GAME
+    REECEIVE_NEW_GAME,
+    REECEIVE_GAME
 } from "../actions/game_actions";
 
 const GamesReducer = (state = {}, action) => {
@@ -11,6 +12,10 @@ const GamesReducer = (state = {}, action) => {
             newState.all = action.games.data
             return newState;
 
+        case REECEIVE_GAME:
+            newState.all = action.game.data
+            return newState;
+
         case REECEIVE_NEW_GAME:
             newState.new = action.game.data
             return newState;
@@ -18,6 +23,6 @@ const GamesReducer = (state = {}, action) => {
         default:
             return state;
     }
-  };
-  
+};
+
 export default GamesReducer;

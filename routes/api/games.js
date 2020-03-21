@@ -5,15 +5,14 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 const Game = require("../../models/Game");
-const validateQuestionInput = require("../../validation/questions");
 
 
 router.get(
-  "/",
+  "/forms/:form_id/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Game.find()
-      .sort({ date: -1 })
+    Game.find({ form: req.params.form_id })
+      .sort({ score: -1 })
       .then(Game => res.json(Game))
       .catch(err => res.status(404).json({ noGamefound: "Never taken this test before" }));
   }
@@ -37,6 +36,7 @@ router.post(
   (req, res) => {
 
     const newGame = new Game({
+      form: req.body.form,
       user: req.user.id
     });
 
@@ -44,15 +44,17 @@ router.post(
   }
 );
 
+router.patch(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
 
-// router.delete('/:id', passport.authenticate('jwt', { session: false }),
-//     (req, res) => {
-//     Game.findByIdAndRemove(req.params.id)
-//         .then(()=> res.json("game removed successfully"))
-//         .catch(err =>
-//             res.status(404).json({ nogamefound: 'No game found with that ID' })
-//         );
-// });
+    const updateGame = Game.findById(req.params.id, (game) => {
+      game.text = req.body.score    
+      game.save().then(game => res.json(game));
+    })
+  }
+);
 
 
 module.exports = router;
