@@ -27,7 +27,6 @@ export default class CreateQuestionForm extends React.Component {
         e.preventDefault();
         
         const { form } = this.props
-        this.setState({ form_id_attached: form._id });
         this.props
           .composeQuestion(this.state)
           .then(this.props.history.push(`/forms/${form._id}`));

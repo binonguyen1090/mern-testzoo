@@ -4,18 +4,17 @@ const Schema = mongoose.Schema;
 const AnswerSchema = new Schema({
   question: {
     type: Schema.Types.ObjectId,
-    ref: "Question"
+    ref: "Question",
+    required: true
   },
   correct: {
-    type: Boolean,
+    type: String,
     required: true,
-    default: false
   },
   body: {
     type: String,
-    required: true,
+    required: true
   }
-  
 });
 
 module.exports = Answers = mongoose.model("Answer", AnswerSchema);

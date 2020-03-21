@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { fetchForm } from '../../actions/form_actions'
 
 const mSTP = (state, ownProps) => {
+    // debugger
     return {
         form_id: ownProps.match.params.form_id,
         form: state.forms.form || {},

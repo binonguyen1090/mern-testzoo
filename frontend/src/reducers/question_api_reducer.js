@@ -23,8 +23,10 @@ import {
             return newState;
 
         case REMOVE_QUESTION:
+
             const deletething = state.all.filter(quest => quest._id !== action.questionId)
             return deletething
+
 
         default:
             return state;

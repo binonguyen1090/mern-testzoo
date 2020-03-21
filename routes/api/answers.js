@@ -8,13 +8,14 @@ const Answer = require("../../models/Answer");
 const validateAnswerInput = require("../../validation/answers");
 
 router.get(
-  "/",
+  "/questions/:question_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Answer.find()
-      .sort({ date: -1 })
-      .then(answers => res.json(answers))
-      .catch(err => res.status(404).json({ noanswerfound: "No answer found" }));
+    Question.find({ question: req.params.question_id })
+      .then(answer => res.json(answer))
+      .catch(err =>
+        res.status(404).json({ noquestionfound: "No answer found" })
+      );
   }
 );
 
@@ -41,8 +42,7 @@ router.post(
     }
 
     const newAnswer = new Answer({
-      // form: req.form.id,
-      question: req.params.question_id,
+      question: req.body.question,
       body: req.body.body,
       correct: req.body.correct
     });

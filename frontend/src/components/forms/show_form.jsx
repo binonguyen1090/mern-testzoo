@@ -23,7 +23,6 @@ export default class ShowForm extends React.Component {
             <QuestionsIndex formId={this.props.form_id}/>
             <div>
               <Link to={`/questions`}>Create Questions</Link>
-              {/* <Link to={`/answers`}>Create Answer</Link> */}
               <button>
                 <Link to={`/users/${this.props.currentUserID}`}>Back</Link>
               </button>

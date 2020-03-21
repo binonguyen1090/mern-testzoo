@@ -7,8 +7,7 @@ const passport = require("passport");
 const Question = require("../../models/Question");
 const validateQuestionInput = require("../../validation/questions");
 
-const answers = require('./answers');
-router.use('/:id/answers', answers)
+
 
 // router.get(
 //   "/forms/:form_id/",
@@ -60,7 +59,7 @@ router.post(
       // form: req.params.form_id,
       text: req.body.text,
       difficulty: req.body.difficulty,
-      score: req.body.score
+      points: req.body.points
     });
 
     newQuestion.save().then(Question => res.json(Question));
