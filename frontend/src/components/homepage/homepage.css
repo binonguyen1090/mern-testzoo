@@ -1,0 +1,31 @@
+.homepage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-to-createform {
+  
+}
+
+.link-to-myforms {
+
+}
+
+#homepage-link {
+  outline: none;
+}
+
+.form-index {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-index h1 {
+
+}
+
+.form-index-forms {
+  display: flex;
+  justify-content: stretch;
+}
