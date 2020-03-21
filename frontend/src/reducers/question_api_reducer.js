@@ -18,6 +18,7 @@ import {
             return newState;
 
         case REECEIVE_NEW_QUESTION:
+
             newState.all.push(action.question.data)
 
             return newState;
