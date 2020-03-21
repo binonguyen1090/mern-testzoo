@@ -31,12 +31,16 @@ export default class ShowForm extends React.Component {
     render() {
          const ques = this.props.questions.map(question => {
              if (question.form === this.props.form_id) {
-                return (<li>
+                return (
+                  <li key={question.form}>
                     {question.text}
+                    <br />
                     {question.difficulty}
-                    <button onClick={this.handleClick} value={question._id}>DELETE</button>
-                </li>
-                )}
+                    <button onClick={this.handleClick} value={question._id}>
+                      DELETE
+                    </button>
+                  </li>
+                );}
             }) 
 
         return (
