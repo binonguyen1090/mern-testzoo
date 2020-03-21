@@ -14,7 +14,6 @@ export default class ShowForm extends React.Component {
 
     componentDidMount() {
         this.props.fetchForm(this.props.form_id);
-
         this.props.fetchQuestions(this.props.form_id)
     }
 
@@ -22,9 +21,11 @@ export default class ShowForm extends React.Component {
     handleClick(e){
         e.preventDefault()
         const quesId = e.currentTarget.value
-        this.props.destroyQuestion(this.props.form._id, quesId)
+        this.props.destroyQuestion(quesId)
         return(
-            this.forceUpdate()
+            this.setState({
+                questions: this.props.questions
+            })
         )
     }
 

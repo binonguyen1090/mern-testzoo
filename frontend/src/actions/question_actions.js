@@ -38,11 +38,11 @@ export const receiveErrors = (errors) => ({
 export const fetchQuestions = (formId) => dispatch => getFormQuestions(formId)
     .then(questions => dispatch(receiveFormQuestions(questions)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-export const composeQuestion = (form_id, question) => dispatch => createQuestion(form_id, question)
+export const composeQuestion = (question) => dispatch => createQuestion(question)
     .then(question => dispatch(receiveNewQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-export const modifyQuestion = (form_id, question_id, question) => dispatch => editQuestion(form_id, question_id, question)
+export const modifyQuestion = (question_id, question) => dispatch => editQuestion(question_id, question)
     .then(question => dispatch(receiveQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-export const destroyQuestion = (form_id, question_id) => dispatch => deleteQuestion(form_id, question_id)
+export const destroyQuestion = (question_id) => dispatch => deleteQuestion(question_id)
     .then(() => dispatch(removeQuestion(question_id)), (errors) => dispatch(receiveErrors(errors.responseJSON)))

@@ -18,13 +18,15 @@ import {
             return newState;
 
         case REECEIVE_NEW_QUESTION:
-            debugger
             newState.all.push(action.question.data)
 
             return newState;
 
         case REMOVE_QUESTION:
-            delete newState[action.questionId]
+            const deleteThing = state.all.findIndex(quest => {
+                return quest._id == action.questionId
+            })
+            newState.all.splice(deleteThing, 1);
             return newState
 
         default:
