@@ -21,8 +21,8 @@ import { RECEIVE_ALL_FORMS,
             newState.form = action.form.data
             return newState;
         case REMOVE_FORM:
-            delete newState[action.formId]
-            return newState
+            const deletething = state.all.filter(form => form._id !== action.formId)
+            return {all: deletething}
         default:
             return state;
     }
