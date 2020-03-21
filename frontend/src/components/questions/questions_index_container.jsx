@@ -1,18 +1,22 @@
 import { connect } from "react-redux";
 // import { fetchQuestions } from "../../actions/question_actions";
-import QuestionsShow from "./questions_show"
+import QuestionsIndex from "./questions_index"
 
-const mapStateToProps = (state, ownProps) => {
+import { fetchQuestions, destroyQuestion} from "../../actions/question_actions";
+
+
+const mapStateToProps = (state) => {
     return {
-        // form: state.forms.form || {},
-        // questions: state.questions.all || []
+        form: state.forms.form || {},
+        questions: state.questions.all || []
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        // fetchQuestions: formId => dispatch(fetchQuestions(formId)),
+        fetchQuestions: formId => dispatch(fetchQuestions(formId)),
+        destroyQuestion: (form_id, question_id) => dispatch(destroyQuestion(form_id, question_id))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionsShow);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionsIndex);

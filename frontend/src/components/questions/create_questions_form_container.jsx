@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { composeQuestion } from "../../actions/question_actions";
 import CreateQuestionForm from "./create_question_form";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     
     return {
       currentUser: state.session.user,
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        composeQuestion: (form_id, question) => dispatch(composeQuestion(form_id,question)),
+        composeQuestion: (question) => dispatch(composeQuestion(question)),
     };
 };
 

@@ -15,19 +15,6 @@ const game = require('./games');
 router.use('/:id/games', game)
 
 
-
-router.get(
-  "/:form_id/questions",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Form.find({ form: req.params.form_id })
-      .then(question => res.json(question))
-      .catch(err =>
-        res.status(404).json({ noformsfound: "No forms found from that user" })
-      );
-  }
-);
-
 router.get('/', passport.authenticate('jwt', { session: false }),
     (req, res) => {
     Form.find()

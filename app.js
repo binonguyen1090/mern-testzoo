@@ -10,6 +10,7 @@ const users = require("./routes/api/users");
 const forms = require("./routes/api/forms");
 // const create_forms = require("./routes/api/create_forms");
 const questions = require("./routes/api/questions")
+const answers = require("./routes/api/answers")
 const User = require("./models/User");
 
 
@@ -40,7 +41,8 @@ app.use("/api/forms", forms);
 // app.use("/api/create_forms", forms);
 
 app.use("/api/questions", questions);
-app.use("/api/answers", questions);
+
+app.use("/api/answers", answers);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => { console.log(`Server is running on port ${port}`) });
