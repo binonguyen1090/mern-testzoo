@@ -2,19 +2,19 @@ import React from "react";
 
 export default class AnswersIndex extends React.Component{
     constructor(props){
-        // debugger
+        
         super(props)
     }
 
     componentDidMount(){
-        // debugger
+        
         if (this.props.questionId !== ""){
           this.props.fetchQuestionAnswers(this.props.questionId);
         }
     }
 
     render(){
-        // debugger
+        
         
         return (
           <div>

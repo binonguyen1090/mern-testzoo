@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './forms_index.css'
-
+import GetUser from '../user/get_user_container'
 export default class FormIndex extends React.Component {
   constructor(props) {
       super(props);
@@ -59,80 +59,86 @@ export default class FormIndex extends React.Component {
 
     
     return (
-      <div className='form-index'>
+      <div className="form-index">
         <h2>Personal</h2>
-        <div className='form-item'>
-          {
-            personal.map((form, idx) => (
-              <div className='form-index-form' key={idx} >
-                <strong>{form.title}</strong>
-                <div>{form.category}</div>
-                <div>{form.user}</div>
+        <div className="form-item">
+          {personal.map((form, idx) => (
+            <div className="form-index-form" key={idx}>
+              <strong>{form.title}</strong>
+              <div>{form.category}</div>
+              <div>
+                <GetUser user_id={form.user} />
               </div>
-            ))
-          }
+
+              {/* <div>{form.user}</div> */}
+            </div>
+          ))}
         </div>
         <h2>Celebrity</h2>
-        <div className='form-item'>
-          {
-            celebrity.map((form, idx) => (
-              <div className='form-index-form' key={idx} >
-                <strong>{form.title}</strong>
-                <div>{form.category}</div>
-                <div>{form.user}</div>
+        <div className="form-item">
+          {celebrity.map((form, idx) => (
+            <div className="form-index-form" key={idx}>
+              <strong>{form.title}</strong>
+              <div>{form.category}</div>
+              <div>
+                <GetUser user_id={form.user} />
               </div>
-            ))
-          }
+              {/* <div>{form.user}</div> */}
+            </div>
+          ))}
         </div>
         <h2>Sports</h2>
-        <div className='form-item'>
-          {
-            sports.map((form, idx) => (
-              <div className='form-index-form' key={idx} >
-                <strong>{form.title}</strong>
-                <div>{form.category}</div>
-                <div>{form.user}</div>
+        <div className="form-item">
+          {sports.map((form, idx) => (
+            <div className="form-index-form" key={idx}>
+              <strong>{form.title}</strong>
+              <div>{form.category}</div>
+              <div>
+                <GetUser user_id={form.user} />
               </div>
-            ))
-          }
+              {/* <div>{form.user}</div> */}
+            </div>
+          ))}
         </div>
         <h2>Politics</h2>
-        <div className='form-item'>
-          {
-            politics.map((form, idx) => (
-              <div className='form-index-form' key={idx} >
-                <strong>{form.title}</strong>
-                <div>{form.category}</div>
-                <div>{form.user}</div>
+        <div className="form-item">
+          {politics.map((form, idx) => (
+            <div className="form-index-form" key={idx}>
+              <strong>{form.title}</strong>
+              <div>{form.category}</div>
+              <div>
+                <GetUser user_id={form.user} />
               </div>
-            ))
-          }
+              {/* <div>{form.user}</div> */}
+            </div>
+          ))}
         </div>
         <h2>Geography</h2>
-        <div className='form-item'>
-          {
-            geography.map((form, idx) => (
-              <div className='form-index-form' key={idx} >
-                <strong>{form.title}</strong>
-                <div>{form.category}</div>
-                <div>{form.user}</div>
+        <div className="form-item">
+          {geography.map((form, idx) => (
+            <div className="form-index-form" key={idx}>
+              <strong>{form.title}</strong>
+              <div>{form.category}</div>
+              <div>
+                <GetUser user_id={form.user} />
               </div>
-            ))
-          }
+              {/* <div>{form.user}</div> */}
+            </div>
+          ))}
         </div>
         <h2>All Forms</h2>
-        <div className='form-item'>
-          {
-            forms.map((form, idx) => (
-              <div className='form-index-form' key={idx} >
-                <strong>{form.title}</strong>
-                <div>{form.category}</div>
-                <div>{form.user}</div>
+        <div className="form-item">
+          {forms.map((form, idx) => (
+            <div className="form-index-form" key={idx}>
+              <strong>{form.title}</strong>
+              <div>{form.category}</div>
+              <div>
+                <GetUser user_id={form.user} />
               </div>
-            ))
-          }
+            </div>
+          ))}
         </div>
       </div>
-    )
+    );
   }
 }

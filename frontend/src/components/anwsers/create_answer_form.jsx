@@ -39,7 +39,6 @@ export default class CreateAnswerForm extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div>
         <h1>Create Answer for this:</h1>
