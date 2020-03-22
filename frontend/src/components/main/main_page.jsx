@@ -7,7 +7,7 @@ class MainPage extends React.Component {
       <div className='splash'>
         <NavBarContainer />
         <div className='splash-top'>
-
+          <img src="splash-background.png" />
         </div>
 
         <h1>Splash page</h1>

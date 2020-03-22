@@ -1,21 +1,71 @@
-.NavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+.out-navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 62px;
+  max-height: 62px;
+  background: black;
+  /* border-bottom: 1px solid #ededed; */
+
 }
 
-.NavBar button {
-    height: 20px;
+.splash-header {
+  display: flex;
+  
 }
 
-.Links1 {
-    width: 100px;
-    display: flex;
-    justify-content: space-between;
+.navbar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Links2 {
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
+#splash-ele {
+  color: pink;
+  margin-right: 15px;
+}
+
+.navbar-logo strong {
+  color: pink;
+  font-family: fantasy;
+  font-size: 35px;
+  margin-top: 5px;
+}
+
+#navbar-content {
+  color: rgb(254, 213, 220);
+  font-weight: 500;
+  word-spacing: 2px;
+}
+
+#navbar-link1 {
+  text-decoration: none;
+  background: pink;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 11px;
+  margin-left: 30px;
+}
+#navbar-link2 {
+  text-decoration: none;
+  background: pink;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 11px;
+}
+
+@media screen and (max-width: 1020px) {
+  .link-to-myforms {
+    width: 350px;
+  }
+  .link-to-createform {
+    width: 350px;
+  }
 }

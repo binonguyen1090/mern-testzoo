@@ -26,12 +26,12 @@ export default class FormIndex extends React.Component {
 
     const { forms } = this.props;
 
-    const personal = forms.filter(form => form.category === 'Personal');
-    const geography = forms.filter(form => form.category === 'Geography');
-    const math = forms.filter(form => form.category === 'Math');
-    const celebrity = forms.filter(form => form.category === 'Celebrity');
-    const sports = forms.filter(form => form.category === 'Sports');
-    const politics = forms.filter(form => form.category === 'Politics');
+    const personal = forms.filter(form => form.category === 'Personal' || form.category === 'personal');
+    const geography = forms.filter(form => form.category === 'Geography' || form.category === 'geography');
+    const math = forms.filter(form => form.category === 'Math' || 'math');
+    const celebrity = forms.filter(form => form.category === 'Celebrity' || form.category === 'celebrity');
+    const sports = forms.filter(form => form.category === 'Sports' || form.category === 'sports');
+    const politics = forms.filter(form => form.category === 'Politics' || form.category === 'politics');
     
     const allCategories = forms.map(form => form.category);
     const categories = allCategories.filter((cat, i) => {
@@ -66,8 +66,8 @@ export default class FormIndex extends React.Component {
             personal.map((form, idx) => (
               <div className='form-index-form' key={idx} >
                 <strong>{form.title}</strong>
-                <div>Category: {form.category}</div>
-                <div>Creator: {form.user}</div>
+                <div>{form.category}</div>
+                <div>{form.user}</div>
               </div>
             ))
           }
@@ -78,8 +78,8 @@ export default class FormIndex extends React.Component {
             celebrity.map((form, idx) => (
               <div className='form-index-form' key={idx} >
                 <strong>{form.title}</strong>
-                <div>Category: {form.category}</div>
-                <div>Creator: {form.user}</div>
+                <div>{form.category}</div>
+                <div>{form.user}</div>
               </div>
             ))
           }
@@ -90,8 +90,8 @@ export default class FormIndex extends React.Component {
             sports.map((form, idx) => (
               <div className='form-index-form' key={idx} >
                 <strong>{form.title}</strong>
-                <div>Category: {form.category}</div>
-                <div>Creator: {form.user}</div>
+                <div>{form.category}</div>
+                <div>{form.user}</div>
               </div>
             ))
           }
@@ -102,8 +102,8 @@ export default class FormIndex extends React.Component {
             politics.map((form, idx) => (
               <div className='form-index-form' key={idx} >
                 <strong>{form.title}</strong>
-                <div>Category: {form.category}</div>
-                <div>Creator: {form.user}</div>
+                <div>{form.category}</div>
+                <div>{form.user}</div>
               </div>
             ))
           }
@@ -114,8 +114,8 @@ export default class FormIndex extends React.Component {
             geography.map((form, idx) => (
               <div className='form-index-form' key={idx} >
                 <strong>{form.title}</strong>
-                <div>Category: {form.category}</div>
-                <div>Creator: {form.user}</div>
+                <div>{form.category}</div>
+                <div>{form.user}</div>
               </div>
             ))
           }
@@ -126,8 +126,8 @@ export default class FormIndex extends React.Component {
             forms.map((form, idx) => (
               <div className='form-index-form' key={idx} >
                 <strong>{form.title}</strong>
-                <div>Category: {form.category}</div>
-                <div>Creator: {form.user}</div>
+                <div>{form.category}</div>
+                <div>{form.user}</div>
               </div>
             ))
           }
