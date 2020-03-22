@@ -14,7 +14,7 @@ import {
             return newState
 
         case REECEIVE_QUESTION:
-            newState[action.question.id] = action.question.data
+            newState.question = action.question.data
             return newState;
 
         case REECEIVE_NEW_QUESTION:

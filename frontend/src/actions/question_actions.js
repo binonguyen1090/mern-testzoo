@@ -1,4 +1,9 @@
-import { getFormQuestions, createQuestion, editQuestion, deleteQuestion} from '../util/question_api_util';
+import {
+  getQuestion, getFormQuestions,
+  createQuestion,
+  editQuestion,
+  deleteQuestion
+} from "../util/question_api_util";
 
 
 export const RECEIVE_FORM_QUESTIONS = "RECEIVE_FORM_QUESTIONS";
@@ -40,6 +45,14 @@ export const fetchQuestions = (formId) => dispatch => getFormQuestions(formId)
 
 export const composeQuestion = (question) => dispatch => createQuestion(question)
     .then(question => dispatch(receiveNewQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+
+export const fetchQuestion = question_id => dispatch =>{
+    // debugger
+         return getQuestion(question_id).then(
+           question => dispatch(receiveQuestion(question)),
+           errors => dispatch(receiveErrors(errors.responseJSON))
+         )};
+
 
 export const modifyQuestion = (question_id, question) => dispatch => editQuestion(question_id, question)
     .then(question => dispatch(receiveQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))

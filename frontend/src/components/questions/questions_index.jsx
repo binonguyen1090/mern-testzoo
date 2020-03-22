@@ -1,4 +1,6 @@
 import React from "react";
+import AnswersIndexContainer from "../anwsers/answer_index_container";
+import { Link } from "react-router-dom";
 
 
 export default class QuestionsIndex extends React.Component {
@@ -18,17 +20,28 @@ export default class QuestionsIndex extends React.Component {
 
     render() {
         const ques = this.props.questions.map(question => {
-               return (<li>
-                   {question.text}
-                   {question.difficulty}
-                   <button onClick={this.handleClick} value={question._id}>DELETE</button>
-               </li>
-               )
+               return (
+                 <li key={question._id}>
+                   <div>
+                     <Link to={`/questions/${question._id}`}>{question.text}</Link>
+                     <div>
+                       Difficulty:
+                       {question.difficulty}
+                     </div>
+                   </div>
+                   {/* <button>
+                     <Link to={`/answers/${question._id}`}>Create Answers</Link>
+                   </button> */}
+                   <button onClick={this.handleClick} value={question._id}>
+                     DELETE
+                   </button>
+                   {/* <AnswersIndexContainer
+                     question={question}
+                     questionId={question._id}
+                   /> */}
+                 </li>
+               );
         }) 
-        return (
-            <ul>
-                {ques}
-            </ul>
-        );
+        return <ul>{ques}</ul>;
     }
 }

@@ -35,7 +35,7 @@ export default class UserForm extends React.Component {
           <div>
             <h1>My Forms</h1>
             <div>
-              <ul>{form}</ul>
+              <ul key={form.id} >{form}</ul>
             </div>
             <button>
               <Link to="/">Back</Link>
