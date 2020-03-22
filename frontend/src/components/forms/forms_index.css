@@ -4,14 +4,14 @@
   /* margin: 20px; */
   padding-bottom: 30px;
   /* background: plum; */
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .form-index h2 {
   font-family: fantasy;
   font-size: 35px;
   margin-bottom: 8px;
-  color: pink;
+  color: rgb(252, 238, 240);
 }
 
 .form-item {
@@ -19,23 +19,26 @@
   flex-wrap: wrap;
 }
 
+#link-forms {
+  color: black;
+}
+
 .form-index-form {
   display: flex;
   flex-direction: column;
-  background: pink;
+  background: rgb(255, 227, 227);
   margin-right: 20px;
   margin-bottom: 20px;
   margin-top: 5px;
   padding: 20px;
   border-radius: 10px;
-  min-width: 220px;
+  min-width: 200px;
   cursor: pointer;
 }
 
 .form-index-form strong {
   font-size: 25px;
   margin-bottom: 8px;
-  
 }
 
 .form-index-form div {
