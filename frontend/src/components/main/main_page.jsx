@@ -7,12 +7,18 @@ class MainPage extends React.Component {
       <div className='splash'>
         <NavBarContainer />
         <div className='splash-top'>
-          <img src="splash-background.png" />
+          <div className='splash-top-mid'>
+            <strong>What is TestZoo?</strong>
+            <div>A place where you can...</div>
+            <div>
+              <div>Create personalized tests</div>
+              <div>Determine difficulty of each question</div>
+              <div>View and take other user's tests</div>
+              <div>Invite people to take your tests</div>
+              <div>And so much more...</div>
+            </div>
+          </div>
         </div>
-
-        <h1>Splash page</h1>
-        <h2>what up</h2>
-        
         
         <footer>Copyright &copy; 2019 TestZoo</footer>
       </div>
