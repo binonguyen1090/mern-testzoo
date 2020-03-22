@@ -21,7 +21,6 @@ export default class CreateAnswerForm extends React.Component {
   // }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     const { form } = this.props;
 

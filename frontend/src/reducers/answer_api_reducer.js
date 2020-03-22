@@ -6,7 +6,6 @@ import {
 } from "../actions/answer_actions";
 
 const AnswersReducer = (state = {}, action) => {
-    // debugger
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch(action.type) {
@@ -15,7 +14,6 @@ const AnswersReducer = (state = {}, action) => {
             return newState;
 
         case REECEIVE_NEW_ANSWER:
-            // debugger
             newState.all.push(action.answer.data);
             return newState;
 

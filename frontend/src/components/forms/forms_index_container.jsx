@@ -1,21 +1,23 @@
 import { connect } from "react-redux";
 import FormIndex from './forms_index'
 import { withRouter } from 'react-router-dom';
-import { fetchAllForms } from '../../actions/form_actions'
+import { fetchAllForms } from '../../actions/form_actions';
+// import { fetchGames } from "../../actions/game_actions";
 
 
-const mSTP = (state, ownProps) => {
+
+const mSTP = (state) => {
     
     return {
-        forms: state.forms.all
-        // forms_index = Object.values(forms)
+        forms: state.forms.all,
+        currentUser: state.session.user,
+        // games: state.games.all
     }
 };
 
 const mDTP = dispatch => ({
     fetchAllForms: () => dispatch(fetchAllForms()),
-    // deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
-
+    // fetchGames: (formId) => dispatch(fetchGames(formId))
 });
 
 export default withRouter((connect(mSTP, mDTP)(FormIndex)));
