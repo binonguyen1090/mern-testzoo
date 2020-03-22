@@ -3,17 +3,19 @@
   flex-direction: column;
   /* margin: 20px; */
   padding-bottom: 30px;
-  background: plum;
+  /* background: plum; */
   margin-top: 40px;
 }
 
-.form-index h1 {
-  margin: 5px;
+.form-index h2 {
+  font-family: fantasy;
+  font-size: 30px;
+  margin-bottom: 8px;
+  color: pink;
 }
 
-.form-index-forms {
+.form-item {
   display: flex;
-  justify-content: stretch;
   flex-wrap: wrap;
 }
 
@@ -26,3 +28,4 @@
   margin-right: 10px;
   padding: 15px;
 }
+
