@@ -1,0 +1,31 @@
+.form-index {
+  display: flex;
+  flex-direction: column;
+  /* margin: 20px; */
+  padding-bottom: 30px;
+  /* background: plum; */
+  margin-top: 40px;
+}
+
+.form-index h2 {
+  font-family: fantasy;
+  font-size: 35px;
+  margin-bottom: 8px;
+  color: pink;
+}
+
+.form-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-index-form {
+  display: flex;
+  flex-direction: column;
+  background: pink;
+  margin-left: 10px;
+  margin: 5px;
+  margin-right: 10px;
+  padding: 15px;
+}
+
