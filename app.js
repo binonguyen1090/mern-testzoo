@@ -10,6 +10,10 @@ const users = require("./routes/api/users");
 const forms = require("./routes/api/forms");
 // const create_forms = require("./routes/api/create_forms");
 const questions = require("./routes/api/questions")
+
+const games = require("./routes/api/games")
+const answers = require("./routes/api/answers")
+
 const User = require("./models/User");
 
 
@@ -35,11 +39,16 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 app.use(bodyParser.json())
+
 app.use("/api/users", users);
 app.use("/api/forms", forms);
-// app.use("/api/create_forms", forms);
-
 app.use("/api/questions", questions);
+
+
+app.use("/api/games", games);
+
+app.use("/api/answers", answers);
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => { console.log(`Server is running on port ${port}`) });

@@ -39,14 +39,17 @@ export const receiveErrors = (errors) => ({
     errors: errors
 })
 
-export const fetchQuestionAnswers = (formId, questionId) => dispatch => getQuestionAnswer(formId, questionId)
+export const fetchQuestionAnswers = (questionId) => dispatch => getQuestionAnswer(questionId)
     .then(answers => dispatch(receiveQuestionAnswers(answers)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-export const composeAnswer = (formId, questionId, answer) => dispatch => createQuestionAnswer(formId, questionId, answer)
-    .then(answer => dispatch(receiveNewAnswer(answer)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+export const composeAnswer = answer => dispatch => {
+         return createQuestionAnswer(answer).then(
+           answer => dispatch(receiveNewAnswer(answer)),
+           errors => dispatch(receiveErrors(errors.responseJSON))
+         );}
 
-export const modifyAnswer = (formId, questionId, answerId, answer) => dispatch => editQuestionAnswer(formId, questionId, answerId, answer)
+export const modifyAnswer = ( answerId, answer) => dispatch => editQuestionAnswer( answerId, answer)
     .then(answer => dispatch(receiveAnswer(answer)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
-export const destroyAnswer= (formId, questionId, answerId) => dispatch => deleteAnswer(formId, questionId, answerId)
+export const destroyAnswer= ( answerId) => dispatch => deleteAnswer( answerId)
     .then(() => dispatch(removeAnswer(answerId)), (errors) => dispatch(receiveErrors(errors.responseJSON)))

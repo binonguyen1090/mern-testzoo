@@ -1,12 +1,14 @@
 // src/components/tweets/tweet_compose.js
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class CreateAnswerForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      question: props.question_id,
       correct: "",
       body: ""
     };
@@ -20,7 +22,13 @@ export default class CreateAnswerForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.composeAnswer(this.state);
+    const { form, question_id } = this.props;
+
+    this.props
+      .composeAnswer(this.state)
+      .then(this.props.history.push(`/questions/${question_id}`));
+
+;
   }
 
   update(v) {
@@ -31,9 +39,11 @@ export default class CreateAnswerForm extends React.Component {
   }
 
   render() {
+    // debugger
     return (
       <div>
-        <h1>Create form</h1>
+        <h1>Create Answer for this:</h1>
+
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
@@ -51,6 +61,9 @@ export default class CreateAnswerForm extends React.Component {
             />
             <br />
             <input type="submit" value="Submit" />
+            <button>
+              <Link to={`/forms/${this.props.form._id}`}>Back</Link>
+            </button>
           </div>
         </form>
         <br />

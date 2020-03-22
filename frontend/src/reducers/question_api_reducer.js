@@ -14,20 +14,20 @@ import {
             return newState
 
         case REECEIVE_QUESTION:
-            newState[action.question.id] = action.question.data
+            newState.question = action.question.data
             return newState;
 
         case REECEIVE_NEW_QUESTION:
+
             newState.all.push(action.question.data)
 
             return newState;
 
         case REMOVE_QUESTION:
-            const deleteThing = state.all.findIndex(quest => {
-                return quest._id == action.questionId
-            })
-            newState.all.splice(deleteThing, 1);
-            return newState
+
+            const deletething = state.all.filter(quest => quest._id !== action.questionId)
+            return deletething
+
 
         default:
             return state;

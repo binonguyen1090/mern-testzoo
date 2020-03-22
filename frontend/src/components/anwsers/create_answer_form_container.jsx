@@ -2,9 +2,12 @@ import { connect } from "react-redux";
 import { composeAnswer } from "../../actions/answer_actions";
 import CreateAnswerForm from "./create_answer_form";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    question_id: ownProps.match.params.question_id || {},
+    form: state.forms.form || {}
+
     // newForm: state.forms.new
   };
 };

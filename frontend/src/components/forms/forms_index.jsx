@@ -45,9 +45,18 @@ export default class FormIndex extends React.Component {
     //     }
     //   })
     // })
-    const username = userId => {
         
-    }
+
+    // handleClick(e){
+    //     e.preventDefault();
+    // }
+
+    // startGameClick(e){
+    //     e.preventDefault()
+    //     this.props.startGame({form: this.props.form.id, user: this.props.currentUser})
+    
+    // }
+
     
     return (
       <div className='form-index'>
