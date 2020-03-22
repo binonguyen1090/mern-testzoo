@@ -9,11 +9,11 @@ class MainPage extends React.Component {
         <div className='splash-top'>
           <div className='splash-top-mid'>
             <strong>What is TestZoo?</strong>
-            <div>A place where you can...</div>
-            <div>
+            <div id='splash-text1'>A place where you can...</div>
+            <div id='splash-text'>
               <div>Create personalized tests</div>
-              <div>Determine difficulty of each question</div>
-              <div>View and take other user's tests</div>
+              <div>Determine difficulty of your questions</div>
+              <div>View and take other users' tests</div>
               <div>Invite people to take your tests</div>
               <div>And so much more...</div>
             </div>

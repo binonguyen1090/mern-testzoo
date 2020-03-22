@@ -81,7 +81,7 @@ class LoginForm extends React.Component {
           </Link>
         </div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
-          <div id="signup-quote">Did you miss the zoo?</div>
+          <div id="signup-quote">Welcome back!</div>
           <div id="user-input">
             <input
               type="text"

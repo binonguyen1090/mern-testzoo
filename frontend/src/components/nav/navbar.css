@@ -25,11 +25,13 @@
 
 #splash-ele {
   color: rgb(247, 211, 217);
+  
   margin-right: 15px;
 }
 
 .navbar-logo strong {
   color: rgb(247, 211, 217);
+  color: white;
   font-family: fantasy;
   font-size: 35px;
   margin-top: 5px;
@@ -43,7 +45,7 @@
 
 #navbar-link1 {
   text-decoration: none;
-  background: rgb(247, 211, 217);
+  background: rgb(245, 222, 226);
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 15px;
@@ -54,8 +56,8 @@
 }
 #navbar-link2 {
   text-decoration: none;
-  background: rgb(249, 222, 227);
-  /* background: rgb(250, 234, 234); */
+  background: rgb(250, 230, 234);
+  /* background: white; */
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 15px;
@@ -74,13 +76,35 @@
 }
 
 .splash-top-mid {
-  padding: 30px;
+  padding: 35px;
   color: white;
   background: black;
   border-radius: 10px;
   margin-right: 400px;
   margin-bottom: 150px;
 }
+
+.splash-top-mid strong {
+  font-size: 30px;
+  font-family: fantasy;
+}
+
+#splash-text1 {
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#splash-text {
+  padding: 10px;
+}
+
+#splash-text div {
+  margin-top: 6px;
+  color: rgb(247, 211, 217);
+}
+
+
 
 @media screen and (max-width: 800px) {
   #navbar-content {
