@@ -47,7 +47,6 @@ export const composeQuestion = (question) => dispatch => createQuestion(question
     .then(question => dispatch(receiveNewQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
 export const fetchQuestion = question_id => dispatch =>{
-    // debugger
          return getQuestion(question_id).then(
            question => dispatch(receiveQuestion(question)),
            errors => dispatch(receiveErrors(errors.responseJSON))
