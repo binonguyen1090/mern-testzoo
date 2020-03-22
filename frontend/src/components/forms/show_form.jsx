@@ -21,9 +21,16 @@ export default class ShowForm extends React.Component {
             <h1>Show Forms</h1>
             <h1>{this.props.form.title}</h1>
             <h1>{this.props.form.category}</h1>
-            <QuestionsIndex formId={this.props.form_id}/>
             <div>
+              <QuestionsIndex
+                key={this.props.form_id}
+                formId={this.props.form_id}
+              />
+            </div>
+            <div>
+              <button>
               <Link to={`/questions`}>Create Questions</Link>
+              </button>
               <button>
                 <Link to={`/users/${this.props.currentUserID}`}>Back</Link>
               </button>

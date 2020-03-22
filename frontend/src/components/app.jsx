@@ -13,6 +13,9 @@ import UserFormContainer from "./forms/user_form_container";
 import FormShowContainer from "./forms/show_form_container";
 import QuestionFormContainer from "./questions/create_questions_form_container";
 import AnswerFormContainer from "./anwsers/create_answer_form_container";
+import QuestionShowContainer from "./questions/show_question_container";
+// import ProfileContainer from "./profile/profile_container";
+// import TweetComposeContainer from "./tweets/tweet_compose_container";
 import GameShowContainer from "./games/game_show_container";
 import GameFormContainer from "./forms/game_form_container"
 
@@ -42,8 +45,18 @@ const App = () => (
       <ProtectedRoute exact path="/forms" component={CreateFormContainer} />
       <ProtectedRoute
         exact
+        path="/questions/:question_id"
+        component={QuestionShowContainer}
+      />
+      <ProtectedRoute
+        exact
         path="/questions"
         component={QuestionFormContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/answers/:question_id"
+        component={AnswerFormContainer}
       />
       <ProtectedRoute exact path="/answers/:question_id" component={AnswerFormContainer} />
       <ProtectedRoute exact path="/game/:game_id" component={GameShowContainer} />

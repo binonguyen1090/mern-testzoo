@@ -22,11 +22,11 @@ export default class CreateAnswerForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { form } = this.props;
+    const { form, question_id } = this.props;
 
     this.props
       .composeAnswer(this.state)
-      .then(this.props.history.push(`/forms/${form._id}`));
+      .then(this.props.history.push(`/questions/${question_id}`));
 
 ;
   }
@@ -39,6 +39,7 @@ export default class CreateAnswerForm extends React.Component {
   }
 
   render() {
+    // debugger
     return (
       <div>
         <h1>Create Answer for this:</h1>
@@ -61,7 +62,7 @@ export default class CreateAnswerForm extends React.Component {
             <br />
             <input type="submit" value="Submit" />
             <button>
-              <Link to={`this.props.form._id`}>Back</Link>
+              <Link to={`/forms/${this.props.form._id}`}>Back</Link>
             </button>
           </div>
         </form>

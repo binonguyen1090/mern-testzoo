@@ -37,7 +37,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Question.findById(req.params.id)
-      .then(Question => res.json(Question))
+      .then(question => res.json(question))
       .catch(err =>
         res.status(404).json({ noQuestionfound: "No question found with that ID" })
       );

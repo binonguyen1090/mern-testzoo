@@ -1,23 +1,19 @@
-import {getFormGames, getGame, createGame, editGame} from "../util/game_api_util";
 
+import {getFormGames, getGame, createGame, editGame} from "../util/game_api_util";
 export const RECEIVE_FORM_GAMES = "RECEIVE_FORM_GAMES";
 export const REECEIVE_GAME = "REECEIVE_GAME";
 export const REECEIVE_NEW_GAME = "REECEIVE_NEW_GAME";
-
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-
-
 const receiveFormGames = games => ({
-    type: RECEIVE_FORM_GAMES,
-    games
-})
-
+  type: RECEIVE_FORM_GAMES,
+  games
+});
 const receiveGame = game => ({
-    type: REECEIVE_GAME,
-    game
-}) 
-
+  type: REECEIVE_GAME,
+  game
+});
 const receiveNewGame = game => ({
+
     type: REECEIVE_NEW_GAME,
     game
 })
