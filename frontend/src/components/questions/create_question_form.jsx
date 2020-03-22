@@ -73,7 +73,7 @@ export default class CreateQuestionForm extends React.Component {
                 
                 <input type="submit" value="Submit" />
                 <button>
-                  <Link to={`this.props.form._id`}>Back</Link>
+                  <Link to={`/forms/${this.props.form._id}`}>Back</Link>
                 </button>
               </div>
             </form>
