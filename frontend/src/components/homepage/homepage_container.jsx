@@ -4,8 +4,10 @@ import { composeForm } from "../../actions/form_actions";
 import HomePage from "./homepage";
 
 const mapStateToProps = state => {
+
     return {
         currentUserID: state.session.user.id,
+        currentUserName: state.session.user.username,
         // newForm: state.forms.new
     };
 };

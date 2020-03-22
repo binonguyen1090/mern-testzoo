@@ -1,6 +1,6 @@
 import { getForms, getUserForms, getForm, createForm, editForm, deleteForm} from '../util/form_api_util';
 
-export const RECEIVE_ALL_FORMS = "RECEIVRECEIVE_ALL_FORMSE_FORMS";
+export const RECEIVE_ALL_FORMS = "RECEIVE_ALL_FORMS";
 export const RECEIVE_USER_FORMS = "RECEIVE_USER_FORMS";
 export const REECEIVE_FORM = "REECEIVE_FORM";
 

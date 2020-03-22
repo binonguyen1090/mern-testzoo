@@ -8,7 +8,6 @@ export default class QuestionShow extends React.Component {
     // this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
-    //   debugger
     this.props.fetchQuestion(this.props.question_id);
   }
 
@@ -19,7 +18,6 @@ export default class QuestionShow extends React.Component {
 //   }
 
   render() {
-    //   debugger
       const {question} = this.props
     // const ques = this.props.questions.map(question => {
       return (

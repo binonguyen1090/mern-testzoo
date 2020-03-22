@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
@@ -48,6 +49,15 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
+  handleDemo(e) {
+    e.preventDefault();
+    let demo = {
+      email: "demo@yahoo.com",
+      password: "123123"
+    };
+    this.props.login(demo);
+  }
+
   // Render the session errors if there are any
   renderErrors() {
     return (
@@ -63,30 +73,35 @@ class LoginForm extends React.Component {
     return (
       <div className="signup-form-container">
         <div className="signin-header">
-          <Link to="/">
+          <Link id="link-to-home" to="/">
             <div className="logo-div">
-              <GiElephant size={40} />
+              <GiElephant size={90} />
               <div>TestZoo</div>
             </div>
           </Link>
         </div>
-        <div>Did you miss the zoo?</div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.update("email")}
-            placeholder="Email"
-          />
-          <br />
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update("password")}
-            placeholder="Password"
-          />
-          <br />
-          <input type="submit" value="Submit" />
+          <div id="signup-quote">Did you miss the zoo?</div>
+          <div id="user-input">
+            <input
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="(A)  Email"
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="(B)  Password"
+            />
+          </div>
+          <div id="login-submit">
+            <input id="session-submit" type="submit" value="I'm back" />
+            <div id="session-submit" onClick={this.handleDemo}>
+              Try Demo
+            </div>
+          </div>
           <div id="already-user">
             Not a user yet?
             <Link to="/signup">Sign Up</Link>

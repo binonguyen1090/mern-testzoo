@@ -1,0 +1,126 @@
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 55px;
+  justify-content: flex-start;
+  align-items: center;
+  background: url("/signin.png");;
+  height: 1000px;
+}
+
+.signin-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+#link-to-home {
+  text-decoration: none;
+}
+
+.logo-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: pink;
+}
+
+.logo-div div {
+  font-size: 50px;
+  text-decoration: none;
+  color: black;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-family: fantasy;
+}
+
+#signup-quote {
+  font-size: 22px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.signup-form {
+  /* width: 42%; */
+  width: 325px;
+  margin-top: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background: rgb(250, 234, 234);
+  
+}
+
+#user-input input {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 220px;
+  outline: none;
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 15px;
+  margin-top: 5px;
+  padding-left: 7px;
+  background: rgb(250, 234, 234);
+}
+
+#session-submit {
+  text-decoration: none;
+  cursor: pointer;
+  width: 115px;
+  height: 35px;
+  border-radius: 5px;
+  /* background: ; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  font-size: 13px;
+  font-weight: bold;
+  background: rgb(247, 195, 195);
+  color: black;
+  outline: none;
+  border: 1px solid black;
+}
+
+#login-submit {
+  display: flex;
+
+}
+#login-submit div {
+  margin-left: 12px;
+  height: 33px;
+  background: black;
+  color: rgb(247, 195, 195);
+
+}
+#login-submit div:hover {
+  color: black;
+}
+#session-submit:hover {
+  background: rgb(250, 234, 234);
+}
+
+#already-user {
+  margin-top: 15px;
+}
+
+
+html, body {
+  height: 100%;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  /* background-color: #282C34; */
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}

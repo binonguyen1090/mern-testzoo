@@ -9,6 +9,27 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.find()
+      .sort({ date: -1 })
+      .then(users => res.json(users))
+      .catch(err => res.status(404).json({ nousersfound: "No uesrs found" }));
+  }
+);
+router.get(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findById(req.params.id)
+      .then(user => res.json(user))
+      .catch(err =>
+        res.status(404).json({ noformfound: "No form found with that ID" })
+      );
+  }
+);
 
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.json({

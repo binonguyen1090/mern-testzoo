@@ -4,7 +4,6 @@ import QuestionShow from "./show_question";
 
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
     form: state.forms.form || {},
     question_id: ownProps.match.params.question_id,

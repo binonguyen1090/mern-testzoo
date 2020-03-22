@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { GiElephant } from "react-icons/gi"; 
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
+        <div className='in-navbar'>
           {/* <Link to={"/tweets"}>All Tweets</Link>
           <Link to={"/profile"}>Profile</Link>
           <Link to={"/new_tweet"}>Write a Tweet</Link> */}
@@ -29,7 +30,18 @@ class NavBar extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className='out-navbar'>
+          <div className="signin-header">
+            <Link id="link-to-home" to="/">
+              <div className="logo-div">
+                <GiElephant size={90} />
+                <div>TestZoo</div>
+              </div>
+            </Link>
+          </div>
+          <div id="navbar-content">
+            Create tests. Take tests. Beat your friends.
+          </div>
           <Link to={"/signup"}>Signup</Link>
           <Link to={"/login"}>Login</Link>
         </div>
@@ -39,8 +51,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>TestZoo</h1>
+      <div className='navbar'>
         {this.getLinks()}
       </div>
     );
