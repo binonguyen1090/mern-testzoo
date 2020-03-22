@@ -13,5 +13,5 @@ export const createGame = (data) => {
 }
 
 export const editGame = (game_id, data) => {
-    return axios.patch(`/api/questions/${game_id}`, data)
+    return axios.patch(`/api/games/${game_id}`, data)
 }

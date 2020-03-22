@@ -24,7 +24,7 @@ export default class GameQuestions extends React.Component{
         const question = this.props.questions.map(question => (
             <ul>
                 <h2>{question.text}</h2>
-                <GameAnswersContainer questionId={question._id}/>
+                <GameAnswersContainer questionId={question._id} handlePlus={this.props.handlePlus} gameId={this.props.gameId} game={this.props.game}/>
             </ul>
         ))
         return(

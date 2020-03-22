@@ -3,6 +3,7 @@ import React from "react";
 export default class GameAnswers extends React.Component{
     constructor(props){
         super(props)
+        this.handlePlus = this.props.handlePlus.bind(this)
     }
 
     componentDidMount(){
@@ -21,7 +22,7 @@ export default class GameAnswers extends React.Component{
             <li>
                 {
                     itAnswer && itAnswer.map(questionAnswer => (
-                        <div>{questionAnswer.body}</div>
+                        <button onClick={this.handlePlus} value={questionAnswer.correct}>{questionAnswer.body}</button>
                     ))
                 }
             </li>
