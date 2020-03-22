@@ -13,8 +13,8 @@ import UserFormContainer from "./forms/user_form_container";
 import FormShowContainer from "./forms/show_form_container";
 import QuestionFormContainer from "./questions/create_questions_form_container";
 import AnswerFormContainer from "./anwsers/create_answer_form_container";
-// import ProfileContainer from "./profile/profile_container";
-// import TweetComposeContainer from "./tweets/tweet_compose_container";
+import GameShowContainer from "./games/game_show_container";
+import GameFormContainer from "./forms/game_form_container"
 
 const App = () => (
   <div>
@@ -30,6 +30,11 @@ const App = () => (
         path="/forms/:form_id"
         component={FormShowContainer}
       />
+      <ProtectedRoute
+        exact
+        path="/games/forms/:form_id"
+        component={GameFormContainer}
+      />
       <AuthRoute exact path="/" component={MainPage} />
       <ProtectedRoute exact path="/home" component={HomePageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
@@ -41,6 +46,7 @@ const App = () => (
         component={QuestionFormContainer}
       />
       <ProtectedRoute exact path="/answers/:question_id" component={AnswerFormContainer} />
+      <ProtectedRoute exact path="/game/:game_id" component={GameShowContainer} />
     </Switch>
   </div>
 );
