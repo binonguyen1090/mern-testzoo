@@ -14,26 +14,26 @@ export default class HomePage extends React.Component {
 
     
     render() {
-      const { currentUserID } = this.props
+      const { currentUserID, currentUserName } = this.props;
       return (
-        <div className='homepage-out'>
+        <div className="homepage-out">
           <NavBarContainer />
           <div className="homepage">
-            <h1>Welcome {currentUserID}</h1>
-            <div className='homepage-links'>         
+            <h1>Welcome: {currentUserName}</h1>
+            <div className="homepage-links">
               <div className="link-to-createform">
-                <Link id='homepage-link' to={`/forms`}>
+                <Link id="homepage-link" to={`/forms`}>
                   <div>Create a Form</div>
                   <img src="create-form.png" />
                 </Link>
               </div>
               <div className="link-to-myforms">
-                <Link id='homepage-link' to={`/users/${currentUserID}`}>
+                <Link id="homepage-link" to={`/users/${currentUserID}`}>
                   <div>View Your Forms</div>
-                  <img src="view-forms.png"/>
+                  <img src="view-forms.png" />
                 </Link>
               </div>
-            </div> 
+            </div>
             <FormIndexContainer />
           </div>
         </div>

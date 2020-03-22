@@ -4,7 +4,7 @@ import AnswersIndex from "./answer_index";
 import { fetchQuestionAnswers } from "../../actions/answer_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger;
+  
   return {
     currentUser: state.session.user,
     questionId: ownProps.questionId || "",
@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    // debugger
     return {
       fetchQuestionAnswers: questionId => dispatch(fetchQuestionAnswers(questionId))
     };

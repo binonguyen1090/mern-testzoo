@@ -7,7 +7,6 @@ export const getFormQuestions = form_id => {
 //     return axios.get(`/api/forms/${form_id}/questions`)
 // };
 export const getQuestion = question_id => {
-    // debugger
   return axios.get(`/api/questions/${question_id}`);
 };
 

@@ -5,6 +5,7 @@ import errors from "./errors_reducer";
 import questions from "./question_api_reducer";
 import answers from "./answer_api_reducer";
 import games from "./game_api_reducer";
+import users from "./user_api_reducer";
 
 const RootReducer = combineReducers({
   errors,
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
   forms,
   questions,
   answers,
-  games
+  games,
+  users
 });
 
 export default RootReducer;
