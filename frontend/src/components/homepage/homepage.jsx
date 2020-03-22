@@ -23,13 +23,13 @@ export default class HomePage extends React.Component {
             <div className='homepage-links'>         
               <div className="link-to-createform">
                 <Link id='homepage-link' to={`/forms`}>
-                  <div>Create a Form</div>
+                  <div>Create a Test</div>
                   <img src="create-form.png" />
                 </Link>
               </div>
               <div className="link-to-myforms">
                 <Link id='homepage-link' to={`/users/${currentUserID}`}>
-                  <div>View Your Forms</div>
+                  <div>View Your Tests</div>
                   <img src="view-forms.png"/>
                 </Link>
               </div>
