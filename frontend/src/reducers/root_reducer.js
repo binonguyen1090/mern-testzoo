@@ -3,7 +3,8 @@ import session from "./session_api_reducer";
 import forms from "./form_api_reducer"
 import errors from "./errors_reducer";
 import questions from "./question_api_reducer";
-import answers from "./answer_api_reducer"
+import answers from "./answer_api_reducer";
+import games from "./game_api_reducer";
 
 const RootReducer = combineReducers({
   errors,
@@ -11,6 +12,7 @@ const RootReducer = combineReducers({
   forms,
   questions,
   answers,
+  games
 });
 
 export default RootReducer;

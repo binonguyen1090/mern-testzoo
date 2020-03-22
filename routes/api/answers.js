@@ -11,7 +11,7 @@ router.get(
   "/questions/:question_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Question.find({ question: req.params.question_id })
+    Answer.find({ question: req.params.question_id })
       .then(answer => res.json(answer))
       .catch(err =>
         res.status(404).json({ noquestionfound: "No answer found" })

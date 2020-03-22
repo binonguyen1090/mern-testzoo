@@ -6,29 +6,28 @@ import {
 } from "../actions/answer_actions";
 
 const AnswersReducer = (state = {}, action) => {
-    // debugger
     Object.freeze(state);
     let newState = Object.assign({}, state);
-    switch(action.type) {
-        case RECEIVE_QUESTION_ANSWERS:
-            newState.all = action.answer;
-            return newState;
+    switch (action.type) {
+      case RECEIVE_QUESTION_ANSWERS:
+        newState.all = action.answers.data;
+        return newState;
 
-        case REECEIVE_NEW_ANSWER:
-            // debugger
-            newState.all.push(action.answer.data);
-            return newState;
+      case REECEIVE_NEW_ANSWER:
+        newState.all.push(action.answer.data);
+        return newState;
 
-        case REECEIVE_ANSWER:
-            newState.answer = action.answer
-            return newState;
 
-        case REMOVE_ANSWER:
-            delete newState[action.answerId]
-            return newState;
-            
-        default:
-            return state;
+      case REECEIVE_ANSWER:
+        newState.answer = action.answer;
+        return newState;
+
+      case REMOVE_ANSWER:
+        delete newState[action.answerId];
+        return newState;
+
+      default:
+        return state;
     }
 };
 export default AnswersReducer;

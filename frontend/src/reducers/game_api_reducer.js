@@ -18,7 +18,7 @@ const GamesReducer = (state = {}, action) => {
 
         case REECEIVE_NEW_GAME:
             newState.new = action.game.data
-            return newState;
+            return newState
 
         default:
             return state;
