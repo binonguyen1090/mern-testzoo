@@ -1,7 +1,6 @@
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import './forms_index.css'
 import GetUser from '../user/get_user_container'
 export default class FormIndex extends React.Component {
@@ -9,15 +8,18 @@ export default class FormIndex extends React.Component {
       super(props);
   }
 
+
   componentDidMount() {
     this.props.fetchAllForms();
   }
+
 
   // componentDidUpdate(prevProps) {
   //     if (prevProps.user.id != this.props.user.id) {
   //         this.props.fetchBoards(this.props.user.id);
   //     }
   // }
+
 
   render() {
     if (!this.props.forms) {
@@ -71,6 +73,7 @@ export default class FormIndex extends React.Component {
               </div>
 
               {/* <div>{form.user}</div> */}
+
             </div>
           ))}
         </div>

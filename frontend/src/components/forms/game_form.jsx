@@ -26,7 +26,7 @@ export default class GameForm extends React.Component {
             <h1>{this.props.form.title}</h1>
             <h1>{this.props.form.category}</h1>
             <button onClick={this.startGameClick}>Start the Game</button>
-            <Link to={`/game/${this.props.game._id}`}>Start New Game</Link>
+            <Link to={`/game/${this.props.game._id}`}>Go</Link>
             <div>
               <button>
                 <Link to={`/home`}>Back</Link>

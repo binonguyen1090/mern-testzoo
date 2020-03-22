@@ -1,5 +1,3 @@
-// src/components/tweets/tweet_compose.js
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -15,10 +13,6 @@ export default class CreateForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({ newTweet: nextProps.newTweet.text });
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -36,7 +30,6 @@ export default class CreateForm extends React.Component {
     }
 
     render() {
-        // if (!text) return ""
         return (
           <div>
             <h1>Create form</h1>
@@ -69,5 +62,3 @@ export default class CreateForm extends React.Component {
         );
     }
 }
-
-// export default TweetCompose;
