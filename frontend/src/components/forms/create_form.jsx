@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './create_form.css';
 
 export default class CreateForm extends React.Component {
     constructor(props) {
@@ -31,8 +31,8 @@ export default class CreateForm extends React.Component {
 
     render() {
         return (
-          <div>
-            <h1>Create form</h1>
+          <div className='create-form'>
+            <h1>Create test</h1>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <input
