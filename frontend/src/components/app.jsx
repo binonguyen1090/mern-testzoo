@@ -16,6 +16,8 @@ import AnswerFormContainer from "./anwsers/create_answer_form_container";
 import QuestionShowContainer from "./questions/show_question_container";
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
+import GameShowContainer from "./games/game_show_container";
+import GameFormContainer from "./forms/game_form_container"
 
 const App = () => (
   <div>
@@ -30,6 +32,11 @@ const App = () => (
         exact
         path="/forms/:form_id"
         component={FormShowContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/games/forms/:form_id"
+        component={GameFormContainer}
       />
       <AuthRoute exact path="/" component={MainPage} />
       <ProtectedRoute exact path="/home" component={HomePageContainer} />
@@ -51,6 +58,8 @@ const App = () => (
         path="/answers/:question_id"
         component={AnswerFormContainer}
       />
+      <ProtectedRoute exact path="/answers/:question_id" component={AnswerFormContainer} />
+      <ProtectedRoute exact path="/game/:game_id" component={GameShowContainer} />
     </Switch>
   </div>
 );

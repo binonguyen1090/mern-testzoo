@@ -5,7 +5,6 @@ export const getQuestionAnswer = ( question_id) => {
 };
 
 export const createQuestionAnswer = (data) => {
-    // debugger;
     return axios.post(`/api/answers`, data)
 }
 

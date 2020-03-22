@@ -3,7 +3,6 @@ import { composeAnswer } from "../../actions/answer_actions";
 import CreateAnswerForm from "./create_answer_form";
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
     currentUser: state.session.user,
     question_id: ownProps.match.params.question_id || {},

@@ -35,5 +35,6 @@ export default class AnswersIndex extends React.Component{
             </ul>
           </div>
         );
+
     }
 }

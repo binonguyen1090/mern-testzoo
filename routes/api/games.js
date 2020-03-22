@@ -37,7 +37,7 @@ router.post(
 
     const newGame = new Game({
       form: req.body.form,
-      user: req.user.id
+      user: req.body.user
     });
 
     newGame.save().then(game => res.json(game));

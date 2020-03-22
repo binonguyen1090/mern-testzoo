@@ -43,7 +43,6 @@ export const fetchQuestionAnswers = (questionId) => dispatch => getQuestionAnswe
     .then(answers => dispatch(receiveQuestionAnswers(answers)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
 
 export const composeAnswer = answer => dispatch => {
-        //  debugger
          return createQuestionAnswer(answer).then(
            answer => dispatch(receiveNewAnswer(answer)),
            errors => dispatch(receiveErrors(errors.responseJSON))

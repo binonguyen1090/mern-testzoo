@@ -6,19 +6,17 @@ import {
 } from "../actions/answer_actions";
 
 const AnswersReducer = (state = {}, action) => {
-    // debugger
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
       case RECEIVE_QUESTION_ANSWERS:
-        // debugger;
         newState.all = action.answers.data;
         return newState;
 
       case REECEIVE_NEW_ANSWER:
-        // debugger
         newState.all.push(action.answer.data);
         return newState;
+
 
       case REECEIVE_ANSWER:
         newState.answer = action.answer;
