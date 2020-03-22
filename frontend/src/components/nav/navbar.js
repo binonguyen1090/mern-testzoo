@@ -31,19 +31,19 @@ class NavBar extends React.Component {
     } else {
       return (
         <div className='out-navbar'>
-          <div className="signin-header">
+          <div className="splash-header">
             <Link id="link-to-home" to="/">
-              <div className="logo-div">
-                <GiElephant size={90} />
-                <div>TestZoo</div>
+              <div className="navbar-logo">
+                <GiElephant id='splash-ele' size={40} />
+                <strong>TestZoo</strong>
               </div>
             </Link>
           </div>
           <div id="navbar-content">
             Create tests. Take tests. Beat your friends.
           </div>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+          <Link id='navbar-link1' to={"/signup"}>Signup</Link>
+          <Link id='navbar-link2' to={"/login"}>Login</Link>
         </div>
       );
     }

@@ -28,6 +28,7 @@ export default class FormIndex extends React.Component {
 
     const { forms } = this.props;
 
+
     const personal = forms.filter(form => form.category === 'Personal');
     const geography = forms.filter(form => form.category === 'Geography');
     const math = forms.filter(form => form.category === 'Math');
