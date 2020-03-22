@@ -118,7 +118,7 @@
 
 .splash-top {
   background: url("/signin.png");
-  height: 800px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,27 +126,29 @@
 }
 
 .splash-top-mid {
-  padding: 35px;
+  padding: 45px;
   color: white;
   background: black;
   border-radius: 10px;
-  margin-right: 400px;
-  margin-bottom: 150px;
+  margin-right: 600px;
+  margin-bottom: 140px;
 }
 
 .splash-top-mid strong {
-  font-size: 30px;
+  font-size: 35px;
   font-family: fantasy;
 }
 
 #splash-text1 {
   font-weight: 500;
-  margin-top: 5px;
+  font-size: 25px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 
 #splash-text {
   padding: 10px;
+  font-size: 20px;
 }
 
 #splash-text div {
