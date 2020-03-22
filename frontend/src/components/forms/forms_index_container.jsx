@@ -10,8 +10,6 @@ const mSTP = (state) => {
     return {
         forms: state.forms.all,
         currentUser: state.session.user,
-        // user: state.users.user 
-        // games: state.games.all
     }
 };
 

@@ -1,21 +1,113 @@
-.NavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+.out-navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 62px;
+  max-height: 62px;
+  background: black;
+  /* border-bottom: 1px solid #ededed; */
+
 }
 
-.NavBar button {
-    height: 20px;
+.splash-header {
+  display: flex;
+  
 }
 
-.Links1 {
-    width: 100px;
-    display: flex;
-    justify-content: space-between;
+.navbar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Links2 {
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
+#splash-ele {
+  color: rgb(247, 211, 217);
+  
+  margin-right: 15px;
+}
+
+.navbar-logo strong {
+  color: rgb(247, 211, 217);
+  color: white;
+  font-family: fantasy;
+  font-size: 35px;
+  margin-top: 5px;
+}
+
+#navbar-content {
+  color: rgb(250, 234, 234);
+  font-weight: 500;
+  word-spacing: 2px;
+}
+
+#navbar-link1 {
+  text-decoration: none;
+  background: rgb(245, 222, 226);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 6px;
+  margin-left: 30px;
+  color: black;
+}
+#navbar-link2 {
+  text-decoration: none;
+  background: rgb(250, 230, 234);
+  /* background: white; */
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 6px;
+  color: black;
+}
+
+.splash-top {
+  background: url("/signin.png");
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.splash-top-mid {
+  padding: 35px;
+  color: white;
+  background: black;
+  border-radius: 10px;
+  margin-right: 400px;
+  margin-bottom: 150px;
+}
+
+.splash-top-mid strong {
+  font-size: 30px;
+  font-family: fantasy;
+}
+
+#splash-text1 {
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#splash-text {
+  padding: 10px;
+}
+
+#splash-text div {
+  margin-top: 6px;
+  color: rgb(247, 211, 217);
+}
+
+
+
+@media screen and (max-width: 800px) {
+  #navbar-content {
+    display: none;
+  }
 }

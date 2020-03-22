@@ -11,13 +11,14 @@ const AnswersReducer = (state = {}, action) => {
     switch (action.type) {
       case RECEIVE_QUESTION_ANSWERS:
         newState.all = action.answers.data;
+        let questionId = action.answers.data[0].question
+        newState[questionId] = action.answers.data
         return newState;
 
       case REECEIVE_NEW_ANSWER:
         newState.all.push(action.answer.data);
         return newState;
-
-
+        
       case REECEIVE_ANSWER:
         newState.answer = action.answer;
         return newState;

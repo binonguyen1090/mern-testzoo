@@ -22,15 +22,17 @@ export default class HomePage extends React.Component {
             <h1>Welcome: {currentUserName}</h1>
             <div className="homepage-links">
               <div className="link-to-createform">
-                <Link id="homepage-link" to={`/forms`}>
-                  <div>Create a Form</div>
+                <Link id='homepage-link' to={`/forms`}>
+                  <div>Create a Test</div>
+
                   <img src="create-form.png" />
                 </Link>
               </div>
               <div className="link-to-myforms">
-                <Link id="homepage-link" to={`/users/${currentUserID}`}>
-                  <div>View Your Forms</div>
-                  <img src="view-forms.png" />
+                <Link id='homepage-link' to={`/users/${currentUserID}`}>
+                  <div>View Your Tests</div>
+                  <img src="view-forms.png"/>
+
                 </Link>
               </div>
             </div>
