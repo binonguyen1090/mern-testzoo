@@ -4,7 +4,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { GiElephant } from "react-icons/gi"; 
-
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -19,13 +18,24 @@ class NavBar extends React.Component {
 
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
+    const { loggedIn, currentUserName } = this.props;
     if (this.props.loggedIn) {
       return (
         <div className='in-navbar'>
+          <div className="splash-header">
+            <Link id="link-to-home" to="/">
+              <div className="navbar-logo1">
+                <GiElephant id='splash-ele1' size={40} />
+                <strong>TestZoo</strong>
+              </div>
+            </Link>
+          </div>
+          <h3>Welcome, {currentUserName}</h3>
+
           {/* <Link to={"/tweets"}>All Tweets</Link>
           <Link to={"/profile"}>Profile</Link>
           <Link to={"/new_tweet"}>Write a Tweet</Link> */}
-          <button onClick={this.logoutUser}>Logout</button>
+          <button id='navbar-link3' onClick={this.logoutUser}>Logout</button>
         </div>
       );
     } else {
