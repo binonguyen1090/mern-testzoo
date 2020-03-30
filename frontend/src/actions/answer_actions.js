@@ -6,9 +6,9 @@ import{
 } from "../util/answer_api_util";
 
 export const RECEIVE_QUESTION_ANSWERS = "RECEIVE_QUESTION_ANSWERS";
-export const REECEIVE_ANSWER = "REECEIVE_FORM";
+export const REECEIVE_ANSWER = "REECEIVE_ANSWER";
 
-export const REECEIVE_NEW_ANSWER = "REECEIVE_NEW_FORM";
+export const REECEIVE_NEW_ANSWER = "REECEIVE_NEW_ANSWER";
 
 export const REMOVE_ANSWER = 'REMOVE_FORM';
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
