@@ -7,6 +7,8 @@ const mSTP = (state, ownProps) => {
     return {
         form_id: ownProps.match.params.form_id,
         form: state.forms.form || {},
+        currentUserID: state.session.user.id,
+
     }
 };
 
