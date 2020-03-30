@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import './create_form.css';
 
 export default class CreateForm extends React.Component {
@@ -18,8 +18,7 @@ export default class CreateForm extends React.Component {
         e.preventDefault();
         this.props
           .composeForm(this.state)
-          .then(this.props.history.push("/home"));
-
+          .then(this.props.history.push(`/users/${this.props.currentUser.id}`))
     }
 
     update(v) {
