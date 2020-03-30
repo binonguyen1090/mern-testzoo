@@ -8,7 +8,7 @@ import { fetchUser } from "../../actions/user_actions";
 
 const mSTP = (state) => {
     return {
-        forms: state.forms.all,
+        forms: state.forms.all || [],
         currentUser: state.session.user,
     }
 };
