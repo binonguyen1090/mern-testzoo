@@ -9,7 +9,8 @@ const mSTP = (state, ownProps) => {
         form_id: ownProps.match.params.form_id,
         currentUser: state.session.user,
         form: state.forms.form || {},
-        game: state.games.new || {}
+        game: state.games.new || {},
+        prevGames: state.games.all || []
     }
 };
 

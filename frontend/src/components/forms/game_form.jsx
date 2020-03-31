@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GetUser from '../user/get_user_container'
 
 // import QuestionsIndex from "../questions/questions_index_container"
 
@@ -20,6 +21,13 @@ export default class GameForm extends React.Component {
     }
 
     render() {
+        const scoreBoard = this.props.prevGames.map(game => (
+          <li>
+            {game.score}
+            <br/>
+            <GetUser user_id={game.user} />
+          </li>
+        ))
         return (
           <div>
             <h1>Ready To Play?</h1>
@@ -31,6 +39,13 @@ export default class GameForm extends React.Component {
               <button>
                 <Link to={`/home`}>Back</Link>
               </button>
+            </div>
+            
+            <div>
+              <h2>ScoreBoard</h2>
+              <ul>
+                {scoreBoard}
+              </ul>
             </div>
           </div>
         );
