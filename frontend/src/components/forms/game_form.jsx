@@ -18,6 +18,9 @@ export default class GameForm extends React.Component {
     startGameClick(e){
         e.preventDefault()
         this.props.startGame({form: this.props.form._id, user: this.props.currentUser.id})
+          .then(result => {
+          this.props.history.push(`/game/${result.game.data._id}`)
+        })
     }
 
     render() {
@@ -34,7 +37,7 @@ export default class GameForm extends React.Component {
             <h1>{this.props.form.title}</h1>
             <h1>{this.props.form.category}</h1>
             <button onClick={this.startGameClick}>Start the Game</button>
-            <Link to={`/game/${this.props.game._id}`}>Go</Link>
+            {/* <Link to={`/game/${this.props.game._id}`}>Go</Link> */}
             <div>
               <button>
                 <Link to={`/home`}>Back</Link>
