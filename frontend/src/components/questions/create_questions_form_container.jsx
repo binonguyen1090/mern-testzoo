@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     
     return {
       currentUser: state.session.user,
-      form: state.forms.form || {}
+      form: state.forms.form || {},
+      errors: state.errors.question || []
     };
 };
 

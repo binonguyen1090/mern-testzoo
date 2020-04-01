@@ -8,17 +8,25 @@ export default class CreateForm extends React.Component {
 
         this.state = {
             title: "",
-            category: ""
+            category: "",
+            errors: {}
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.renderErrors = this.renderErrors.bind(this);
+
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props
-          .composeForm(this.state)
-          .then(this.props.history.push(`/users/${this.props.currentUser.id}`))
+
+        this.props.composeForm(this.state).then(result => {
+          if (Object.keys(result).includes('form')){
+            (this.props.history.push(`/users/${this.props.currentUser.id}`))
+          }else{
+            this.setState({ errors: result.errors });
+          }
+        } )
     }
 
     update(v) {
@@ -28,7 +36,19 @@ export default class CreateForm extends React.Component {
             });
     }
 
+    renderErrors() {
+      return (
+        <ul>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li className="session-errors" key={`error-${i}`}>{this.props.errors[error]}</li>
+          ))}
+        </ul>
+      );
+    }
     render() {
+      if (!this.props.errors) {
+        return []
+      }
         return (
           <div className='create-form'>
             <h1>Create test</h1>
@@ -40,7 +60,7 @@ export default class CreateForm extends React.Component {
                   onChange={this.update("title")}
                   placeholder="Title"
                 />
-                <br />
+                <br/>
                 <input
                   type="textarea"
                   value={this.state.category}
@@ -48,12 +68,13 @@ export default class CreateForm extends React.Component {
                   placeholder="Category"
                 />
                 <br />
-                <div>
+                <div> 
                     <input type="submit" value="Submit" />
                 </div>
                 <button>
                   <Link to="/">Back</Link>
                 </button>
+                {this.renderErrors()}
               </div>
             </form>
             <br />

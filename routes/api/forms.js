@@ -47,6 +47,7 @@ router.post('/', passport.authenticate('jwt', { session: false }),
       const { errors, isValid } = validateFormInput(req.body);
   
       if (!isValid) {
+        debugger
         return res.status(400).json(errors);
       }
 
@@ -56,7 +57,7 @@ router.post('/', passport.authenticate('jwt', { session: false }),
         category: req.body.category
       })
   
-      newForm.save().then(form => res.json(form))
+      newForm.save().then(form => res.json(form))            
     }
 );
 

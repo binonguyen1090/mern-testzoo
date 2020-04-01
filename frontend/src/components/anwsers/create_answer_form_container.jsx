@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.user,
     question_id: ownProps.match.params.question_id || {},
-    form: state.forms.form || {}
+    form: state.forms.form || {},
+    errors: state.errors.answer || []
 
     // newForm: state.forms.new
   };

@@ -36,25 +36,25 @@ const removeQuestion = questionId => ({
 
 export const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
-    errors: errors
+    errors
 })
 
 
 export const fetchQuestions = (formId) => dispatch => getFormQuestions(formId)
-    .then(questions => dispatch(receiveFormQuestions(questions)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(questions => dispatch(receiveFormQuestions(questions)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const composeQuestion = (question) => dispatch => createQuestion(question)
-    .then(question => dispatch(receiveNewQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(question => dispatch(receiveNewQuestion(question)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const fetchQuestion = question_id => dispatch =>{
          return getQuestion(question_id).then(
            question => dispatch(receiveQuestion(question)),
-           errors => dispatch(receiveErrors(errors.responseJSON))
+           errors => dispatch(receiveErrors(errors.response.data))
          )};
 
 
 export const modifyQuestion = (question_id, question) => dispatch => editQuestion(question_id, question)
-    .then(question => dispatch(receiveQuestion(question)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(question => dispatch(receiveQuestion(question)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const destroyQuestion = (question_id) => dispatch => deleteQuestion(question_id)
-    .then(() => dispatch(removeQuestion(question_id)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(() => dispatch(removeQuestion(question_id)), (errors) => dispatch(receiveErrors(errors.response.data)))

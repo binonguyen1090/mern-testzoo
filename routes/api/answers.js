@@ -47,7 +47,7 @@ router.post(
       correct: req.body.correct
     });
 
-    newAnswer.save().then(Answer => res.json(Answer));
+    newAnswer.save().then(answer => res.json(answer));
   }
 );
 

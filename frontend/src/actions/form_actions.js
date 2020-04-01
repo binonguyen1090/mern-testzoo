@@ -36,27 +36,30 @@ const removeForm = formId => ({
 
 export const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
-    errors: errors
+    errors
 })
 
 
 export const fetchAllForms = () => dispatch => (
     getForms()
     .then(forms => dispatch(receiveAllForms(forms)),
-     (errors) => dispatch(receiveErrors(errors.responseJSON)))
+     (errors) => dispatch(receiveErrors(errors.response.data)))
 )
 
 export const fetchForm = (formId) => dispatch => getForm(formId)
-    .then(form => dispatch(receiveForm(form)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(form => dispatch(receiveForm(form)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const fetchUserForms = (id) => dispatch => getUserForms(id)
-    .then(forms => dispatch(receiveUserForms(forms)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(forms => dispatch(receiveUserForms(forms)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
-export const composeForm = form => dispatch => createForm(form)
-    .then(form => dispatch(receiveNewForm(form)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+export const composeForm = form => dispatch => 
+    createForm(form)
+    .then(form => dispatch(receiveNewForm(form)),
+        errors => dispatch(receiveErrors(errors.response.data))
+        )
 
 export const modifyForm = form => dispatch => editForm(form)
-    .then(form => dispatch(receiveForm(form)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(form => dispatch(receiveForm(form)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const destroyForm = (formId) => dispatch => deleteForm(formId)
-    .then(() => dispatch(removeForm(formId)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(() => dispatch(removeForm(formId)), (errors) => dispatch(receiveErrors(errors.response.data)))
