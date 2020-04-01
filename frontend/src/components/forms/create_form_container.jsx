@@ -6,13 +6,14 @@ import CreateForm from "./create_form";
 const mapStateToProps = state => {
     return {
         currentUser: state.session.user,
-        // newForm: state.forms.new
+        errors: state.errors.form || []
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         composeForm: form => dispatch(composeForm(form)),
+        
     };
 };
 

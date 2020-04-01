@@ -40,16 +40,16 @@ export const receiveErrors = (errors) => ({
 })
 
 export const fetchQuestionAnswers = (questionId) => dispatch => getQuestionAnswer(questionId)
-    .then(answers => dispatch(receiveQuestionAnswers(answers)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(answers => dispatch(receiveQuestionAnswers(answers)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const composeAnswer = answer => dispatch => {
          return createQuestionAnswer(answer).then(
            answer => dispatch(receiveNewAnswer(answer)),
-           errors => dispatch(receiveErrors(errors.responseJSON))
+           errors => dispatch(receiveErrors(errors.response.data))
          );}
 
 export const modifyAnswer = ( answerId, answer) => dispatch => editQuestionAnswer( answerId, answer)
-    .then(answer => dispatch(receiveAnswer(answer)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(answer => dispatch(receiveAnswer(answer)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const destroyAnswer= ( answerId) => dispatch => deleteAnswer( answerId)
-    .then(() => dispatch(removeAnswer(answerId)), (errors) => dispatch(receiveErrors(errors.responseJSON)))
+    .then(() => dispatch(removeAnswer(answerId)), (errors) => dispatch(receiveErrors(errors.response.data)))
