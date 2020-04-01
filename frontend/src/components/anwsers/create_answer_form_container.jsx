@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { composeAnswer } from "../../actions/answer_actions";
+import { composeAnswer, receiveErrors } from "../../actions/answer_actions";
 import CreateAnswerForm from "./create_answer_form";
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    composeAnswer: answer => dispatch(composeAnswer(answer))
+    composeAnswer: answer => dispatch(composeAnswer(answer)),
+    clearErrors: () => dispatch(receiveErrors([]))
   };
 };
 

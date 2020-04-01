@@ -16,6 +16,11 @@ export default class CreateForm extends React.Component {
       this.renderErrors = this.renderErrors.bind(this);
 
     }
+     
+    componentDidMount(){
+      this.props.clearErrors();
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();

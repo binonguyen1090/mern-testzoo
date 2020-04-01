@@ -11,37 +11,33 @@ export default class CreateAnswerForm extends React.Component {
                      question: props.question_id,
                      correct: "",
                      body: "",
-                     errors:{}
+                     errors: {}
                    };
 
                    this.handleSubmit = this.handleSubmit.bind(this);
-                  this.renderErrors = this.renderErrors.bind(this);
-
+                   this.renderErrors = this.renderErrors.bind(this);
                  }
 
+                 componentDidMount() {
+                   this.props.clearErrors();
+                 }
                  handleSubmit(e) {
                    e.preventDefault();
                    const { form, question_id } = this.props;
 
-                  //  this.props
-                  //    .composeAnswer(this.state)
-                  //    .then(
-                  //      this.props.history.push(`/questions/${question_id}`)
-                  //    );
+                   //  this.props
+                   //    .composeAnswer(this.state)
+                   //    .then(
+                   //      this.props.history.push(`/questions/${question_id}`)
+                   //    );
 
-                  this.props.composeAnswer(this.state).then(result => {
-                    if (Object.keys(result).includes("answer")) {
-                      this.props.history.push(`/questions/${question_id}`);
-                    } else {
-                      this.setState({ errors: result.errors });
-                    }
-                  });
-
-
-
-
-
-
+                   this.props.composeAnswer(this.state).then(result => {
+                     if (Object.keys(result).includes("answer")) {
+                       this.props.history.push(`/questions/${question_id}`);
+                     } else {
+                       this.setState({ errors: result.errors });
+                     }
+                   });
                  }
                  renderErrors() {
                    return (

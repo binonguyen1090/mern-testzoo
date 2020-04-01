@@ -20,31 +20,30 @@ export default class CreateQuestionForm extends React.Component {
                    this.renderErrors = this.renderErrors.bind(this);
                  }
 
-                 // componentWillReceiveProps(nextProps) {
-                 //     this.setState({ newTweet: nextProps.newTweet.text });
-                 // }
-
-                 handleSubmit(e) {
-                   debugger
-                   e.preventDefault();
-                   const { form } = this.props;
-                  this.props.composeQuestion(this.state).then(result => {
-                    if (Object.keys(result).includes('question')){
-                      debugger
-                      (this.props.history.push(`/forms/${form._id}`))
-                    }else{
-                      debugger
-                      this.setState({ errors: result.errors });
-                    }
-                  } )
-
-                //    const { form } = this.props;
-
-                //    this.props
-                //      .composeQuestion(this.state)
-                //      .then(this.props.history.push(`/forms/${form._id}`));
+                 componentDidMount() {
+                   this.props.clearErrors();
                  }
 
+                 handleSubmit(e) {
+                   debugger;
+                   e.preventDefault();
+                   const { form } = this.props;
+                   this.props.composeQuestion(this.state).then(result => {
+                     if (Object.keys(result).includes("question")) {
+                       debugger;
+                       this.props.history.push(`/forms/${form._id}`);
+                     } else {
+                       debugger;
+                       this.setState({ errors: result.errors });
+                     }
+                   });
+
+                   //    const { form } = this.props;
+
+                   //    this.props
+                   //      .composeQuestion(this.state)
+                   //      .then(this.props.history.push(`/forms/${form._id}`));
+                 }
 
                  renderErrors() {
                    return (
