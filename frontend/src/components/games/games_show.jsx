@@ -38,6 +38,7 @@ export default class GameShow extends React.Component{
                 <button onClick={this.getPoints}>Submit the Test</button>
                 <h1>Result: {this.props.game.score} Correct</h1>
                 <Link to={`/games/forms/${this.props.formId}`}/>
+                <Link to={'/home'}/>
             </div>
         )
     }
