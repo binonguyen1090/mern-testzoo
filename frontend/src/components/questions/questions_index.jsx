@@ -18,30 +18,28 @@ export default class QuestionsIndex extends React.Component {
         this.props.destroyQuestion(quesId)
     }
 
-    render() {
-        const ques = this.props.questions.map(question => {
-               return (
-                 <li key={question._id}>
-                   <div>
-                     <Link to={`/questions/${question._id}`}>{question.text}</Link>
-                     <div>
-                       Difficulty:
-                       {question.difficulty}
-                     </div>
-                   </div>
-                   {/* <button>
-                     <Link to={`/answers/${question._id}`}>Create Answers</Link>
-                   </button> */}
-                   <button onClick={this.handleClick} value={question._id}>
-                     DELETE
-                   </button>
-                   {/* <AnswersIndexContainer
-                     question={question}
-                     questionId={question._id}
-                   /> */}
-                 </li>
-               );
-        }) 
-        return <ul>{ques}</ul>;
-    }
+  render() {
+    const ques = this.props.questions.map(question => {
+      return (
+        <div className='question-item' key={question._id}> 
+        
+          <Link className='question-link' to={`/questions/${question._id}`}>
+            {question.text}
+          
+            <div className='question-footer'>
+              <div>Difficulty: {question.difficulty}</div>           
+              <button onClick={this.handleClick} value={question._id}>
+                DELETE
+              </button>
+            </div>
+          </Link>
+          {/* <AnswersIndexContainer
+            question={question}
+            questionId={question._id}
+          /> */}
+        </div>
+      );
+    }) 
+    return <div className='all-questions'>{ques}</div>;
+  }
 }

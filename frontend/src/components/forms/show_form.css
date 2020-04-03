@@ -8,26 +8,28 @@
 .form-show {
   background: rgb(255, 227, 227);
   margin-top: 30px;
-  padding: 50px;
+  padding: 30px 50px;
   border-radius: 10px;
   width: 50%;
+  margin-bottom: 15px;
+  max-height: 100%;
   
 }
 
 .back-btn2 {
   text-decoration: none;
-  padding: 10px;
+  padding: 12px 30px;
   background: rgb(248, 183, 183);
   color: black;
   border-radius: 12px;
-  margin-top: 20px;
-  margin-left: 40px;
+  /* margin-top: 8px; */
+  /* margin-left: 40px; */
 }
 
 .form-show strong {
   font-family: fantasy;
   font-size: 45px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 #form-top {
@@ -42,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   margin-left: 10px;
   margin-right: 10px;
 
@@ -58,16 +60,61 @@
   text-decoration: none;
   background: black;
   color: white;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 18px;
+  padding-right: 18px;
   font-weight: 600;
-  font-size: 15px;
-  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 10px;
 }
 
 .all-questions {
   display: flex;
   width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-item {
+  margin-bottom: 20px;
+  background: rgb(252, 238, 238);
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.question-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.question-link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+}
+
+.question-footer button {
+  background: black;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.question-footer div {
+  font-style: italic;
+  font-size: 13px;
 }

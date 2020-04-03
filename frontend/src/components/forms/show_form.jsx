@@ -18,6 +18,7 @@ export default class ShowForm extends React.Component {
 
         return (
           <div className="create-form">
+            
             <Link
               className="back-btn2" to={`/users/${this.props.currentUserID}`}>Go Back
             </Link>
@@ -30,17 +31,10 @@ export default class ShowForm extends React.Component {
                   <div>Category: {this.props.form.category}</div>
                 </div>
               </div>
-              <div className="all-questions">
-                <QuestionsIndex
-                  key={this.props.form_id}
-                  formId={this.props.form_id}
-                />
-              </div>
-              <div>
-                <button>
-                  <Link to={`/questions`}>Create Questions</Link>
-                </button>
-              </div>
+              <QuestionsIndex
+                key={this.props.form_id}
+                formId={this.props.form_id}
+              />
             </div>
           </div>
         );

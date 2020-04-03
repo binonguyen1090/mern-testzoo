@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './create_q.css'
 
 export default class CreateQuestionForm extends React.Component {
     constructor(props) {
@@ -13,7 +13,7 @@ export default class CreateQuestionForm extends React.Component {
           form: props.form._id,
           text: "",
           difficulty: "",
-          points: 0
+          points: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,38 +44,41 @@ export default class CreateQuestionForm extends React.Component {
     render() {
         // if (!text) return ""
         return (
-          <div>
-            <h1>Create questions</h1>
+          <div className="create-ques">
+            <div id='user-form-header'>
+              <h1>Create question</h1>
+              <Link className='back-btn' to={`/forms/${this.props.form._id}`}> Go Back</Link>
+            </div>
             <form onSubmit={this.handleSubmit}>
-              <div>
+              
                 <input
+                  className='q-text'
                   type="textarea"
                   value={this.state.text}
                   onChange={this.update("text")}
-                  placeholder="text"
+                  placeholder="Question"
                 />
-                <br />
-                <input
-                  type="textarea"
-                  value={this.state.difficulty}
-                  onChange={this.update("difficulty")}
-                  placeholder="difficulty"
-                />
-                <br />
-                <br />
-                <input
-                  type="textarea"
-                  value={this.state.points}
-                  onChange={this.update("points")}
-                  placeholder="points"
-                />
-                <br />
-                
-                <input type="submit" value="Submit" />
-                <button>
-                  <Link to={`/forms/${this.props.form._id}`}>Back</Link>
-                </button>
-              </div>
+                <div>
+                  <input
+                    className='q-diff'
+                    type="textarea"
+                    value={this.state.difficulty}
+                    onChange={this.update("difficulty")}
+                    placeholder="difficulty level (1-3)"
+                  />
+                  
+                  <input
+                    className='q-diff'
+                    type="textarea"
+                    value={this.state.points}
+                    onChange={this.update("points")}
+                    placeholder="Pts question is worth"
+                  />
+                </div>
+                <div id='submit-create2'>
+                  <input type="submit" value="Submit" />
+                </div>
+              
             </form>
             <br />
           </div>

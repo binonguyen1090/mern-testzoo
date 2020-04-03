@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background: black;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 40px;
 }
 
@@ -15,7 +15,6 @@
 
 .create-form form {
   padding: 60px 90px;
-  
   background: rgb(255, 227, 227);
   border-radius: 15px;
 
@@ -30,8 +29,6 @@
   border-radius: 10px;
   background: rgb(250, 234, 234);
   margin-bottom: 20px;
-
-  
 }
 
 #submit-create input {
