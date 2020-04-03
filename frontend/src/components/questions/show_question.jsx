@@ -21,17 +21,18 @@ export default class QuestionShow extends React.Component {
     const {question} = this.props
   // const ques = this.props.questions.map(question => {
     return (
-      <div>
-        <Link to={`/forms/${question.form}`}>Go Back</Link>
-        <div>{question.text}</div>
-        <button>
-          <Link to={`/answers/${question._id}`}>Create New Answers</Link>
-        </button>
-        <div key={question._id}>
-          <AnswersIndexContainer
-            question={question}
-            questionId={question._id}
-          />
+      <div className='show-q'>
+        <Link className='back-btn2' to={`/forms/${question.form}`}>Go Back</Link>
+        <div className='q-show'>
+          <strong>Q: {question.text}</strong>
+          <Link className='create-ans' to={`/answers/${question._id}`}>Create A New Answer</Link>
+          <div id='answers-holder'>Answers:</div>
+          <div className='answers-box' key={question._id}>
+            <AnswersIndexContainer
+              question={question}
+              questionId={question._id}
+            />
+          </div>
         </div>
       </div>
     );
