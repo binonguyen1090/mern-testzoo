@@ -66,35 +66,40 @@ export default class CreateAnswerForm extends React.Component {
                      <div>
                        <h1>Create Answer for this:</h1>
 
-                       <form onSubmit={this.handleSubmit}>
-                         <div>
-                           <input
-                             type="textarea"
-                             value={this.state.correct}
-                             onChange={this.update("correct")}
-                             placeholder="True or False"
-                           />
-                           <br />
-                           <input
-                             type="textarea"
-                             value={this.state.body}
-                             onChange={this.update("body")}
-                             placeholder="body"
-                           />
-                           <br />
-                           <input type="submit" value="Submit" />
-                           <button>
-                             <Link to={`/forms/${this.props.form._id}`}>
-                               Back
-                             </Link>
-                           </button>
-                           {this.renderErrors()}
-                         </div>
-                       </form>
-                       <br />
-                     </div>
-                   );
-                 }
-               }
+
+  render() {
+    return (
+      <div className="show-q">
+        <Link className="back-btn" to={`/forms/${this.props.form._id}`}>
+          Go Back
+        </Link>
+        <form onSubmit={this.handleSubmit}>
+          {/* <h3>Create Answer:</h3> */}
+          <div id='ans-form-holder'>
+            <input
+              id='ans-input1'
+              type="textarea"
+              value={this.state.body}
+              onChange={this.update("body")}
+              placeholder="Enter answer here"
+            />
+            <input
+              id='ans-input2'
+              type="textarea"
+              value={this.state.correct}
+              onChange={this.update("correct")}
+              placeholder="True/False"
+            />
+          </div>
+          <div id="submit-create2">
+            <input type="submit" value="Create Answer" />
+          </div>
+        </form>
+        <br />
+      </div>
+    );
+  }
+}
+
 
 // export default TweetCompose;

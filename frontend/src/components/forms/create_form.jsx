@@ -56,7 +56,10 @@ export default class CreateForm extends React.Component {
       }
         return (
           <div className='create-form'>
-            <h1>Create test</h1>
+            <div id='user-form-header'>
+              <h1>Create test</h1>
+              <Link className='back-btn' to="/">Go back</Link>
+            </div>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <input
@@ -73,12 +76,11 @@ export default class CreateForm extends React.Component {
                   placeholder="Category"
                 />
                 <br />
-                <div> 
-                    <input type="submit" value="Submit" />
+                <div id='submit-create'>
+                    <input type="submit" value="Create" />
                 </div>
-                <button>
-                  <Link to="/">Back</Link>
-                </button>
+                
+
                 {this.renderErrors()}
               </div>
             </form>

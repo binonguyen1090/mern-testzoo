@@ -1,11 +1,10 @@
 .create-form {
   display: flex;
   flex-direction: column;
-  
   align-items: center;
   background: black;
-  height: 100vh;
-  padding-top: 50px;
+  min-height: 100vh;
+  padding-top: 40px;
 }
 
 .create-form h1 {
@@ -15,18 +14,34 @@
 }
 
 .create-form form {
-  padding: 100px;
-  background: rgb(250, 234, 234);
+  padding: 60px 90px;
+  background: rgb(255, 227, 227);
   border-radius: 15px;
+
 }
 
 .create-form input {
   outline: none;
-  border: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  border: 1px solid black;
+  padding: 14px;
   margin: 10px;
   font-size: 20px;
   border-radius: 10px;
-  
+  background: rgb(250, 234, 234);
+  margin-bottom: 20px;
+}
+
+#submit-create input {
+  background: black;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 84px;
+  margin-top: 15px;
 }

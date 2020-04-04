@@ -142,7 +142,7 @@ export default class FormIndex extends React.Component {
             </Link>
           ))}
         </div>
-        <h2>All Forms</h2>
+        <h2>All Tests</h2>
         <div className="form-item">
           {forms.map((form, idx) => (
             <Link id='link-forms' to={`/games/forms/${form._id}`}>

@@ -2,19 +2,21 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './create_q.css'
 
 export default class CreateQuestionForm extends React.Component {
                  constructor(props) {
                    super(props);
 
-                   this.state = {
-                     form: props.form._id,
-                     text: "",
-                     difficulty: "",
-                     points: 0,
-                     errors: {}
-                   };
+
+       this.state = {
+         form: props.form._id,
+         text: "",
+         difficulty: "",
+         points: 0,
+         errors: {}
+       };
+
 
                    this.handleSubmit = this.handleSubmit.bind(this);
                    this.renderErrors = this.renderErrors.bind(this);
@@ -63,51 +65,54 @@ export default class CreateQuestionForm extends React.Component {
                      });
                  }
 
-                 render() {
-                   if (!this.props.errors) {
-                     return [];
-                   }
-                   return (
-                     <div>
-                       <h1>Create questions</h1>
-                       <form onSubmit={this.handleSubmit}>
-                         <div>
-                           <input
-                             type="textarea"
-                             value={this.state.text}
-                             onChange={this.update("text")}
-                             placeholder="text"
-                           />
-                           <br />
-                           <input
-                             type="textarea"
-                             value={this.state.difficulty}
-                             onChange={this.update("difficulty")}
-                             placeholder="difficulty"
-                           />
-                           <br />
-                           <br />
-                           <input
-                             type="textarea"
-                             value={this.state.points}
-                             onChange={this.update("points")}
-                             placeholder="points"
-                           />
-                           <br />
 
-                           <input type="submit" value="Submit" />
-                           <button>
-                             <Link to={`/forms/${this.props.form._id}`}>
-                               Back
-                             </Link>
-                           </button>
-                           {this.renderErrors()}
-                         </div>
-                       </form>
-                       <br />
-                     </div>
-                   );
-                 }
-               }
+    render() {
+        if (!this.props.errors) {
+          return [];
+        }
+        // if (!text) return ""
+        return (
+          <div className="create-ques">
+            <div id='user-form-header'>
+              <h1>Create question</h1>
+              <Link className='back-btn' to={`/forms/${this.props.form._id}`}> Go Back</Link>
+            </div>
+            <form onSubmit={this.handleSubmit}>
+              
+                <input
+                  className='q-text'
+                  type="textarea"
+                  value={this.state.text}
+                  onChange={this.update("text")}
+                  placeholder="Question"
+                />
+                <div>
+                  <input
+                    className='q-diff'
+                    type="textarea"
+                    value={this.state.difficulty}
+                    onChange={this.update("difficulty")}
+                    placeholder="difficulty level (1-3)"
+                  />
+                  
+                  <input
+                    className='q-diff'
+                    type="textarea"
+                    value={this.state.points}
+                    onChange={this.update("points")}
+                    placeholder="Pts question is worth"
+                  />
+                </div>
+                <div id='submit-create2'>
+                  <input type="submit" value="Create" />
+                </div>
+                {this.renderErrors()}
+            </form>
+            <br />
+          </div>
+        );
+    }
+}
+
 
 // export default TweetCompose;
