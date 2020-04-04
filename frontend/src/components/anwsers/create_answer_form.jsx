@@ -58,16 +58,12 @@ export default class CreateAnswerForm extends React.Component {
                      });
                  }
 
-                 render() {
-                   if (!this.props.errors) {
-                     return [];
-                   }
-                   return (
-                     <div>
-                       <h1>Create Answer for this:</h1>
-
+                
 
   render() {
+    if (!this.props.errors) {
+      return [];
+    }
     return (
       <div className="show-q">
         <Link className="back-btn" to={`/forms/${this.props.form._id}`}>

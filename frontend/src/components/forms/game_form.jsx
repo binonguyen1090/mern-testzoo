@@ -27,11 +27,14 @@ startGameClick(e){
 
   render() {
     const scoreBoard = this.props.prevGames.map(game => (
-          <li>
-            {game.score}
-            <br/>
-            <GetUser user_id={game.user} />
-          </li>
+          <div id='scores-item'>
+            <div id='score-item-user'>
+              <GetUser user_id={game.user} />
+            </div>
+            <div id='score-item-score' >
+              Score: {game.score}
+            </div>
+          </div>
         ))
     return (
       <div className="create-game">
@@ -43,15 +46,17 @@ startGameClick(e){
             <strong>{this.props.form.title}</strong>
             <div id="game-cat">Category: {this.props.form.category}</div>
           </div>
+          <div id='button-holder'>
+            <button onClick={this.startGameClick}>Click to take this test!</button>
+          </div>
           
-          <button onClick={this.startGameClick}>Start the Game</button>
             {/* <Link to={`/game/${this.props.game._id}`}>Go</Link> */}
            
-          <div>
-            <h2>ScoreBoard</h2>
-            <ul>
+          <div className='prev-attempts'>
+            <h2>Previous attempts by users:</h2>
+            <div id='scoreboard'>
               {scoreBoard}
-            </ul>
+            </div>
           </div>
         </div>   
       </div>
