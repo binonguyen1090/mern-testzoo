@@ -4,39 +4,68 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default class CreateAnswerForm extends React.Component {
-  constructor(props) {
-    super(props);
+                 constructor(props) {
+                   super(props);
 
-    this.state = {
-      question: props.question_id,
-      correct: "",
-      body: ""
-    };
+                   this.state = {
+                     question: props.question_id,
+                     correct: "",
+                     body: "",
+                     errors: {}
+                   };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+                   this.handleSubmit = this.handleSubmit.bind(this);
+                   this.renderErrors = this.renderErrors.bind(this);
+                 }
 
-  // componentWillReceiveProps(nextProps) {
-  //     this.setState({ newTweet: nextProps.newTweet.text });
-  // }
+                 componentDidMount() {
+                   this.props.clearErrors();
+                 }
+                 handleSubmit(e) {
+                   e.preventDefault();
+                   const { form, question_id } = this.props;
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const { form, question_id } = this.props;
+                   //  this.props
+                   //    .composeAnswer(this.state)
+                   //    .then(
+                   //      this.props.history.push(`/questions/${question_id}`)
+                   //    );
 
-    this.props
-      .composeAnswer(this.state)
-      .then(this.props.history.push(`/questions/${question_id}`));
+                   this.props.composeAnswer(this.state).then(result => {
+                     if (Object.keys(result).includes("answer")) {
+                       this.props.history.push(`/questions/${question_id}`);
+                     } else {
+                       this.setState({ errors: result.errors });
+                     }
+                   });
+                 }
+                 renderErrors() {
+                   return (
+                     <ul>
+                       {Object.keys(this.props.errors).map((error, i) => (
+                         <li className="session-errors" key={`error-${i}`}>
+                           {this.props.errors[error]}
+                         </li>
+                       ))}
+                     </ul>
+                   );
+                 }
 
-;
-  }
+                 update(v) {
+                   return e =>
+                     this.setState({
+                       [v]: e.target.value
+                     });
+                 }
 
-  update(v) {
-    return e =>
-      this.setState({
-        [v]: e.target.value
-      });
-  }
+                 render() {
+                   if (!this.props.errors) {
+                     return [];
+                   }
+                   return (
+                     <div>
+                       <h1>Create Answer for this:</h1>
+
 
   render() {
     return (
@@ -71,5 +100,6 @@ export default class CreateAnswerForm extends React.Component {
     );
   }
 }
+
 
 // export default TweetCompose;

@@ -5,43 +5,71 @@ import { Link } from "react-router-dom";
 import './create_q.css'
 
 export default class CreateQuestionForm extends React.Component {
-    constructor(props) {
-        super(props);
+                 constructor(props) {
+                   super(props);
 
-        this.state = {
-        
-          form: props.form._id,
-          text: "",
-          difficulty: "",
-          points: ''
-        };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+       this.state = {
+         form: props.form._id,
+         text: "",
+         difficulty: "",
+         points: 0,
+         errors: {}
+       };
 
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({ newTweet: nextProps.newTweet.text });
-    // }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        
-        const { form } = this.props
+                   this.handleSubmit = this.handleSubmit.bind(this);
+                   this.renderErrors = this.renderErrors.bind(this);
+                 }
 
-        this.props
-          .composeQuestion(this.state)
-          .then(this.props.history.push(`/forms/${form._id}`));
+                 componentDidMount() {
+                   this.props.clearErrors();
+                 }
 
-    }
+                 handleSubmit(e) {
+                   debugger;
+                   e.preventDefault();
+                   const { form } = this.props;
+                   this.props.composeQuestion(this.state).then(result => {
+                     if (Object.keys(result).includes("question")) {
+                       debugger;
+                       this.props.history.push(`/forms/${form._id}`);
+                     } else {
+                       debugger;
+                       this.setState({ errors: result.errors });
+                     }
+                   });
 
-    update(v) {
-        return (e) =>
-            this.setState({
-                [v]: e.target.value
-            });
-    }
+                   //    const { form } = this.props;
+
+                   //    this.props
+                   //      .composeQuestion(this.state)
+                   //      .then(this.props.history.push(`/forms/${form._id}`));
+                 }
+
+                 renderErrors() {
+                   return (
+                     <ul>
+                       {Object.keys(this.props.errors).map((error, i) => (
+                         <li className="session-errors" key={`error-${i}`}>
+                           {this.props.errors[error]}
+                         </li>
+                       ))}
+                     </ul>
+                   );
+                 }
+                 update(v) {
+                   return e =>
+                     this.setState({
+                       [v]: e.target.value
+                     });
+                 }
+
 
     render() {
+        if (!this.props.errors) {
+          return [];
+        }
         // if (!text) return ""
         return (
           <div className="create-ques">
@@ -78,12 +106,13 @@ export default class CreateQuestionForm extends React.Component {
                 <div id='submit-create2'>
                   <input type="submit" value="Create" />
                 </div>
-              
+                {this.renderErrors()}
             </form>
             <br />
           </div>
         );
     }
 }
+
 
 // export default TweetCompose;

@@ -49,13 +49,45 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  handleDemo(e) {
+  handleDemo(e, speed = 110) {
+   
+    // this.props.login(demo);
     e.preventDefault();
-    let demo = {
-      email: "demo@yahoo.com",
-      password: "123123"
+    const user = { email: "demo@yahoo.com", password: "123123" };
+    let { email, password } = user;
+    if (this.state.email !== email) {
+      const inputUser = setInterval(() => {
+        if (this.state.email !== email) {
+          const temp = email.slice(0, this.state.email.length + 1);
+          this.setState({ email: temp });
+        } else {
+          clearInterval(inputUser);
+          animatePassword();
+        }
+      }, speed);
+    }
+
+    const animatePassword = () => {
+      const inputPassword = setInterval(() => {
+        if (this.state.password !== password)
+          this.setState({
+            password: password.slice(0, this.state.password.length + 1)
+          });
+        else {
+          clearInterval(inputPassword);
+          login();
+        }
+      }, speed);
     };
-    this.props.login(demo);
+    const login = () => {
+      this.props.login(this.state);
+      this.setState({ username: "", password: "" });
+    };
+
+
+
+
+
   }
 
   // Render the session errors if there are any
@@ -63,7 +95,7 @@ class LoginForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li className="session-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );

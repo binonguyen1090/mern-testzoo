@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import './create_form.css';
 
 export default class CreateForm extends React.Component {
@@ -8,18 +8,30 @@ export default class CreateForm extends React.Component {
 
         this.state = {
             title: "",
-            category: ""
+            category: "",
+            errors: {}
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.renderErrors = this.renderErrors.bind(this);
+
     }
+     
+    componentDidMount(){
+      this.props.clearErrors();
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props
-          .composeForm(this.state)
-          .then(this.props.history.push("/home"));
 
+        this.props.composeForm(this.state).then(result => {
+          if (Object.keys(result).includes('form')){
+            (this.props.history.push(`/users/${this.props.currentUser.id}`))
+          }else{
+            this.setState({ errors: result.errors });
+          }
+        } )
     }
 
     update(v) {
@@ -29,7 +41,19 @@ export default class CreateForm extends React.Component {
             });
     }
 
+    renderErrors() {
+      return (
+        <ul>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li className="session-errors" key={`error-${i}`}>{this.props.errors[error]}</li>
+          ))}
+        </ul>
+      );
+    }
     render() {
+      if (!this.props.errors) {
+        return []
+      }
         return (
           <div className='create-form'>
             <div id='user-form-header'>
@@ -44,7 +68,7 @@ export default class CreateForm extends React.Component {
                   onChange={this.update("title")}
                   placeholder="Title"
                 />
-                <br />
+                <br/>
                 <input
                   type="textarea"
                   value={this.state.category}
@@ -56,6 +80,8 @@ export default class CreateForm extends React.Component {
                     <input type="submit" value="Create" />
                 </div>
                 
+
+                {this.renderErrors()}
               </div>
             </form>
             <br />
