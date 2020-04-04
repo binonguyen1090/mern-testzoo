@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
 // import QuestionsIndex from "../questions/questions_index_container"
 import './game_form.css'
 export default class GameForm extends React.Component {
@@ -15,21 +16,31 @@ export default class GameForm extends React.Component {
 
   startGameClick(e){
       e.preventDefault()
-      this.props.startGame({form: this.props.form._id, user: this.props.currentUser.id})
-  }
+      this.props.startGame({form: this.props.form._id, user: this.props.currentUser.id});
+      // return <Redirect to={`/game/${this.props.game._id}`}>Go</Redirect>
+      // this.props.history.push(`/game/${this.props.game._id}`);
+      document.querySelector('.game-ready').style.display = 'none';
+      document.querySelector('.startgame-btn').style.display = 'flex';
+      
+    }
 
   render() {
     return (
-      <div>
-        <h1>Ready To Play?</h1>
-        <h1>{this.props.form.title}</h1>
-        <h1>{this.props.form.category}</h1>
-        <button onClick={this.startGameClick}>Start the Game</button>
-        <Link to={`/game/${this.props.game._id}`}>Go</Link>
-        <div>
-          <button>
-            <Link to={`/home`}>Back</Link>
-          </button>
+      <div className="create-game">
+        <Link className="back-btn" to={`/home`}>
+          Go Back
+        </Link>
+        <div className="game-form">
+          <div id='game-form-top'>
+            <strong>{this.props.form.title}</strong>
+            <div id="game-cat">Category: {this.props.form.category}</div>
+          </div>
+          <div className='game-ready'>
+            <h3>Ready to take this test?</h3>
+            <button onClick={this.startGameClick}>YES!</button>
+            <Link id='no-link' to={`/home`}>NO :(</Link>
+          </div>
+          <Link className='startgame-btn' to={`/game/${this.props.game._id}`}>Click to Begin!</Link>
         </div>
       </div>
     );
