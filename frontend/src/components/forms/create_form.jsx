@@ -53,7 +53,7 @@ export default class CreateForm extends React.Component {
                 />
                 <br />
                 <div id='submit-create'>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Create" />
                 </div>
                 
               </div>
