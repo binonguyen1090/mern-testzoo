@@ -26,7 +26,10 @@ startGameClick(e){
     }
 
   render() {
-    const scoreBoard = this.props.prevGames.map(game => (
+    debugger
+    let scoreBoard;
+    if (this.props.prevGames instanceof Array){
+      scoreBoard = this.props.prevGames.map(game => (
           <div id='scores-item'>
             <div id='score-item-user'>
               <GetUser user_id={game.user} />
@@ -35,7 +38,9 @@ startGameClick(e){
               Score: {game.score}
             </div>
           </div>
-        ))
+        ))}else{
+          scoreBoard = []
+        }
     return (
       <div className="create-game">
         <Link className="back-btn" to={`/home`}>

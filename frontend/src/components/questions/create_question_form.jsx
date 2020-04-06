@@ -27,15 +27,12 @@ export default class CreateQuestionForm extends React.Component {
                  }
 
                  handleSubmit(e) {
-                   debugger;
                    e.preventDefault();
                    const { form } = this.props;
                    this.props.composeQuestion(this.state).then(result => {
                      if (Object.keys(result).includes("question")) {
-                       debugger;
                        this.props.history.push(`/forms/${form._id}`);
                      } else {
-                       debugger;
                        this.setState({ errors: result.errors });
                      }
                    });

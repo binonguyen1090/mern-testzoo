@@ -90,6 +90,7 @@ export default class CreateAnswerForm extends React.Component {
           <div id="submit-create2">
             <input type="submit" value="Create Answer" />
           </div>
+          {this.renderErrors()}
         </form>
         <br />
       </div>
