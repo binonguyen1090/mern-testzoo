@@ -26,7 +26,6 @@ startGameClick(e){
     }
 
   render() {
-    debugger
     let scoreBoard;
     if (this.props.prevGames instanceof Array){
       scoreBoard = this.props.prevGames.map(game => (
