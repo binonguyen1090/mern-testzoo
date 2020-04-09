@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
         game: state.games.all || {},
         formId: state.games.new.form || "",
         form: state.forms.form || {},
-        // questions: state.questions.all || [],
+        questions: state.questions.all || []
     };
 };
 
@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => {
         fetchGame: gameId => dispatch(fetchGame(gameId)),
         updateGame: (gameId, game) => dispatch(updateGame(gameId, game)),
         fetchForm: (formId) => dispatch(fetchForm(formId)),
+        fetchQuestions: (formId) => dispatch(fetchQuestions(formId)),
     };
 };
 

@@ -15,6 +15,7 @@ export default class GameForm extends React.Component {
   componentDidMount() {
       this.props.fetchForm(this.props.form_id);
       this.props.fetchGames(this.props.form_id);
+      this.props.fetchQuestions(this.props.form_id)
   }
 
 startGameClick(e){
@@ -27,6 +28,7 @@ startGameClick(e){
 
   render() {
     let scoreBoard;
+    let allQuest = this.props.questions.length
     if (this.props.prevGames instanceof Array){
       scoreBoard = this.props.prevGames.map(game => (
           <div id='scores-item'>
@@ -34,7 +36,7 @@ startGameClick(e){
               <GetUser user_id={game.user} />
             </div>
             <div id='score-item-score' >
-              Score: {game.score}
+              Grade: {game.score / allQuest * 100} %
             </div>
           </div>
         ))}else{
