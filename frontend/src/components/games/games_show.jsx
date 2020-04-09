@@ -5,6 +5,9 @@ import "./game_show.css";
 export default class GameShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+        score: 0
+    }
     this.getPoints = this.getPoints.bind(this);
   }
 
@@ -13,6 +16,7 @@ export default class GameShow extends React.Component {
     if (this.props.formId !== "") {
       this.props.fetchForm(this.props.formId);
     }
+    this.props.fetchQuestions(this.props.formId)
   }
 
   handlePlusPoints(e) {
@@ -25,18 +29,20 @@ export default class GameShow extends React.Component {
 
   getPoints(e) {
     e.preventDefault();
-    this.props.fetchGame(this.props.gameId);
-    this.props.history.push(`/games/forms/${this.props.formId}`);
-
+    this.props.fetchGame(this.props.gameId)
+        // .then(result => console.log(result.game.data.score))
+        .then(result => this.setState({
+            score: result.game.data.score / this.props.questions.length * 100
+        }))
+    // this.props.history.push(`/games/forms/${this.props.formId}`);
   }
 
   render() {
-    
     return (
       <div className="gamepage">
         <div className="gamestart-form">
           <div id="current-score">
-            Current Score: {this.props.game.score} Correct
+            Current Score: {this.state.score} %
           </div>
           <br />
           <GameQuestionsContainer
@@ -49,6 +55,7 @@ export default class GameShow extends React.Component {
             <button className="game-submit" onClick={this.getPoints}>
               Submit Test
             </button>
+            <Link to={`/games/forms/${this.props.formId}`}>Go back</Link>
           </div>
         </div>
       </div>
