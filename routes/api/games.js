@@ -49,11 +49,7 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
-    // Game.findByIdAndUpdate(req.params.id, (game) => {
-    //   game.score = req.body.score    
-    //   game.save().then(Game => res.json(Game));
-    // })
-    Game.findByIdAndUpdate(req.params.id,{score: req.body.score}, (err, game) => {
+    Game.findByIdAndUpdate(req.params.id, {$set: {score: req.body.score}}, {new: true}, (err, game) => {
           if (err) return res.status(422).json({ updateFail: err });
           game.save().then(Game => res.json(Game));
       })
