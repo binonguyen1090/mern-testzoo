@@ -6,7 +6,7 @@ export default class GameShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        score: 0
+        finalScore: 0
     }
     this.getPoints = this.getPoints.bind(this);
   }
@@ -21,6 +21,7 @@ export default class GameShow extends React.Component {
 
   handlePlusPoints(e) {
     e.preventDefault();
+    // document.getElementById(`${this.props.questionId}`).style.display = 'none'
     const points = this.props.game.score;
     if (e.currentTarget.value === "true" || e.currentTarget.value === 'True') {
       this.props.updateGame(this.props.gameId, { score: points + 1 });
@@ -32,7 +33,7 @@ export default class GameShow extends React.Component {
     this.props.fetchGame(this.props.gameId)
         // .then(result => console.log(result.game.data.score))
         .then(result => this.setState({
-            score: result.game.data.score / this.props.questions.length * 100
+          finalScore: result.game.data.score / this.props.questions.length * 100
         }))
         document.querySelector('.game-submit2').style.display = 'flex'
         document.querySelector('.game-submit').style.display = 'none'
@@ -47,7 +48,7 @@ export default class GameShow extends React.Component {
     return (
       <div className="gamepage">
         <div className="gamestart-form">
-          <div id='current-score'>You scored {this.state.score} % </div>
+          <div id='current-score'>You scored {this.state.finalScore} % </div>
           <p id='gamepage-p'>Feel free to compare your score with other users' scores (or try again) after exiting!</p>
           <br />
           <div className='all-game-qs'>
