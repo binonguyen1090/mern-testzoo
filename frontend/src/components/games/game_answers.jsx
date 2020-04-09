@@ -4,6 +4,7 @@ export default class GameAnswers extends React.Component{
   constructor(props){
     super(props)
     this.handlePlus = this.props.handlePlus.bind(this)
+    this.handleE = this.handleE.bind(this);
   }
 
   componentDidMount(){
@@ -11,10 +12,11 @@ export default class GameAnswers extends React.Component{
         this.props.fetchQuestionAnswers(this.props.questionId)
     }
   }
-
-  // handleE() {
-  //   document.querySelector(`#${questionAnswer._id}`).style.background = 'black'
-  // }
+  
+  handleE() {
+    console.log(this.props.questionId)
+    document.getElementById(`${this.props.questionId}`).style.display = 'none'
+  }
 
   render(){
     const questId = this.props.questionId
