@@ -21,11 +21,19 @@
 
 #current-score {
   /* font-family: fantasy; */
-  font-size: 30px;
+  font-size: 45px;
   padding-bottom: 5px;
   margin-top: 10px;
   border-bottom: 5px solid black;
+  display: none;
 }
+
+.gamestart-form p {
+  display: none;
+}
+/* #current-score-holder {
+  display: none;
+} */
 
 .game-question {
   display: flex;
@@ -69,6 +77,11 @@
   cursor: pointer;
 }
 
+.game-answer button:hover {
+  background: black;
+  color: white;
+}
+
 .game-submit {
   display: flex;
   align-items: center;
@@ -82,6 +95,22 @@
   border-radius: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+.game-submit2 {
+  text-decoration: none;
+  /* display: flex; */
+  align-items: center;
+  width: 200px;
+  padding: 22px;
+  font-size: 20px;
+  color: white;
+  background: black;
+  outline: none;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: none;
 }
 
 .game-submit-holder {

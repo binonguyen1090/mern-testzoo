@@ -12,10 +12,13 @@ export default class GameAnswers extends React.Component{
     }
   }
 
+  // handleE() {
+  //   document.querySelector(`#${questionAnswer._id}`).style.background = 'black'
+  // }
 
   render(){
     const questId = this.props.questionId
-    let itAnswer
+    let itAnswer;
     if (this.props.answers.hasOwnProperty(questId)) {
       itAnswer = this.props.answers[questId]
     }
@@ -23,7 +26,7 @@ export default class GameAnswers extends React.Component{
       <div className='game-answer'>
         {
         itAnswer && itAnswer.map(questionAnswer => (
-          <button onClick={this.handlePlus} value={questionAnswer.correct}>{questionAnswer.body}</button>
+          <button onClick={this.handlePlus && this.handleE} id={questionAnswer._id} value={questionAnswer.correct}>{questionAnswer.body}</button>
         ))
         }
       </div>

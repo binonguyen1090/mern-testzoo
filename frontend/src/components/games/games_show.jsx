@@ -22,7 +22,7 @@ export default class GameShow extends React.Component {
   handlePlusPoints(e) {
     e.preventDefault();
     const points = this.props.game.score;
-    if (e.currentTarget.value === "true") {
+    if (e.currentTarget.value === "true" || e.currentTarget.value === 'True') {
       this.props.updateGame(this.props.gameId, { score: points + 1 });
     }
   }
@@ -34,6 +34,12 @@ export default class GameShow extends React.Component {
         .then(result => this.setState({
             score: result.game.data.score / this.props.questions.length * 100
         }))
+        document.querySelector('.game-submit2').style.display = 'flex'
+        document.querySelector('.game-submit').style.display = 'none'
+        document.querySelector('#current-score').style.display = 'flex'
+        document.querySelector('#gamepage-p').style.display = 'flex'
+        document.querySelector('.all-game-qs').style.display = 'none'
+
     // this.props.history.push(`/games/forms/${this.props.formId}`);
   }
 
@@ -41,21 +47,22 @@ export default class GameShow extends React.Component {
     return (
       <div className="gamepage">
         <div className="gamestart-form">
-          <div id="current-score">
-            Current Score: {this.state.score} %
-          </div>
+          <div id='current-score'>You scored {this.state.score} % </div>
+          <p id='gamepage-p'>Feel free to compare your score with other users' scores (or try again) after exiting!</p>
           <br />
-          <GameQuestionsContainer
-            handlePlus={this.handlePlusPoints}
-            form={this.props.form}
-            gameId={this.props.gameId}
-            game={this.props.game}
-          />
+          <div className='all-game-qs'>
+            <GameQuestionsContainer
+              handlePlus={this.handlePlusPoints}
+              form={this.props.form}
+              gameId={this.props.gameId}
+              game={this.props.game}
+            />
+          </div>
           <div className="game-submit-holder">
             <button className="game-submit" onClick={this.getPoints}>
-              Submit Test
+              Get your score!
             </button>
-            <Link to={`/games/forms/${this.props.formId}`}>Go back</Link>
+            <Link className='game-submit2' to={`/games/forms/${this.props.formId}`}>Click to Exit</Link>
           </div>
         </div>
       </div>

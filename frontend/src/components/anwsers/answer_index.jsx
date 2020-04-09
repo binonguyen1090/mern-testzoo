@@ -21,7 +21,11 @@ export default class AnswersIndex extends React.Component{
         {
           this.props.answers.map(ans => {
             if (ans.question === this.props.questionId){
-              return <div className='each-ans'  key={ans.id}>{ans.body}</div>;
+              if (ans.correct === 'True' || ans.correct === 'true') {
+                return <div className='each-ans2' key={ans.id}>{ans.body}</div>;
+              } else {
+                return <div className='each-ans'  key={ans.id}>{ans.body}</div>;
+              }
             }
           }) 
         }

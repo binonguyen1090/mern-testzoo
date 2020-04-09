@@ -30,18 +30,26 @@ startGameClick(e){
     let scoreBoard;
     let allQuest = this.props.questions.length
     if (this.props.prevGames instanceof Array){
-      scoreBoard = this.props.prevGames.map(game => (
+      if (this.props.prevGames.length < 1) {
+        scoreBoard = [1].map(i => (
+          <span>No one has attempted this test yet, be the first!</span>
+        ))
+      } else {
+        scoreBoard = this.props.prevGames.slice(0, 12).map(game => (
           <div id='scores-item'>
             <div id='score-item-user'>
               <GetUser user_id={game.user} />
             </div>
             <div id='score-item-score' >
-              Grade: {game.score / allQuest * 100} %
+              {game.score / allQuest * 100}
             </div>
+            <p>%</p>
           </div>
-        ))}else{
-          scoreBoard = []
-        }
+        ))}
+      } else {
+        scoreBoard = []
+      }
+
     return (
       <div className="create-game">
         <Link className="back-btn" to={`/home`}>
