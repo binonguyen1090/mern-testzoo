@@ -4,6 +4,7 @@ export default class GameAnswers extends React.Component{
   constructor(props){
     super(props)
     this.handlePlus = this.props.handlePlus.bind(this)
+    this.handleE = this.handleE.bind(this);
   }
 
   componentDidMount(){
@@ -11,11 +12,15 @@ export default class GameAnswers extends React.Component{
         this.props.fetchQuestionAnswers(this.props.questionId)
     }
   }
-
+  
+  handleE() {
+    console.log(this.props.questionId)
+    document.getElementById(`${this.props.questionId}`).style.display = 'none'
+  }
 
   render(){
     const questId = this.props.questionId
-    let itAnswer
+    let itAnswer;
     if (this.props.answers.hasOwnProperty(questId)) {
       itAnswer = this.props.answers[questId]
     }
@@ -23,7 +28,7 @@ export default class GameAnswers extends React.Component{
       <div className='game-answer'>
         {
         itAnswer && itAnswer.map(questionAnswer => (
-          <button onClick={this.handlePlus} value={questionAnswer.correct}>{questionAnswer.body}</button>
+          <button onClick={this.handlePlus && this.handleE} id={questionAnswer._id} value={questionAnswer.correct}>{questionAnswer.body}</button>
         ))
         }
       </div>

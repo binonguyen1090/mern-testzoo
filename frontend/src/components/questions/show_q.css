@@ -78,6 +78,19 @@
   margin-bottom: 10px;
   margin-top: 10px;
 }
+.each-ans2 {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  height: 35px;
+  font-size: 20px;
+  padding: 10px;
+  background: rgb(139, 241, 139);
+  border: 1px solid rgb(156, 154, 154);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 
 .show-q form {
   margin-top: 25px;
