@@ -118,7 +118,9 @@
 
 .splash-top {
   background: url("/signin.png");
-  height: 100vh;
+  background-repeat:no-repeat;
+  background-size:cover;
+  min-height: 97vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,8 +132,9 @@
   color: white;
   background: black;
   border-radius: 10px;
-  margin-right: 600px;
-  margin-bottom: 140px;
+  bottom: 80px;
+  position: relative;
+  width: 365px;
 }
 
 .splash-top-mid strong {
@@ -156,6 +159,31 @@
   color: rgb(247, 211, 217);
 }
 
+.splash {
+  height: 100vh;
+  background-color: black;
+  /* display: none; */
+}
+
+.splash footer {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 2.5vh;
+}
+
+.splash footer div {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.allofit {
+  max-height: 100vh;
+}
 
 
 @media screen and (max-width: 800px) {
@@ -163,7 +191,7 @@
     display: none;
   }
 }
-@media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1100px) {
   .splash-top-mid {
     margin-right: 400px;
   }
@@ -177,4 +205,4 @@
   .splash-top-mid {
     margin-right: 50px;
   }
-}
+} */
