@@ -101,7 +101,7 @@ export default class CreateQuestionForm extends React.Component {
                   />
                 </div>
                 <div id='submit-create2'>
-                  <input type="submit" value="Create" />
+                  <input type="submit" value="Create Question" />
                 </div>
                 {this.renderErrors()}
             </form>

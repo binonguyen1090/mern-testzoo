@@ -20,7 +20,7 @@ import GameShowContainer from "./games/game_show_container";
 import GameFormContainer from "./forms/game_form_container"
 
 const App = () => (
-  <div>
+  <div className='allofit'>
     <header>{/* <NavBarContainer /> */}</header>
     <Switch>
       <ProtectedRoute
