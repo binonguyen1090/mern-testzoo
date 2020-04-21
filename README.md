@@ -1,4 +1,6 @@
 # Testzoo
+Live link: https://testzoo.herokuapp.com/#/
+
 Testzoo is a test bank platform where users can create categorized, multiple-choice tests and assess their knowledge by taking other users' tests. Testzoo uses a very user-friendly and simplistic approach in allowing users to create and view their tests and post them on the platform as well.
 ![splash](https://user-images.githubusercontent.com/58091313/79033626-8d8d1180-7b64-11ea-9a54-19431e34361b.png)
 
