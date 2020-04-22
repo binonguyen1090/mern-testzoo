@@ -27,7 +27,7 @@ export default class CreateForm extends React.Component {
 
         this.props.composeForm(this.state).then(result => {
           if (Object.keys(result).includes('form')){
-            (this.props.history.push(`/users/${this.props.currentUser.id}`))
+            (this.props.history.push(`/forms/${result.form.data._id}`))
           }else{
             this.setState({ errors: result.errors });
           }
