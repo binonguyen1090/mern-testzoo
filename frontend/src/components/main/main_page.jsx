@@ -22,7 +22,7 @@ class MainPage extends React.Component {
         
         <footer>
           <div>
-            Copyright &copy; 2019 TestZoo
+            Copyright &copy; 2020 TestZoo
           </div>
         </footer>
       </div>
