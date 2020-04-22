@@ -60,11 +60,9 @@ router.patch(
       if (!isValid) {
         return res.status(400).json(errors);
       }
-
-      const updateAnswer = Answer.findById(req.params.id, (err, answer) => {
-        answer.body = req.body.body;
-        answer.correct = req.body.correct;      
-        answer.save().then(answer => res.json(answer));
+      Answer.findByIdAndUpdate(req.params.id, {$set: {correct: req.body.correct, body: req.body.body}}, {new: true}, (err, Answer) => {
+        if (err) return res.status(422).json({ updateFail: err });
+        Answer.save().then(Answer => res.json(Answer));
       })
     }
 );

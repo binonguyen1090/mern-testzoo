@@ -3,9 +3,7 @@ const validText = require("./valid_text");
 
 module.exports = function validateQuestionInput(data) {
   let errors = {};
-
   data.text = validText(data.text) ? data.text : "";
-
   if (!Validator.isLength(data.text, { min: 3, max: 100 })) {
     errors.text = "Text must be between 5 and 100 characters";
   }
@@ -14,10 +12,10 @@ module.exports = function validateQuestionInput(data) {
     errors.text = "Text field is required";
   }
 
-  data.difficulty = validText(data.difficulty) ? data.difficulty : "";
+  data.difficulty = data.difficulty ? data.difficulty : "";
 
-  if (!Validator.isLength(data.difficulty, { min: 1, max: 3 })) {
-    errors.difficulty = "Difficulty must be between 1 and 3 characters";
+  if (!["1","2","3"].includes(data.difficulty)) {
+    errors.difficulty = "Difficulty must be between 1 and 3";
   }
 
   if (Validator.isEmpty(data.difficulty)) {

@@ -70,14 +70,11 @@ router.patch(
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
       const { errors, isValid } = validateQuestionInput(req.body);
-  
       if (!isValid) {
         return res.status(400).json(errors);
       }
-
-      const updateQuestion = Question.findById(req.params.id, (err, question) => {
-        question.text = req.body.text;
-        question.difficulty = req.body.difficulty;      
+      Question.findByIdAndUpdate(req.params.id, {$set: {text: req.body.text, difficulty: req.body.difficulty}}, {new: true}, (err, question) => {
+        if (err) return res.status(422).json({ updateFail: err });
         question.save().then(Question => res.json(Question));
       })
     }
