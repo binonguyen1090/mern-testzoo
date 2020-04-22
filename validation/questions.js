@@ -4,8 +4,8 @@ const validText = require("./valid_text");
 module.exports = function validateQuestionInput(data) {
   let errors = {};
   data.text = validText(data.text) ? data.text : "";
-  if (!Validator.isLength(data.text, { min: 3, max: 100 })) {
-    errors.text = "Text must be between 5 and 100 characters";
+  if (!Validator.isLength(data.text, { min: 1, max: 100 })) {
+    errors.text = "Text must be between 1 and 100 characters";
   }
 
   if (Validator.isEmpty(data.text)) {

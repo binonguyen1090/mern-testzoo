@@ -2,7 +2,7 @@ import{
     getQuestionAnswer,
     createQuestionAnswer,
     editQuestionAnswer,
-    deleteAnswer
+    deleteAnswer, getAnswer
 } from "../util/answer_api_util";
 
 export const RECEIVE_QUESTION_ANSWERS = "RECEIVE_QUESTION_ANSWERS";
@@ -53,3 +53,10 @@ export const modifyAnswer = ( answerId, answer) => dispatch => editQuestionAnswe
 
 export const destroyAnswer = ( answerId) => dispatch => deleteAnswer( answerId)
     .then(() => dispatch(removeAnswer(answerId)), (errors) => dispatch(receiveErrors(errors.response.data)))
+
+export const fetchAnswer = answer_id => dispatch => {
+    return getAnswer(answer_id).then(
+        answer => dispatch(receiveAnswer(answer)),
+        errors => dispatch(receiveErrors(errors.response.data))
+    )
+};

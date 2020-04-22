@@ -18,16 +18,23 @@ export default class ShowForm extends React.Component {
 
         return (
           <div className="create-form">
-            
             <Link
-              className="back-btn2" to={`/users/${this.props.currentUserID}`}>Go Back
+              className="back-btn2"
+              to={`/users/${this.props.currentUserID}`}
+            >
+              Go Back
             </Link>
 
             <div className="form-show">
               <div id="form-top">
                 <strong>{this.props.form.title}</strong>
-                <div id='form-top2'>
-                  <Link className='create-question' to={`/questions`}>Create A New Question</Link>
+
+                <div id="form-top2">
+                  <Link className="create-question" to={`/questions`}>
+                    Create A New Question
+                  </Link>
+                  <Link to={`/forms/${this.props.form._id}/edit`}>Edit</Link>
+
                   <div>Category: {this.props.form.category}</div>
                 </div>
               </div>

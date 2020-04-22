@@ -66,18 +66,19 @@ router.post(
 );
 
 router.patch(
-    "/:id",
-    passport.authenticate("jwt", { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateQuestionInput(req.body);
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-      Question.findByIdAndUpdate(req.params.id, {$set: {text: req.body.text, difficulty: req.body.difficulty}}, {new: true}, (err, question) => {
-        if (err) return res.status(422).json({ updateFail: err });
-        question.save().then(Question => res.json(Question));
-      })
-    }
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // const { errors, isValid } = validateQuestionInput(req.body);
+
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
+    Question.findByIdAndUpdate(req.params.id, { $set: { text: req.body.text, difficulty: req.body.difficulty } }, { new: true }, (err, Question) => {
+      if (err) return res.status(422).json({ updateFail: err });
+      Question.save().then(Question => res.json(Question));
+    })
+  }
 );
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }),

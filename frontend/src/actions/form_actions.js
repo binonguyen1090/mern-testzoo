@@ -58,7 +58,7 @@ export const composeForm = form => dispatch =>
         errors => dispatch(receiveErrors(errors.response.data))
         )
 
-export const modifyForm = form => dispatch => editForm(form)
+export const modifyForm = (form_id, form) => dispatch => editForm(form_id,form)
     .then(form => dispatch(receiveForm(form)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
 export const destroyForm = (formId) => dispatch => deleteForm(formId)

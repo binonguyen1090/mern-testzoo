@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class AnswersIndex extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class AnswersIndex extends React.Component {
       this.props.fetchQuestionAnswers(this.props.questionId);
     });
   }
-
+  
   render() {
     return (
       <div className="answers-box2">
@@ -29,6 +30,9 @@ export default class AnswersIndex extends React.Component {
                 <div className="each-ans2" key={idx}>
                   {ans.body}
                   <div id="form-footer">
+                    <Link to={`/answers/${ans._id}/edit`}>
+                      Edit
+                    </Link>
                     <button onClick={this.handleClick} value={ans._id}>
                       Delete?
                     </button>
@@ -41,6 +45,9 @@ export default class AnswersIndex extends React.Component {
                   {ans.body}
 
                   <div id="form-footer">
+                    <Link to={`/answers/${ans._id}/edit`}>
+                      Edit
+                    </Link>
                     <button onClick={this.handleClick} value={ans._id}>
                       Delete?
                     </button>

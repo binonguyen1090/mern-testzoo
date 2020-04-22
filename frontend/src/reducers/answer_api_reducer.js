@@ -27,7 +27,7 @@ const AnswersReducer = (state = {}, action) => {
         return newState;
         
       case REECEIVE_ANSWER:
-        newState.answer = action.answer;
+        newState.answer = action.answer.data;
         return newState;
 
       case REMOVE_ANSWER:
