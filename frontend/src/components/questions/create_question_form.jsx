@@ -92,13 +92,13 @@ export default class CreateQuestionForm extends React.Component {
                     placeholder="difficulty level (1-3)"
                   />
                   
-                  <input
+                  {/* <input
                     className='q-diff'
                     type="textarea"
                     value={this.state.points}
                     onChange={this.update("points")}
                     placeholder="Pts question is worth"
-                  />
+                  /> */}
                 </div>
                 <div id='submit-create2'>
                   <input type="submit" value="Create Question" />

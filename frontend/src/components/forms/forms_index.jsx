@@ -36,7 +36,7 @@ export default class FormIndex extends React.Component {
     const sports = forms.filter(form => form.category === 'Sports');
     const movies = forms.filter(form => form.category === 'Movies');
     
-    const allCategories = forms.map(form => form.category);
+    const allCategories = forms.map((form,idx) => form.category);
     const categories = allCategories.filter((cat, i) => {
       return allCategories.indexOf(cat) === i;
     });
@@ -44,6 +44,8 @@ export default class FormIndex extends React.Component {
     // const displayCat = categories.map((cat) => {
     //   const select = forms.filter(form => {
     //     if (form.category === cat) {
+
+    
     //       return <div>1</div>;
     //     }
     //   })
