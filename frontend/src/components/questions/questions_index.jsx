@@ -23,13 +23,12 @@ export default class QuestionsIndex extends React.Component {
   render() {
     const ques = this.props.questions.map(question => {
       return (
-        <div className='question-item' key={question._id}> 
-        
-          <Link className='question-link' to={`/questions/${question._id}`}>
+        <div className="question-item" key={question._id}>
+          <Link className="question-link" to={`/questions/${question._id}`}>
             {question.text}
-          
-            <div className='question-footer'>
-              <div>Difficulty: {question.difficulty}</div>           
+
+            <div className="question-footer">
+              <div>Difficulty: {question.difficulty}</div>
               <button onClick={this.handleClick} value={question._id}>
                 DELETE
               </button>

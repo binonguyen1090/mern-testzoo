@@ -25,12 +25,14 @@ export default class UserForm extends React.Component {
   render() {
     const form = this.props.forms.map((form, idx) => (
       <div key={idx}>
-        <Link id='link-forms' to={`/forms/${form._id}`} >
-          <div className='form-index-form'>
+        <Link id="link-forms" to={`/forms/${form._id}`}>
+          <div className="form-index-form">
             <strong>{form.title}</strong>
-            <div id='form-footer'>
+            <div id="form-footer">
               <div>{form.category}</div>
-              <button onClick={this.handleClick} value={form._id}>Delete?</button>
+              <button onClick={this.handleClick} value={form._id}>
+                Delete?
+              </button>
             </div>
           </div>
         </Link>

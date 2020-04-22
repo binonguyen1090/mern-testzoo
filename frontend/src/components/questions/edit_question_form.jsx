@@ -4,16 +4,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./create_q.css";
 
-export default class CreateQuestionForm extends React.Component {
+export default class EditQuestionForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      form: props.form._id,
       text: "",
       difficulty: "",
-      points: 0,
-      errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,20 +19,21 @@ export default class CreateQuestionForm extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
+
+    this.props.fetchQuestion(this.props.question_id).then((res) => {
+      this.setState({
+        text: res.question.data.text,
+        difficulty: res.question.data.difficulty,
+      });
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const { form } = this.props;
-    this.props.composeQuestion(this.state).then((result) => {
-      if (Object.keys(result).includes("question")) {
-        this.props.history.push(`/forms/${form._id}`);
-      } else {
-        this.setState({ errors: result.errors });
-      }
-    });
 
-    
+    this.props.modifyQuestion(this.props.question_id, this.state).then(() => {
+      this.props.history.push(`/questions/${this.props.question._id}`);
+    });
   }
 
   renderErrors() {
@@ -49,12 +47,12 @@ export default class CreateQuestionForm extends React.Component {
       </ul>
     );
   }
-  update(v) {
-    return (e) =>
-      this.setState({
-        [v]: e.target.value,
-      });
-  }
+  update(type) {
+        return (e) => {
+            this.setState({[type]: e.target.value})
+        }
+    }
+
 
   render() {
     if (!this.props.errors) {
@@ -64,9 +62,8 @@ export default class CreateQuestionForm extends React.Component {
     return (
       <div className="create-ques">
         <div id="user-form-header">
-          <h1>Create question</h1>
-          <Link className="back-btn" to={`/forms/${this.props.form._id}`}>
-            {" "}
+          <h1>Edit question</h1>
+          <Link className="back-btn" to={`/questions/${this.props.question._id}`}>
             Go Back
           </Link>
         </div>
@@ -76,7 +73,6 @@ export default class CreateQuestionForm extends React.Component {
             type="textarea"
             value={this.state.text}
             onChange={this.update("text")}
-            placeholder="Question"
           />
           <div>
             <input
@@ -84,7 +80,6 @@ export default class CreateQuestionForm extends React.Component {
               type="textarea"
               value={this.state.difficulty}
               onChange={this.update("difficulty")}
-              placeholder="difficulty level (1-3)"
             />
 
             {/* <input
@@ -96,7 +91,7 @@ export default class CreateQuestionForm extends React.Component {
                   /> */}
           </div>
           <div id="submit-create2">
-            <input type="submit" value="Create Question" />
+            <input type="submit" value="Update Question" />
           </div>
           {this.renderErrors()}
         </form>

@@ -70,10 +70,9 @@ router.patch(
         return res.status(400).json(errors);
       }
 
-      Form.findById(req.params.id, (err, form) => {
-        form.title = req.body.title;
-        form.category = req.body.category;
-        form.save().then(Form => res.json(Form));
+      Form.findByIdAndUpdate(req.params.id, { $set: { title: req.body.title, category: req.body.category } }, { new: true }, (err, Form) => {
+        if (err) return res.status(422).json({ updateFail: err });
+        Form.save().then(Form => res.json(Form));
       })
     }
 );

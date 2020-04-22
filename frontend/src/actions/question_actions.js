@@ -24,6 +24,7 @@ const receiveQuestion = question => ({
     question
 }) 
 
+
 const receiveNewQuestion = question => ({
     type: REECEIVE_NEW_QUESTION,
     question
@@ -53,8 +54,8 @@ export const fetchQuestion = question_id => dispatch =>{
          )};
 
 
-export const modifyQuestion = (question_id, question) => dispatch => editQuestion(question_id, question)
-    .then(question => dispatch(receiveQuestion(question)), (errors) => dispatch(receiveErrors(errors.response.data)))
-
 export const destroyQuestion = (question_id) => dispatch => deleteQuestion(question_id)
     .then(() => dispatch(removeQuestion(question_id)), (errors) => dispatch(receiveErrors(errors.response.data)))
+
+export const modifyQuestion = (question_id, question) => dispatch => editQuestion(question_id, question)
+    .then(question => dispatch(receiveQuestion(question)), (errors) => dispatch(receiveErrors(errors.response.data)))

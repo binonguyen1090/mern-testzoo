@@ -6,8 +6,8 @@ module.exports = function validateFormInput(data) {
 
   data.title = validText(data.title) ? data.title : '';
 
-  if (!Validator.isLength(data.title, { min: 3, max: 30 })) {
-    errors.title = 'Title must be between 3 and 30 characters';
+  if (!Validator.isLength(data.title, { min: 1, max: 50 })) {
+    errors.title = 'Title must be between 1 and 50 characters';
   }
 
   if (Validator.isEmpty(data.title)) {

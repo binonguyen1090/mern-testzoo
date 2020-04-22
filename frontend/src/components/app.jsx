@@ -13,6 +13,9 @@ import UserFormContainer from "./forms/user_form_container";
 import FormShowContainer from "./forms/show_form_container";
 import QuestionFormContainer from "./questions/create_questions_form_container";
 import AnswerFormContainer from "./anwsers/create_answer_form_container";
+import EditAnswerFormContainer from "./anwsers/edit_answer_form_container";
+import EditQuestionFormContainer from "./questions/edit_question_form_container";
+import EditFormContainer from "./forms/edit_form_container";
 import QuestionShowContainer from "./questions/show_question_container";
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
@@ -20,7 +23,7 @@ import GameShowContainer from "./games/game_show_container";
 import GameFormContainer from "./forms/game_form_container"
 
 const App = () => (
-  <div className='allofit'>
+  <div className="allofit">
     <header>{/* <NavBarContainer /> */}</header>
     <Switch>
       <ProtectedRoute
@@ -58,8 +61,31 @@ const App = () => (
         path="/answers/:question_id"
         component={AnswerFormContainer}
       />
-      <ProtectedRoute exact path="/answers/:question_id" component={AnswerFormContainer} />
-      <ProtectedRoute exact path="/game/:game_id" component={GameShowContainer} />
+      <ProtectedRoute
+        exact
+        path="/answers/:question_id"
+        component={AnswerFormContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/answers/:answer_id/edit"
+        component={EditAnswerFormContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/questions/:question_id/edit"
+        component={EditQuestionFormContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/forms/:form_id/edit"
+        component={EditFormContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/game/:game_id"
+        component={GameShowContainer}
+      />
     </Switch>
   </div>
 );

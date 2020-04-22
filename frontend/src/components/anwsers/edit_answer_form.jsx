@@ -3,16 +3,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default class CreateAnswerForm extends React.Component {
+export default class EditAnswerForm extends React.Component {
   constructor(props) {
+    
     super(props);
-
     this.state = {
-      question: props.question_id,
-      correct: "",
       body: "",
-      errors: {},
-    };
+      correct: ""
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -20,24 +18,18 @@ export default class CreateAnswerForm extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
+
+    this.props.fetchAnswer(this.props.answer_id).then((res)=>{
+      this.setState({ body: res.answer.data.body, correct: res.answer.data.correct });
+    });
+    // this.props.clearErrors();
+
   }
   handleSubmit(e) {
     e.preventDefault();
-    const { form, question_id } = this.props;
-
-    //  this.props
-    //    .composeAnswer(this.state)
-    //    .then(
-    //      this.props.history.push(`/questions/${question_id}`)
-    //    );
-
-    this.props.composeAnswer(this.state).then((result) => {
-      if (Object.keys(result).includes("answer")) {
-        this.props.history.push(`/questions/${question_id}`);
-      } else {
-        this.setState({ errors: result.errors });
-      }
-    });
+    this.props.modifyAnswer(this.props.answer_id, this.state).then(()=>{
+      this.props.history.push(`/questions/${this.props.answer.question}`);
+    })
   }
   renderErrors() {
     return (
@@ -51,41 +43,46 @@ export default class CreateAnswerForm extends React.Component {
     );
   }
 
-  update(v) {
-    return (e) =>
-      this.setState({
-        [v]: e.target.value,
-      });
-  }
+  
+  update(type) {
+        return (e) => {
+            this.setState({[type]: e.target.value})
+        }
+    }
 
   render() {
+    
     if (!this.props.errors) {
       return [];
     }
+    
     return (
       <div className="show-q">
-        <Link className="back-btn" to={`/questions/${this.props.question_id}`}>
+        <Link
+          className="back-btn"
+          to={`/questions/${this.props.answer.question}`}
+        >
           Go Back
         </Link>
         <form onSubmit={this.handleSubmit}>
+          {/* <h3>Create Answer:</h3> */}
+          <h1>Edit Answer</h1>
           <div id="ans-form-holder">
             <input
               id="ans-input1"
               type="textarea"
               value={this.state.body}
               onChange={this.update("body")}
-              placeholder="Enter answer here"
             />
             <input
               id="ans-input2"
               type="textarea"
               value={this.state.correct}
               onChange={this.update("correct")}
-              placeholder="True/False"
             />
           </div>
           <div id="submit-create2">
-            <input type="submit" value="Create Answer" />
+            <input type="submit" value="Update Answer" />
           </div>
           {this.renderErrors()}
         </form>
@@ -95,3 +92,4 @@ export default class CreateAnswerForm extends React.Component {
   }
 }
 
+// export default TweetCompose;

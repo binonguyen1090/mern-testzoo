@@ -14,6 +14,7 @@ import {
             return newState
 
         case REECEIVE_QUESTION:
+            
             newState.question = action.question.data
             return newState;
 

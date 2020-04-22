@@ -15,3 +15,10 @@ export const editQuestionAnswer = ( answser_id, data) => {
 export const deleteAnswer = ( answser_id) => {
     return axios.delete(`/api/answers/${answser_id}`)
 };
+
+
+
+
+export const getAnswer = answser_id => {
+    return axios.get(`/api/answers/${answser_id}`);
+};

@@ -23,10 +23,10 @@ router.get(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Question.findById(req.params.id)
-      .then(Question => res.json(Question))
+    Answer.findById(req.params.id)
+      .then(answer => res.json(answer))
       .catch(err =>
-        res.status(404).json({ noQuestionfound: "No question found with that ID" })
+        res.status(404).json({ noAnswerfound: "No answer found with that ID" })
       );
   }
 );

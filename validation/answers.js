@@ -6,8 +6,8 @@ module.exports = function validateAnswerInput(data) {
 
   data.body = validText(data.body) ? data.body : "";
 
-  if (!Validator.isLength(data.body, { min: 1, max: 50 })) {
-    errors.body = "Body must be between 1 and 50 characters";
+  if (!Validator.isLength(data.body, { min: 1, max: 100 })) {
+    errors.body = "Body must be between 1 and 100 characters";
   }
 
   if (Validator.isEmpty(data.body)) {

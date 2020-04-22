@@ -41,29 +41,6 @@ export default class FormIndex extends React.Component {
       return allCategories.indexOf(cat) === i;
     });
 
-    // const displayCat = categories.map((cat) => {
-    //   const select = forms.filter(form => {
-    //     if (form.category === cat) {
-
-    
-    //       return <div>1</div>;
-    //     }
-    //   })
-    // })
-        
-
-    // handleClick(e){
-    //     e.preventDefault();
-    // }
-
-    // startGameClick(e){
-    //     e.preventDefault()
-    //     this.props.startGame({form: this.props.form.id, user: this.props.currentUser})
-    
-    // }
-
-
-    
     return (
       <div className="form-index">
         <h2>Personal</h2>
