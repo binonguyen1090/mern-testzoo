@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import AnswersIndex from "./answer_index";
-import { fetchQuestionAnswers } from "../../actions/answer_actions";
+import { fetchQuestionAnswers, destroyAnswer } from "../../actions/answer_actions";
 
 const mapStateToProps = (state, ownProps) => {
   
@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
       fetchQuestionAnswers: questionId => dispatch(fetchQuestionAnswers(questionId)),
+      destroyAnswer: answerId => dispatch(destroyAnswer(answerId)),
       
     };
 };

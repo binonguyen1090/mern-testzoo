@@ -71,7 +71,7 @@ router.patch(
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }),
     (req, res) => {
-    Answer.findByIdAndRemove(req.params.id)
+      Answer.findByIdAndRemove(req.params.id)
         .then(()=> res.json("answer removed successfully"))
         .catch(err =>
             res.status(404).json({ noanswerfound: 'No answer found with that ID' })

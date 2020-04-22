@@ -18,9 +18,12 @@ export default class GetUser extends React.Component {
       return(
           <div>
               {
-                  this.props.users.map(user =>{
+                  this.props.users.map((user, idx) =>{
                       if (user._id === this.props.user_id){
-                          return user.username;
+                       
+                              return user.username
+
+                    
                       }
                   })
               }

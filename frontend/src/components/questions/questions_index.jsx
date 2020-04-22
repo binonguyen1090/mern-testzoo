@@ -15,7 +15,9 @@ export default class QuestionsIndex extends React.Component {
     handleClick(e){
         e.preventDefault()
         const quesId = e.currentTarget.value
-        this.props.destroyQuestion(quesId)
+        this.props.destroyQuestion(quesId).then(()=>{
+          this.props.fetchQuestions(this.props.formId)
+        })
     }
 
   render() {

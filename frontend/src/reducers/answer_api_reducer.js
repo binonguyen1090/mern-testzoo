@@ -31,8 +31,10 @@ const AnswersReducer = (state = {}, action) => {
         return newState;
 
       case REMOVE_ANSWER:
-        delete newState[action.answerId];
-        return newState;
+        if (state.all) {
+        const deleteanswer = state.all.filter(ans => ans._id !== action.answerId)
+        return deleteanswer
+        }
 
       default:
         return state;

@@ -23,8 +23,8 @@ export default class UserForm extends React.Component {
   }
   
   render() {
-    const form = this.props.forms.map(form => (
-      <div key={form.id}>
+    const form = this.props.forms.map((form, idx) => (
+      <div key={idx}>
         <Link id='link-forms' to={`/forms/${form._id}`} >
           <div className='form-index-form'>
             <strong>{form.title}</strong>

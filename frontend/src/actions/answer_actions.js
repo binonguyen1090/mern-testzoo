@@ -51,5 +51,5 @@ export const composeAnswer = answer => dispatch => {
 export const modifyAnswer = ( answerId, answer) => dispatch => editQuestionAnswer( answerId, answer)
     .then(answer => dispatch(receiveAnswer(answer)), (errors) => dispatch(receiveErrors(errors.response.data)))
 
-export const destroyAnswer= ( answerId) => dispatch => deleteAnswer( answerId)
+export const destroyAnswer = ( answerId) => dispatch => deleteAnswer( answerId)
     .then(() => dispatch(removeAnswer(answerId)), (errors) => dispatch(receiveErrors(errors.response.data)))

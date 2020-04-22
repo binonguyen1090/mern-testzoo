@@ -31,21 +31,23 @@ startGameClick(e){
     let allQuest = this.props.questions.length
     if (this.props.prevGames instanceof Array){
       if (this.props.prevGames.length < 1) {
-        scoreBoard = [1].map(i => (
-          <span>No one has attempted this test yet, be the first!</span>
-        ))
+        scoreBoard = [1].map((i, idx) => (
+          <span key={idx}>
+            No one has attempted this test yet, be the first!
+          </span>
+        ));
       } else {
-        scoreBoard = this.props.prevGames.slice(0, 12).map(game => (
-          <div id='scores-item'>
-            <div id='score-item-user'>
+        scoreBoard = this.props.prevGames.slice(0, 12).map((game, idx) => (
+          <div id="scores-item" key={idx}>
+            <div id="score-item-user" >
               <GetUser user_id={game.user} />
             </div>
-            <div id='score-item-score' >
-              {game.score / allQuest * 100}
+            <div  id="score-item-score">
+              {(game.score / allQuest) * 100}
             </div>
-            <p>%</p>
+            <p >%</p>
           </div>
-        ))}
+        ));}
       } else {
         scoreBoard = []
       }
