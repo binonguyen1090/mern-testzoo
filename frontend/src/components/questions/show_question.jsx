@@ -27,11 +27,14 @@ export default class QuestionShow extends React.Component {
         </Link>
         <div className="q-show">
           <strong>Q: {question.text}</strong>
-          <Link to={`/questions/${question._id}/edit`}>Edit</Link>
-          <br />
-          <Link className="create-ans" to={`/answers/${question._id}`}>
-            Create A New Answer
-          </Link>
+          <div className='questionediting'>
+            <Link className="create-ans" to={`/answers/${question._id}`}>
+              Create A New Answer
+            </Link>
+            <Link className='create-ans' to={`/questions/${question._id}/edit`}>
+              Edit Question
+            </Link>
+          </div>
 
           <div id="answers-holder">Answers:</div>
           <div className="answers-box" key={question._id}>

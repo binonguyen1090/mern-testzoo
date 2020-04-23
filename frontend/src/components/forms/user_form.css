@@ -53,5 +53,18 @@
   font-weight: 600;
   font-size: 15px;
   border-radius: 5px;
+  cursor: pointer;
+}
+#form-footer2 button {
+  background: black;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 

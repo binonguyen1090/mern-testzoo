@@ -33,7 +33,9 @@ export default class ShowForm extends React.Component {
                   <Link className="create-question" to={`/questions`}>
                     Create A New Question
                   </Link>
-                  <Link to={`/forms/${this.props.form._id}/edit`}>Edit</Link>
+                  <Link className='create-question' to={`/forms/${this.props.form._id}/edit`}>
+                    Edit Test
+                  </Link>
 
                   <div>Category: {this.props.form.category}</div>
                 </div>

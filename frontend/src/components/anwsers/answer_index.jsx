@@ -28,30 +28,31 @@ export default class AnswersIndex extends React.Component {
             if (ans.correct === "True" || ans.correct === "true") {
               return (
                 <div className="each-ans2" key={idx}>
-                  {ans.body}
-                  <div id="form-footer">
-                    <Link to={`/answers/${ans._id}/edit`}>
-                      Edit
-                    </Link>
-                    <button onClick={this.handleClick} value={ans._id}>
-                      Delete?
-                    </button>
-                  </div>
+                  {/* <div className='answersorting'> */}
+                      {ans.body}
+                    <div id="form-footer2">
+                      <Link className='edittheq' to={`/answers/${ans._id}/edit`}>
+                        Edit
+                      </Link>
+                      <button onClick={this.handleClick} value={ans._id}>
+                        Delete?
+                      </button>
+                    </div>
+                  {/* </div> */}
                 </div>
               );
             } else {
               return (
                 <div className="each-ans" key={idx}>
-                  {ans.body}
-
-                  <div id="form-footer">
-                    <Link to={`/answers/${ans._id}/edit`}>
-                      Edit
-                    </Link>
-                    <button onClick={this.handleClick} value={ans._id}>
-                      Delete?
-                    </button>
-                  </div>
+                    {ans.body}
+                    <div id="form-footer2">
+                      <Link className='edittheq' to={`/answers/${ans._id}/edit`}>
+                        Edit
+                      </Link>
+                      <button onClick={this.handleClick} value={ans._id}>
+                        Delete?
+                      </button>
+                    </div>
                 </div>
               );
             }
