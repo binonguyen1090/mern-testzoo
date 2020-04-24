@@ -27,11 +27,11 @@ export default class QuestionShow extends React.Component {
         </Link>
         <div className="q-show">
           <strong>Q: {question.text}</strong>
-          <div className='questionediting'>
+          <div className="questionediting">
             <Link className="create-ans" to={`/answers/${question._id}`}>
               Create A New Answer
             </Link>
-            <Link className='create-ans' to={`/questions/${question._id}/edit`}>
+            <Link className="create-ans" to={`/questions/${question._id}/edit`}>
               Edit Question
             </Link>
           </div>
@@ -44,6 +44,9 @@ export default class QuestionShow extends React.Component {
             />
           </div>
         </div>
+        <Link className="back-btn2" to={`/forms/${question.form}`}>
+          Done
+        </Link>
       </div>
     );
     //     <li key={question.id}>

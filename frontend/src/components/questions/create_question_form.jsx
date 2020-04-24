@@ -29,14 +29,16 @@ export default class CreateQuestionForm extends React.Component {
     const { form } = this.props;
     this.props.composeQuestion(this.state).then((result) => {
       if (Object.keys(result).includes("question")) {
-        this.props.history.push(`/forms/${form._id}`);
+        this.props.history.push(`/questions/${result.question.data._id}`);
       } else {
         this.setState({ errors: result.errors });
       }
     });
-
-    
   }
+ 
+
+
+  
 
   renderErrors() {
     return (

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./create_answer.css";
 export default class CreateAnswerForm extends React.Component {
   constructor(props) {
     super(props);
@@ -16,8 +16,17 @@ export default class CreateAnswerForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.checkOnlyOne = this.checkOnlyOne.bind(this);
   }
+  checkOnlyOne(b){
 
+    var x = document.getElementsByClassName('daychecks');
+    var i;
+
+    for (i = 0; i < x.length; i++) {
+      if(x[i].value != b) x[i].checked = false;
+    }
+    }
   componentDidMount() {
     this.props.clearErrors();
   }
@@ -57,7 +66,7 @@ export default class CreateAnswerForm extends React.Component {
         [v]: e.target.value,
       });
   }
-
+  
   render() {
     if (!this.props.errors) {
       return [];
@@ -76,13 +85,32 @@ export default class CreateAnswerForm extends React.Component {
               onChange={this.update("body")}
               placeholder="Enter answer here"
             />
-            <input
+            <label class="container">
+              True
+              <input
+                type="checkbox"
+                value={true}
+                onChange={this.update("correct")}
+              />
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              False
+              <input
+                type="checkbox"
+                value={false}
+                onChange={this.update("correct")}
+              />
+              <span class="checkmark"></span>
+            </label>
+
+            {/* <input
               id="ans-input2"
               type="textarea"
               value={this.state.correct}
               onChange={this.update("correct")}
               placeholder="True/False"
-            />
+            /> */}
           </div>
           <div id="submit-create2">
             <input type="submit" value="Create Answer" />

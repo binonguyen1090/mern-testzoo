@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./create_answer.css";
 export default class EditAnswerForm extends React.Component {
   constructor(props) {
     
@@ -74,12 +74,30 @@ export default class EditAnswerForm extends React.Component {
               value={this.state.body}
               onChange={this.update("body")}
             />
-            <input
+            <label class="container">
+              True
+              <input
+                type="checkbox"
+                value={true}
+                onChange={this.update("correct")}
+              />
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              False
+              <input
+                type="checkbox"
+                value={false}
+                onChange={this.update("correct")}
+              />
+              <span class="checkmark"></span>
+            </label>
+            {/* <input
               id="ans-input2"
               type="textarea"
               value={this.state.correct}
               onChange={this.update("correct")}
-            />
+            /> */}
           </div>
           <div id="submit-create2">
             <input type="submit" value="Update Answer" />
