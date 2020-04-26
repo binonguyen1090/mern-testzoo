@@ -14,8 +14,11 @@ export default class EditForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleChangeCate = this.handleChangeCate.bind(this);
   }
-
+  handleChangeCate(e) {
+    this.setState({ category: e.target.value });
+  }
   componentDidMount() {
     this.props.clearErrors();
     this.props.fetchForm(this.props.form_id).then((res) => {
@@ -28,19 +31,16 @@ export default class EditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.modifyForm(this.props.form_id,this.state).then(() => {
+    this.props.modifyForm(this.props.form_id, this.state).then(() => {
       this.props.history.push(`/forms/${this.props.form_id}`);
     });
-    
   }
 
-
-    update(type) {
-        return (e) => {
-            this.setState({[type]: e.target.value})
-        }
-    }
-
+  update(type) {
+    return (e) => {
+      this.setState({ [type]: e.target.value });
+    };
+  }
 
   renderErrors() {
     return (
@@ -54,6 +54,15 @@ export default class EditForm extends React.Component {
     );
   }
   render() {
+    let choice = ["Personal", "Celebrity", "Sports", "Movies", "Geography"].map(
+      (cate, idx) => {
+        return (
+          <option key={idx} value={cate}>
+            {cate}
+          </option>
+        );
+      }
+    );
     if (!this.props.errors) {
       return [];
     }
@@ -61,10 +70,7 @@ export default class EditForm extends React.Component {
       <div className="create-form">
         <div id="user-form-header">
           <h1>Edit test</h1>
-          <Link
-            className="back-btn"
-            to={`/forms/${this.props.form_id}`}
-          >
+          <Link className="back-btn" to={`/forms/${this.props.form_id}`}>
             Go back
           </Link>
         </div>
@@ -76,6 +82,14 @@ export default class EditForm extends React.Component {
               onChange={this.update("title")}
             />
             <br />
+            <label className="dropdown">
+              <select className="dropdown" onChange={this.handleChangeCate}>
+                <option> Select category</option>
+                {choice}
+              </select>
+            </label>
+            <div>OR</div>
+
             <input
               type="textarea"
               value={this.state.category}
