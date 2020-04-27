@@ -82,13 +82,13 @@ export default class EditForm extends React.Component {
               onChange={this.update("title")}
             />
             <br />
-            <label className="dropdown">
-              <select className="dropdown" onChange={this.handleChangeCate}>
-                <option> Select category</option>
+            <label>
+              <select onChange={this.handleChangeCate}>
+                <option>{this.state.category}</option>
                 {choice}
               </select>
             </label>
-            <div>OR</div>
+            <div className="create-or" >OR</div>
 
             <input
               type="textarea"

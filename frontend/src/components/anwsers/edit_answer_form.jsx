@@ -9,7 +9,8 @@ export default class EditAnswerForm extends React.Component {
     super(props);
     this.state = {
       body: "",
-      correct: ""
+      correct: "",
+      old: this.props.answer.correct
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);

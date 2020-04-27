@@ -86,13 +86,13 @@ export default class CreateForm extends React.Component {
 
             <br />
 
-            <label className="dropdown">
-              <select className="dropdown" onChange={this.handleChangeCate}>
+            <label>
+              <select onChange={this.handleChangeCate}>
                 <option> Select category</option>
                 {choice}
               </select>
             </label>
-            <div>OR</div>
+            <div className="create-or" >OR</div>
             <input
               type="textarea"
               value={this.state.category}
