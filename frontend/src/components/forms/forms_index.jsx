@@ -35,6 +35,14 @@ export default class FormIndex extends React.Component {
     const celebrity = forms.filter(form => form.category === 'Celebrity');
     const sports = forms.filter(form => form.category === 'Sports');
     const movies = forms.filter(form => form.category === 'Movies');
+    const others = forms.filter(
+      (form) =>
+        form.category !== "Personal" &&
+        form.category !== "Geography" &&
+        form.category !== "Celebrity" &&
+        form.category !== "Sports" &&
+        form.category !== "Movies"
+    );
     
     const allCategories = forms.map((form,idx) => form.category);
     const categories = allCategories.filter((cat, i) => {
@@ -120,9 +128,9 @@ export default class FormIndex extends React.Component {
             </Link>
           ))}
         </div>
-        <h2>All Tests</h2>
+        <h2>Other Tests</h2>
         <div className="form-item">
-          {forms.map((form, idx) => (
+          {others.map((form, idx) => (
             <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
               <div className="form-index-form" key={idx}>
                 <strong>{form.title}</strong>
