@@ -20,6 +20,7 @@ export default class EditForm extends React.Component {
     this.setState({ category: e.target.value });
   }
   componentDidMount() {
+    this.props.fetchAllForms();
     this.props.clearErrors();
     this.props.fetchForm(this.props.form_id).then((res) => {
       this.setState({
@@ -54,7 +55,15 @@ export default class EditForm extends React.Component {
     );
   }
   render() {
-    let choice = ["Personal", "Celebrity", "Sports", "Movies", "Geography"].map(
+     const { forms } = this.props;
+     let choices = ["Create New Category"];
+     const allCategories = forms.map((form) => {
+       if (!choices.includes(form.category)  ) {
+         choices.push(form.category);
+       }
+     });
+ 
+    let choice = choices.map(
       (cate, idx) => {
         return (
           <option key={idx} value={cate}>
@@ -88,6 +97,20 @@ export default class EditForm extends React.Component {
                 {choice}
               </select>
             </label>
+            <br/>
+            <br/>
+            {this.state.category === "Create New Category" ||
+            !choices.includes(this.state.category) ? (
+              <input
+                id="new-category"
+                type="textarea"
+                // value={this.state.category}
+                onChange={this.update("category")}
+                placeholder="New Category"
+              />
+            ) : (
+              ""
+            )}
             {/* <div className="create-or" >OR</div>
 
             <input
@@ -96,8 +119,8 @@ export default class EditForm extends React.Component {
               onChange={this.update("category")}
             />
             <br /> */}
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div id="submit-create">
               <input type="submit" value="Update test" />
             </div>

@@ -11,7 +11,7 @@ class MainPage extends React.Component {
             <strong>What is TestZoo?</strong>
             <div id='splash-text1'>A place where you can...</div>
             <div id='splash-text'>
-              <div>Create personalized tests with 5 categories</div>
+              <div>Create personalized tests </div>
               <div>Determine difficulty of your questions</div>
               <div>View and take other users' tests</div>
               <div>And so much more...</div>

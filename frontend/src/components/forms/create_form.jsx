@@ -113,7 +113,7 @@ export default class CreateForm extends React.Component {
                 type="textarea"
                 // value={this.state.category}
                 onChange={this.update("category")}
-                placeholder="Create New Category"
+                placeholder="New Category"
               />
             ) : (
               ""
