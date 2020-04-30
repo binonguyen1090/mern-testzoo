@@ -20,17 +20,22 @@ export default class EditAnswerForm extends React.Component {
   componentDidMount() {
     this.props.clearErrors();
 
-    this.props.fetchAnswer(this.props.answer_id).then((res)=>{
-      this.setState({ body: res.answer.data.body, correct: res.answer.data.correct });
-    });
+    this.props.fetchAnswer(this.props.answer_id)
+      .then((res)=>{
+          this.setState({ body: res.answer.data.body, correct: res.answer.data.correct })
+        })
+      .then(()=>{
+        this.props.fetchQuestionAnswers(this.props.answer.question);
+      })
     // this.props.clearErrors();
 
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.modifyAnswer(this.props.answer_id, this.state).then(()=>{
+    this.props.modifyAnswer(this.props.answer_id, this.state)
+      .then(()=>{
       this.props.history.push(`/questions/${this.props.answer.question}`);
-    })
+      })
   }
   renderErrors() {
     return (
@@ -52,7 +57,12 @@ export default class EditAnswerForm extends React.Component {
     }
 
   render() {
-    
+    const { answers } = this.props;
+
+    let choices = [];
+    const allCorrects = answers.map((answer) => {
+      choices.push(answer.correct);
+    });
     if (!this.props.errors) {
       return [];
     }
@@ -75,15 +85,21 @@ export default class EditAnswerForm extends React.Component {
               value={this.state.body}
               onChange={this.update("body")}
             />
-            <label className="container">
-              True
-              <input
-                type="checkbox"
-                value={true}
-                onChange={this.update("correct")}
-              />
-              <span className="checkmark"></span>
-            </label>
+            {!choices.includes("true") ? (
+              <label className="container">
+                True
+                <input
+                  type="radio"
+                  id="malet"
+                  name="gender"
+                  value={true}
+                  onChange={this.update("correct")}
+                />
+                <span className="checkmark"></span>
+              </label>
+            ) : (
+              ""
+            )}
             <label className="container">
               False
               <input

@@ -72,8 +72,7 @@ export default class CreateAnswerForm extends React.Component {
 
   render() {
     const { answers } = this.props;
-    if (answers === []){
-    }
+    
     let choices = [];
     const allCorrects = answers.map((answer) => {
       choices.push(answer.correct);
