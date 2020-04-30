@@ -75,23 +75,23 @@ export default class EditAnswerForm extends React.Component {
               value={this.state.body}
               onChange={this.update("body")}
             />
-            <label class="container">
+            <label className="container">
               True
               <input
                 type="checkbox"
                 value={true}
                 onChange={this.update("correct")}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               False
               <input
                 type="checkbox"
                 value={false}
                 onChange={this.update("correct")}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
             {/* <input
               id="ans-input2"

@@ -16,19 +16,21 @@ export default class CreateAnswerForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-    this.checkOnlyOne = this.checkOnlyOne.bind(this);
-   
+    // this.checkOnlyOne = this.checkOnlyOne.bind(this);
   }
 
-  checkOnlyOne(b) {
-    var x = document.getElementsByClassName("container");
-    var i;
+  // checkOnlyOne(b) {
+  //   var x = document.getElementsByClassName("container");
+  //   var i;
 
-    for (i = 0; i < x.length; i++) {
-      if (x[i].value != b) x[i].checked = false;
-    }
-  }
+  //   for (i = 0; i < x.length; i++) {
+  //     if (x[i].value != b) x[i].checked = false;
+  //   }
+  // }
   componentDidMount() {
+ 
+    this.props.fetchQuestionAnswers(this.props.question_id);
+
     this.props.clearErrors();
   }
   handleSubmit(e) {
@@ -69,6 +71,13 @@ export default class CreateAnswerForm extends React.Component {
   }
 
   render() {
+    const { answers } = this.props;
+    if (answers === []){
+    }
+    let choices = [];
+    const allCorrects = answers.map((answer) => {
+      choices.push(answer.correct);
+    });
     if (!this.props.errors) {
       return [];
     }
@@ -104,17 +113,22 @@ export default class CreateAnswerForm extends React.Component {
             />
             <label for="malef">False</label>
             <br></br> */}
-            <label className="container">
-              True
-              <input
-                type="radio"
-                id="malet"
-                name="gender"
-                value={true}
-                onChange={this.update("correct")}
-              />
-              <span className="checkmark"></span>
-            </label>
+            {!choices.includes("true") ? (
+              <label className="container">
+                True
+                <input
+                  type="radio"
+                  id="malet"
+                  name="gender"
+                  value={true}
+                  onChange={this.update("correct")}
+                />
+                <span className="checkmark"></span>
+              </label>
+            ) : (
+              ""
+            )}
+
             <label className="container">
               False
               <input
