@@ -99,21 +99,21 @@ export default class CreateForm extends React.Component {
 
             <label>
               <select onChange={this.handleChangeCate}>
-                <option> Create New Category</option>
+                <option> Select Category</option>
                 {choice}
               </select>
             </label>
               <br/>
               <br/>
             {/* <div className="create-or" >OR</div> */}
-            {this.state.category === "Create New Category" ||
+            {this.state.category === "Select Category" ||
             !choices.includes(this.state.category) ? (
               <input
                 id="new-category"
                 type="textarea"
                 // value={this.state.category}
                 onChange={this.update("category")}
-                placeholder="New Category"
+                placeholder="Create New Category"
               />
             ) : (
               ""

@@ -56,7 +56,7 @@ export default class EditForm extends React.Component {
   }
   render() {
      const { forms } = this.props;
-     let choices = ["Create New Category"];
+     let choices = ["Select Category"];
      const allCategories = forms.map((form) => {
        if (!choices.includes(form.category)  ) {
          choices.push(form.category);
@@ -99,14 +99,14 @@ export default class EditForm extends React.Component {
             </label>
             <br/>
             <br/>
-            {this.state.category === "Create New Category" ||
+            {this.state.category === "Select Category" ||
             !choices.includes(this.state.category) ? (
               <input
                 id="new-category"
                 type="textarea"
                 // value={this.state.category}
                 onChange={this.update("category")}
-                placeholder="New Category"
+                placeholder="Create New Category"
               />
             ) : (
               ""
