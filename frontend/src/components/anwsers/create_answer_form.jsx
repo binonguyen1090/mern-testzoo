@@ -17,16 +17,17 @@ export default class CreateAnswerForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.checkOnlyOne = this.checkOnlyOne.bind(this);
+   
   }
-  checkOnlyOne(b){
 
-    var x = document.getElementsByClassName('daychecks');
+  checkOnlyOne(b) {
+    var x = document.getElementsByClassName("container");
     var i;
 
     for (i = 0; i < x.length; i++) {
-      if(x[i].value != b) x[i].checked = false;
+      if (x[i].value != b) x[i].checked = false;
     }
-    }
+  }
   componentDidMount() {
     this.props.clearErrors();
   }
@@ -66,7 +67,7 @@ export default class CreateAnswerForm extends React.Component {
         [v]: e.target.value,
       });
   }
-  
+
   render() {
     if (!this.props.errors) {
       return [];
@@ -85,32 +86,46 @@ export default class CreateAnswerForm extends React.Component {
               onChange={this.update("body")}
               placeholder="Enter answer here"
             />
-            <label class="container">
+            {/* <input
+              type="radio"
+              id="malet"
+              name="gender"
+              value={true}
+              onChange={this.update("correct")}
+            />
+            <label for="malet">True</label>
+            <br></br>
+            <input
+              type="radio"
+              id="malef"
+              name="gender"
+              value={false}
+              onChange={this.update("correct")}
+            />
+            <label for="malef">False</label>
+            <br></br> */}
+            <label className="container">
               True
               <input
-                type="checkbox"
+                type="radio"
+                id="malet"
+                name="gender"
                 value={true}
                 onChange={this.update("correct")}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               False
               <input
-                type="checkbox"
+                type="radio"
+                id="malef"
+                name="gender"
                 value={false}
                 onChange={this.update("correct")}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-
-            {/* <input
-              id="ans-input2"
-              type="textarea"
-              value={this.state.correct}
-              onChange={this.update("correct")}
-              placeholder="True/False"
-            /> */}
           </div>
           <div id="submit-create2">
             <input type="submit" value="Create Answer" />
@@ -122,4 +137,3 @@ export default class CreateAnswerForm extends React.Component {
     );
   }
 }
-

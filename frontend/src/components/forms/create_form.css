@@ -42,18 +42,21 @@
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 84px;
+  margin-left: 63px;
   margin-top: 15px;
 }
 
 /* drop */
 select {
-margin-left: 38px;
+margin-left: 10px;
 padding:12px;
+/* padding-left: 30px;
+padding-right: 30px; */
 margin-top:8px;
 line-height:1;
-border-radius:5px;
-width: 165px;
+border-radius:10px;
+width: 220px;
+height: 55px;
 font-size:20px;
 -webkit-appearance:none;
 box-shadow:inset 0 0 10px 0 rgba(253, 1, 1, 0.6);

@@ -88,14 +88,16 @@ export default class EditForm extends React.Component {
                 {choice}
               </select>
             </label>
-            <div className="create-or" >OR</div>
+            {/* <div className="create-or" >OR</div>
 
             <input
               type="textarea"
               value={this.state.category}
               onChange={this.update("category")}
             />
-            <br />
+            <br /> */}
+            <br/>
+            <br/>
             <div id="submit-create">
               <input type="submit" value="Update test" />
             </div>

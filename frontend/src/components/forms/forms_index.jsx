@@ -46,9 +46,9 @@ export default class FormIndex extends React.Component {
         <h2>Personal</h2>
         <div className="form-item">
           {personal.map((form, idx) => (
-            <Link id='link-forms' to={`/games/forms/${form._id}`}>
+            <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
+              >
               <div className="form-index-form" key={idx}>
-                
                 <strong>{form.title}</strong>
                 <div>{form.category}</div>
                 <div>
@@ -56,7 +56,6 @@ export default class FormIndex extends React.Component {
                 </div>
 
                 {/* <div>{form.user}</div> */}
-
               </div>
             </Link>
           ))}
@@ -64,7 +63,7 @@ export default class FormIndex extends React.Component {
         <h2>Celebrity</h2>
         <div className="form-item">
           {celebrity.map((form, idx) => (
-            <Link id='link-forms' to={`/games/forms/${form._id}`}>
+            <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
               <div className="form-index-form" key={idx}>
                 <strong>{form.title}</strong>
                 <div>{form.category}</div>
@@ -79,7 +78,7 @@ export default class FormIndex extends React.Component {
         <h2>Sports</h2>
         <div className="form-item">
           {sports.map((form, idx) => (
-            <Link id='link-forms' to={`/games/forms/${form._id}`}>
+            <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
               <div className="form-index-form" key={idx}>
                 <strong>{form.title}</strong>
                 <div>{form.category}</div>
@@ -94,7 +93,7 @@ export default class FormIndex extends React.Component {
         <h2>Movies</h2>
         <div className="form-item">
           {movies.map((form, idx) => (
-            <Link id='link-forms' to={`/games/forms/${form._id}`}>
+            <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
               <div className="form-index-form" key={idx}>
                 <strong>{form.title}</strong>
                 <div>{form.category}</div>
@@ -109,7 +108,7 @@ export default class FormIndex extends React.Component {
         <h2>Geography</h2>
         <div className="form-item">
           {geography.map((form, idx) => (
-            <Link id='link-forms' to={`/games/forms/${form._id}`}>
+            <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
               <div className="form-index-form" key={idx}>
                 <strong>{form.title}</strong>
                 <div>{form.category}</div>
@@ -124,7 +123,7 @@ export default class FormIndex extends React.Component {
         <h2>All Tests</h2>
         <div className="form-item">
           {forms.map((form, idx) => (
-            <Link id='link-forms' to={`/games/forms/${form._id}`}>
+            <Link id="link-forms" to={`/games/forms/${form._id}`} key={idx}>
               <div className="form-index-form" key={idx}>
                 <strong>{form.title}</strong>
                 <div>{form.category}</div>

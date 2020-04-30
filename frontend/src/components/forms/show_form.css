@@ -68,6 +68,18 @@
   font-size: 18px;
   border-radius: 10px;
 }
+.edit-question {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 78px;
+  padding-right: 78px;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 10px;
+}
 
 .all-questions {
   display: flex;

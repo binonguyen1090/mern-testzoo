@@ -35,7 +35,7 @@ export default class AnswersIndex extends React.Component {
                       Edit
                     </Link>
                     <button onClick={this.handleClick} value={ans._id}>
-                      Delete?
+                      Delete
                     </button>
                   </div>
                   {/* </div> */}
@@ -50,7 +50,7 @@ export default class AnswersIndex extends React.Component {
                       Edit
                     </Link>
                     <button onClick={this.handleClick} value={ans._id}>
-                      Delete?
+                      Delete
                     </button>
                   </div>
                 </div>

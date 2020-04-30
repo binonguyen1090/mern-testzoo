@@ -9,9 +9,9 @@ export default class CreateForm extends React.Component {
     this.state = {
       title: "",
       category: "",
-      errors: {},
-    };
+      errors: {}
 
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.handleChangeCate = this.handleChangeCate.bind(this);
@@ -26,8 +26,8 @@ export default class CreateForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-
-    this.props.composeForm(this.state).then((result) => {
+    
+    this.props.composeForm({title: this.state.title, category: this.state.category}).then((result) => {
       if (Object.keys(result).includes("form")) {
         this.props.history.push(`/forms/${result.form.data._id}`);
       } else {
@@ -41,6 +41,7 @@ export default class CreateForm extends React.Component {
       this.setState({
         [v]: e.target.value,
       });
+      
   }
 
   renderErrors() {
@@ -92,15 +93,18 @@ export default class CreateForm extends React.Component {
                 {choice}
               </select>
             </label>
-            <div className="create-or" >OR</div>
-            <input
+
+            {/* <div className="create-or" >OR</div> */}
+
+            {/* <input
               type="textarea"
               value={this.state.category}
               onChange={this.update("category")}
               placeholder="Create New Category"
-            />
+            /> */}
 
             <br />
+            <br/>
             <div id="submit-create">
               <input type="submit" value="Create test" />
             </div>
