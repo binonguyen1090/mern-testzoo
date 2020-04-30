@@ -18,11 +18,12 @@ export default class CreateForm extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchAllForms();
     this.props.clearErrors();
   }
 
   handleChangeCate(e) {
-    this.setState({ category: e.target.value });
+      this.setState({ category: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -56,7 +57,16 @@ export default class CreateForm extends React.Component {
     );
   }
   render() {
-    let choice = ["Personal", "Celebrity", "Sports", "Movies", "Geography"].map(
+    const { forms } = this.props;
+      let choices = [];
+     const allCategories = forms.map((form) => {
+       if (!choices.includes(form.category)){
+         choices.push(form.category);
+       }
+     });
+ 
+
+    let choice = choices.map(
       (cate, idx) => {
         return (
           <option key={idx} value={cate}>
@@ -89,14 +99,27 @@ export default class CreateForm extends React.Component {
 
             <label>
               <select onChange={this.handleChangeCate}>
-                <option> Select category</option>
+                <option> Create New Category</option>
                 {choice}
               </select>
             </label>
-
+              <br/>
+              <br/>
             {/* <div className="create-or" >OR</div> */}
-
+            {this.state.category === "Create New Category" ||
+            !choices.includes(this.state.category) ? (
+              <input
+                id="new-category"
+                type="textarea"
+                // value={this.state.category}
+                onChange={this.update("category")}
+                placeholder="Create New Category"
+              />
+            ) : (
+              ""
+            )}
             {/* <input
+              id="new-category"
               type="textarea"
               value={this.state.category}
               onChange={this.update("category")}
@@ -104,7 +127,7 @@ export default class CreateForm extends React.Component {
             /> */}
 
             <br />
-            <br/>
+            <br />
             <div id="submit-create">
               <input type="submit" value="Create test" />
             </div>
